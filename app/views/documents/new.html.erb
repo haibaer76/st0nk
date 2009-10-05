@@ -1,0 +1,7 @@
+<h1>Neues Dokument</h1>
+
+<% form_for :repository, :url =>{:controller => :documents, :action => :create} do |f| %>
+  <%= f.text_field :name %>
+  <%= submit_tag "Anlegen" %>
+<% end %>
+
