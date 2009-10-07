@@ -3,7 +3,9 @@ class Repository < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name
 
-  @@DOCUMENT_NAME = "the_doc"
+  named_scope :by_name, lambda{|name|
+    {:conditions => {:name => name}}
+  }
 
   class << self
     def new_document(name, options={}, &block)
@@ -15,23 +17,37 @@ class Repository < ActiveRecord::Base
       end
       grit_repo = Grit::Repo.init_bare(repo.path)
       i = grit_repo.index
-      i.add(@@DOCUMENT_NAME, content)
+      i.add(STONK_CONFIG.document_name, content)
       i.commit("init")
+      repo
     end
 
     def gen_path(name)
-      "/home/feson/stonk/repositories/#{Base64.encode64(name).strip}.git"
+      "#{STONK_CONFIG.bare_repos_path}/#{name.strip}.git"
     end
   end
 
-  def repository
-    if @the_repo.nil?
-      @the_repo = Grit::Repo.new path
+  def bare_repository
+    if @bare_repo.nil?
+      @bare_repo = Git.bare path
     end
-    @the_repo
+    @bare_repo
   end
 
-  def content(branch='master')
-    (repository.tree(branch)./"#{@@DOCUMENT_NAME}").data
+  def bare_content(branch='master')
+    @bare_content ||= bare_repository.gtree(branch).blobs[STONK_CONFIG.document_name].contents
+  end
+
+  def update_content(content, commit_message, branch='master')
+    # clone the repository to a temporary repo
+    dirname = "#{STONK_CONFIG.working_copies_path}/#{Digest::MD5.hexdigest rand.to_s}"
+    cloned = Git.clone path, dirname
+    cloned.checkout branch
+    File.open "#{dirname}/#{STONK_CONFIG.document_name}", "w" do |f|
+      f.write content
+    end
+    cloned.commit_all commit_message
+    cloned.push
+    `rm -rf #{dirname}`
   end
 end

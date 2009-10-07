@@ -1,3 +1,5 @@
 config/database.yml
+config/stonk.yml
 *.sqlite3
+*.swp
 

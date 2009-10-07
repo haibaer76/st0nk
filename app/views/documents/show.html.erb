@@ -1,4 +1,9 @@
 <h1><%= h @repo.name %></h1>
 
-<%= h @content %>
+<div style="border:black solid 1px">
+<%= RedCloth.new(@content).to_html %>
+</div>
 
+<div>
+  <%= link_to "Bearbeiten", {:controller => :documents, :action => :edit, :branch_name => @branch, :id => @repo.id} %>
+</div>

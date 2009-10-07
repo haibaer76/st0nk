@@ -1,0 +1,15 @@
+<h1>Edit Document <%= h @repo.name %></h1>
+
+<% form_tag "/documents/update/#{@repo.id}" do -%>
+  <%= hidden_field_tag :branch_name, @branch_name %>
+  <p>
+    New Content:<br/>
+    <%= text_area_tag :content, @edit_content, :size => "80x25" %>
+  </p>
+  <p>
+    Edit Remarks:
+    <%= text_field_tag :remarks, Time.now.to_s, :size => "60" %>
+  </p>
+  <%= submit_tag "Speichern" %>
+<% end -%>
+
