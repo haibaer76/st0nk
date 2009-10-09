@@ -1,0 +1,12 @@
+production: &defaults
+  
+  document_name: the_doc
+  bare_repos_path: /var/stonk/repositories
+  working_copies_path: /tmp
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+

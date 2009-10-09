@@ -2,6 +2,8 @@
 
 <% form_tag "/documents/update/#{@repo.id}" do -%>
   <%= hidden_field_tag :branch_name, @branch_name %>
+  <%= hidden_field_tag :dir_id, @dir_id %>
+  <%= hidden_field_tag :repo_name, @repo.name %>
   <p>
     New Content:<br/>
     <%= text_area_tag :content, @edit_content, :size => "80x25" %>

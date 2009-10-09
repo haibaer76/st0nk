@@ -50,4 +50,10 @@ class Repository < ActiveRecord::Base
     cloned.push
     `rm -rf #{dirname}`
   end
+
+  def clone_for_edit
+    dir_id = Digest::MD5.hexdigest rand.to_s
+    ret = Git.clone path, "#{STONK_CONFIG.working_copies_path}/#{dir_id}"
+    [dir_id, ret]
+  end
 end

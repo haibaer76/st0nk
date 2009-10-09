@@ -31,14 +31,21 @@ class DocumentsController < ApplicationController
   def edit
     @repo = Repository.find params[:id]
     @branch_name = params[:branch_name] || 'master'
-    @edit_content = @repo.bare_content @branch_name
+    @dir_id, clone = @repo.clone_for_edit
+    clone.checkout @branch_name
+    @edit_content = clone.gtree(@branch_name).blobs[STONK_CONFIG.document_name].contents
   end
 
   def update
-    repo = Repository.find params[:id]
-    branch = params[:branch_name] || 'master'
-    repo.update_content params[:content], params[:remarks], branch
-    redirect_to "/docs/#{repo.name}.#{branch}"
+    dirname = "#{STONK_CONFIG.working_copies_path}/#{params[:dir_id]}"
+    File.open "#{dirname}/#{STONK_CONFIG.document_name}", "w" do |f|
+      f.write params[:content]
+    end
+    repo = Git.open dirname
+    repo.commit_all params[:remarks]
+    repo.push
+    FileUtils.rm_rf dirname
+    redirect_to "/docs/#{params[:repo_name]}.#{params[:branch_name]}"
   end
 
   def diff
