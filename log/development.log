@@ -3973,3 +3973,505 @@ c2h7AAY6CkB1c2VkewA=--2a22bf67deec5e88f92c3abad559c42aaf2dbd3f
 Rendering template within layouts/application
 Rendering documents/show
 Completed in 0.30406 (3 reqs/sec) | Rendering: 0.19249 (63%) | DB: 0.00132 (0%) | 200 OK [http://localhost/docs/affe.master]
+
+
+Processing ApplicationController#find_by_name (for 127.0.0.1 at 2009-10-09 15:53:35) [GET]
+  Session ID: 9fbdb31eb2306733b7330b2779d1519a
+  Parameters: {"action"=>"find_by_name", "branch"=>"master", "docname"=>"affe", "controller"=>"documents"}
+
+
+SyntaxError (/home/feson/projects/stonk/app/controllers/documents_controller.rb:61: syntax error, unexpected '=', expecting kEND
+          flash [:notice] = "Es gab einen Konflikt"
+                           ^):
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:216:in `load_without_new_constant_marking'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:216:in `load_file'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:215:in `load_file'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:96:in `require_or_load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:261:in `load_missing_constant'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:468:in `const_missing'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:480:in `const_missing'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/inflector.rb:285:in `constantize'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/inflector.rb:284:in `each'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/inflector.rb:284:in `constantize'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/string/inflections.rb:143:in `constantize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/routing/route_set.rb:387:in `recognize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/lib/ruby/1.8/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/1.8/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/1.8/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+    /usr/lib/ruby/1.8/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/1.8/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/1.8/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/1.8/mongrel_rails:129:in `run'
+    /usr/lib/ruby/1.8/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/1.8/mongrel_rails:282
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:503:in `load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:503:in `load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:503:in `load'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/mongrel.rb:64
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-10-09 15:53:47) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"find_by_name", "branch"=>"master", "docname"=>"affe", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000640)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'affe') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering documents/show
+Completed in 0.04568 (21 reqs/sec) | Rendering: 0.02505 (54%) | DB: 0.00064 (1%) | 200 OK [http://localhost/docs/affe.master]
+
+
+Processing DocumentsController#edit (for 127.0.0.1 at 2009-10-09 15:53:56) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"documents", "branch_name"=>"master"}
+  [4;35;1mRepository Load (0.000638)[0m   [0mSELECT * FROM "repositories" WHERE ("repositories"."id" = 1) [0m
+
+
+NoMethodError (undefined method `current_branch_name=' for #<CGI::Session:0x7f2790531628>):
+    /app/controllers/documents_controller.rb:34:in `edit'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1166:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/lib/ruby/1.8/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/1.8/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/1.8/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+    /usr/lib/ruby/1.8/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/1.8/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/1.8/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/1.8/mongrel_rails:129:in `run'
+    /usr/lib/ruby/1.8/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/1.8/mongrel_rails:282
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:503:in `load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:503:in `load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:503:in `load'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/mongrel.rb:64
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ApplicationController#edit (for 127.0.0.1 at 2009-10-09 15:58:00) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"documents", "branch_name"=>"master"}
+
+
+SyntaxError (/home/feson/projects/stonk/app/controllers/documents_controller.rb:85: syntax error, unexpected kEND, expecting $end):
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:216:in `load_without_new_constant_marking'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:216:in `load_file'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:215:in `load_file'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:96:in `require_or_load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:261:in `load_missing_constant'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:468:in `const_missing'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:480:in `const_missing'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/inflector.rb:285:in `constantize'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/inflector.rb:284:in `each'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/inflector.rb:284:in `constantize'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/string/inflections.rb:143:in `constantize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/routing/route_set.rb:387:in `recognize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/lib/ruby/1.8/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/1.8/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/1.8/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+    /usr/lib/ruby/1.8/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/1.8/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/1.8/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/1.8/mongrel_rails:129:in `run'
+    /usr/lib/ruby/1.8/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/1.8/mongrel_rails:282
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:503:in `load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:503:in `load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:503:in `load'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/mongrel.rb:64
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ApplicationController#edit (for 127.0.0.1 at 2009-10-09 15:58:27) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"documents", "branch_name"=>"master"}
+
+
+SyntaxError (/home/feson/projects/stonk/app/controllers/documents_controller.rb:85: syntax error, unexpected kEND, expecting $end):
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:216:in `load_without_new_constant_marking'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:216:in `load_file'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:215:in `load_file'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:96:in `require_or_load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:261:in `load_missing_constant'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:468:in `const_missing'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:480:in `const_missing'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/inflector.rb:285:in `constantize'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/inflector.rb:284:in `each'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/inflector.rb:284:in `constantize'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/string/inflections.rb:143:in `constantize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/routing/route_set.rb:387:in `recognize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/lib/ruby/1.8/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/1.8/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/1.8/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+    /usr/lib/ruby/1.8/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/1.8/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/1.8/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/1.8/mongrel_rails:129:in `run'
+    /usr/lib/ruby/1.8/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/1.8/mongrel_rails:282
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:503:in `load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:503:in `load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:503:in `load'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/mongrel.rb:64
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing DocumentsController#edit (for 127.0.0.1 at 2009-10-09 15:59:02) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"documents", "branch_name"=>"master"}
+  [4;36;1mRepository Load (0.000227)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering documents/edit
+Completed in 0.52577 (1 reqs/sec) | Rendering: 0.00727 (1%) | DB: 0.00023 (0%) | 200 OK [http://localhost/documents/edit/1?branch_name=master]
+
+
+Processing DocumentsController#update (for 127.0.0.1 at 2009-10-09 15:59:17) [POST]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"commit"=>"Speichern", "remarks"=>"Fri Oct 09 15:59:02 +0200 2009", "repo_name"=>"affe", "dir_id"=>"d30347b58f9afb2c22294112c5cf19b0", "authenticity_token"=>"5740bbd228e0d1c4d8e13761be2b22e97f4ad068", "action"=>"update", "id"=>"1", "content"=>"h1. Blubber\r\n\r\nwas anderes Hier die Alternative\r\n\r\nA New Document\r\n\r\n* eingefügter Text\r\n* jetzt mal was dazuschreiben\r\n\r\nh2. Eine Überschrift\r\n\r\nHihi, das scheint ja zu gehen ...\r\n\r\nhihi\r\n", "controller"=>"documents", "branch_name"=>"master"}
+Redirected to http://localhost:3000/docs/affe.master
+Completed in 0.11770 (8 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/documents/update/1]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-10-09 15:59:17) [GET]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"action"=>"find_by_name", "branch"=>"master", "docname"=>"affe", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000570)[0m   [0mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'affe') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering documents/show
+Completed in 0.08483 (11 reqs/sec) | Rendering: 0.00479 (5%) | DB: 0.00057 (0%) | 200 OK [http://localhost/docs/affe.master]
+
+
+Processing DocumentsController#edit (for 127.0.0.1 at 2009-10-09 15:59:21) [GET]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"documents", "branch_name"=>"master"}
+  [4;36;1mRepository Load (0.000737)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering documents/edit
+Completed in 0.19789 (5 reqs/sec) | Rendering: 0.00576 (2%) | DB: 0.00074 (0%) | 200 OK [http://localhost/documents/edit/1?branch_name=master]
+
+
+Processing DocumentsController#update (for 127.0.0.1 at 2009-10-09 15:59:53) [POST]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"commit"=>"Speichern", "remarks"=>"Fri Oct 09 15:59:21 +0200 2009", "repo_name"=>"affe", "dir_id"=>"69a98985377c0e5d8d74abe978144ecf", "authenticity_token"=>"5740bbd228e0d1c4d8e13761be2b22e97f4ad068", "action"=>"update", "id"=>"1", "content"=>"h1. Blubber\r\n\r\nwas anderes Hier die Alternative\r\nIch kann hier oben schreiben\r\n\r\nA New Document\r\n\r\n* eingefügter Text\r\n* jetzt mal was dazuschreiben\r\n\r\nh2. Eine Überschrift\r\n\r\nHihi, das scheint ja zu gehen ...\r\n\r\nhihi", "controller"=>"documents", "branch_name"=>"master"}
+Redirected to http://localhost:3000/docs/affe.master
+Completed in 0.16017 (6 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/documents/update/1]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-10-09 15:59:53) [GET]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"action"=>"find_by_name", "branch"=>"master", "docname"=>"affe", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000490)[0m   [0mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'affe') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering documents/show
+Completed in 0.02446 (40 reqs/sec) | Rendering: 0.00381 (15%) | DB: 0.00049 (2%) | 200 OK [http://localhost/docs/affe.master]
+
+
+Processing DocumentsController#edit (for 127.0.0.1 at 2009-10-09 16:00:01) [GET]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"documents", "branch_name"=>"master"}
+  [4;36;1mRepository Load (0.000220)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering documents/edit
+Completed in 0.12473 (8 reqs/sec) | Rendering: 0.00367 (2%) | DB: 0.00022 (0%) | 200 OK [http://localhost/documents/edit/1?branch_name=master]
+
+
+Processing DocumentsController#update (for 127.0.0.1 at 2009-10-09 16:01:15) [POST]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"commit"=>"Speichern", "remarks"=>"Fri Oct 09 16:00:01 +0200 2009", "repo_name"=>"affe", "dir_id"=>"86d28cb531bdd85acb9b11f79c12897d", "authenticity_token"=>"5740bbd228e0d1c4d8e13761be2b22e97f4ad068", "action"=>"update", "id"=>"1", "content"=>"h1. Blubber\r\n\r\nwas anderes Hier die Alternative\r\nIch kann hier oben schreiben\r\nUnd noch eine Zeile hier oben\r\n\r\nA New Document\r\n\r\n* eingefügter Text\r\n* jetzt mal was dazuschreiben\r\n\r\nh2. Eine Überschrift\r\n\r\nHihi, das scheint ja zu gehen ...\r\n\r\nhihi", "controller"=>"documents", "branch_name"=>"master"}
+Redirected to http://localhost:3000/docs/affe.master
+Completed in 0.33957 (2 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/documents/update/1]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-10-09 16:01:16) [GET]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"action"=>"find_by_name", "branch"=>"master", "docname"=>"affe", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.001337)[0m   [0mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'affe') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering documents/show
+Completed in 0.07508 (13 reqs/sec) | Rendering: 0.01003 (13%) | DB: 0.00134 (1%) | 200 OK [http://localhost/docs/affe.master]
+
+
+Processing DocumentsController#edit (for 127.0.0.1 at 2009-10-09 16:01:23) [GET]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"documents", "branch_name"=>"master"}
+  [4;36;1mRepository Load (0.000704)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering documents/edit
+Completed in 0.31712 (3 reqs/sec) | Rendering: 0.00505 (1%) | DB: 0.00070 (0%) | 200 OK [http://localhost/documents/edit/1?branch_name=master]
+
+
+Processing DocumentsController#update (for 127.0.0.1 at 2009-10-09 16:04:09) [POST]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"commit"=>"Speichern", "remarks"=>"Fri Oct 09 16:01:24 +0200 2009", "repo_name"=>"affe", "dir_id"=>"2072671882c6e0278b59c11857ee01ad", "authenticity_token"=>"5740bbd228e0d1c4d8e13761be2b22e97f4ad068", "action"=>"update", "id"=>"1", "content"=>"h1. Blubber\r\n\r\nwas anderes Hier die Alternative\r\nIch kann hier oben schreiben\r\nUnd noch eine Zeile hier oben\r\nUnd jetzt erzeugen wir mal einen Konflikt\r\n\r\nA New Document\r\n\r\n* eingefügter Text\r\n* jetzt mal was dazuschreiben\r\n\r\nh2. Eine Überschrift\r\n\r\nHihi, das scheint ja zu gehen ...\r\n\r\nund noch was hier unten. das sollte tun\r\n\r\nhihi\r\n", "controller"=>"documents", "branch_name"=>"master"}
+  [4;35;1mRepository Load (0.000303)[0m   [0mSELECT * FROM "repositories" WHERE ("repositories"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering documents/edit
+Completed in 0.06444 (15 reqs/sec) | Rendering: 0.00312 (4%) | DB: 0.00030 (0%) | 200 OK [http://localhost/documents/update/1]
+
+
+Processing DocumentsController#update (for 127.0.0.1 at 2009-10-09 16:04:40) [POST]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7BjoLbm90aWNlIhpFcyBnYWIgZWluZW4gS29uZmxpa3QG
+OgpAdXNlZHsGOwlG--d49458533d6e2b7a347591d49502d1cc6caeaed5
+  Parameters: {"commit"=>"Speichern", "remarks"=>"Fri Oct 09 16:04:09 +0200 2009", "repo_name"=>"affe", "dir_id"=>"2072671882c6e0278b59c11857ee01ad", "authenticity_token"=>"5740bbd228e0d1c4d8e13761be2b22e97f4ad068", "action"=>"update", "id"=>"1", "content"=>"h1. Blubber\r\n\r\nwas anderes Hier die Alternative\r\nIch kann hier oben schreiben\r\nUnd noch eine Zeile hier oben\r\nDas hier sollte einen Konflikt verursachen\r\n\r\nA New Document\r\n\r\n* eingefügter Text\r\n* jetzt mal was dazuschreiben\r\n\r\nh2. Eine Überschrift\r\n\r\nHihi, das scheint ja zu gehen ...\r\n\r\nund noch was hier unten. das sollte tun\r\n\r\nhihi\r\n", "controller"=>"documents", "branch_name"=>"master"}
+Redirected to http://localhost:3000/docs/affe.master
+Completed in 0.17586 (5 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/documents/update/1]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-10-09 16:04:40) [GET]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7BjoLbm90aWNlIhpFcyBnYWIgZWluZW4gS29uZmxpa3QG
+OgpAdXNlZHsGOwlU--cd7fc4591a5c8eef567cba1fee3d3662840daa66
+  Parameters: {"action"=>"find_by_name", "branch"=>"master", "docname"=>"affe", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.001245)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'affe') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering documents/show
+Completed in 0.18073 (5 reqs/sec) | Rendering: 0.00941 (5%) | DB: 0.00125 (0%) | 200 OK [http://localhost/docs/affe.master]
+
+
+Processing DocumentsController#edit (for 127.0.0.1 at 2009-10-09 16:05:56) [GET]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"documents", "branch_name"=>"master"}
+  [4;35;1mRepository Load (0.000671)[0m   [0mSELECT * FROM "repositories" WHERE ("repositories"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering documents/edit
+Completed in 0.21435 (4 reqs/sec) | Rendering: 0.00515 (2%) | DB: 0.00067 (0%) | 200 OK [http://localhost/documents/edit/1?branch_name=master]
+
+
+Processing DocumentsController#edit (for 127.0.0.1 at 2009-10-09 16:06:08) [GET]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"documents", "branch_name"=>"master"}
+  [4;36;1mRepository Load (0.000225)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering documents/edit
+Completed in 0.08837 (11 reqs/sec) | Rendering: 0.00351 (3%) | DB: 0.00022 (0%) | 200 OK [http://localhost/documents/edit/1?branch_name=master]
+
+
+Processing DocumentsController#update (for 127.0.0.1 at 2009-10-09 16:06:09) [POST]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"commit"=>"Speichern", "remarks"=>"Fri Oct 09 16:06:08 +0200 2009", "repo_name"=>"affe", "dir_id"=>"56a65436185e65138b2745979c7e037e", "authenticity_token"=>"5740bbd228e0d1c4d8e13761be2b22e97f4ad068", "action"=>"update", "id"=>"1", "content"=>"h1. Blubber\r\n\r\nwas anderes Hier die Alternative\r\nIch kann hier oben schreiben\r\nUnd noch eine Zeile hier oben\r\nDas hier sollte einen Konflikt verursachen\r\n\r\nA New Document\r\n\r\n* eingefügter Text\r\n* jetzt mal was dazuschreiben\r\n\r\nh2. Eine Überschrift\r\n\r\nHihi, das scheint ja zu gehen ...\r\n\r\nund noch was hier unten. das sollte tun\r\n\r\nhihi", "controller"=>"documents", "branch_name"=>"master"}
+Redirected to http://localhost:3000/docs/affe.master
+Completed in 0.19127 (5 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/documents/update/1]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-10-09 16:06:09) [GET]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"action"=>"find_by_name", "branch"=>"master", "docname"=>"affe", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.001239)[0m   [0mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'affe') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering documents/show
+Completed in 0.18049 (5 reqs/sec) | Rendering: 0.00913 (5%) | DB: 0.00124 (0%) | 200 OK [http://localhost/docs/affe.master]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-10-09 16:39:06) [GET]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"action"=>"find_by_name", "branch"=>"master", "docname"=>"affe", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.001285)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'affe') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering documents/show
+  [4;35;1mRepository Load (0.001063)[0m   [0mSELECT * FROM "repositories" [0m
+Completed in 0.18526 (5 reqs/sec) | Rendering: 0.01191 (6%) | DB: 0.00235 (1%) | 200 OK [http://localhost/docs/affe.master]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-10-09 16:39:30) [GET]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"action"=>"find_by_name", "branch"=>"master", "docname"=>"affe", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000473)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'affe') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering documents/show
+  [4;35;1mRepository Load (0.000483)[0m   [0mSELECT * FROM "repositories" [0m
+Completed in 0.02500 (40 reqs/sec) | Rendering: 0.00494 (19%) | DB: 0.00096 (3%) | 200 OK [http://localhost/docs/affe.master]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-10-09 16:39:44) [GET]
+  Session ID: BAh7CToYY3VycmVudF9icmFuY2hfbmFtZSILbWFzdGVyOhpjdXJyZW50X3Jl
+cG9zaXRvcnlfaWRpBjoMY3NyZl9pZCIlNTcxZTEwYzljYjhmYmExNzVhOWVh
+M2I0NGZmYWEwNjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
+OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--51c6399d8d969fcc7ef5e70058e3257de70ce4cc
+  Parameters: {"action"=>"find_by_name", "branch"=>"master", "docname"=>"affe", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.001335)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'affe') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering documents/show
+  [4;35;1mRepository Load (0.001120)[0m   [0mSELECT * FROM "repositories" [0m
+Completed in 0.06661 (15 reqs/sec) | Rendering: 0.01234 (18%) | DB: 0.00245 (3%) | 200 OK [http://localhost/docs/affe.master]

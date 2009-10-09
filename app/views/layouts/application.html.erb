@@ -4,6 +4,25 @@
   <head><title>STONK! &mdash; <%= @title %></title></head>
   <body>
     <%= flash[:notice] %>
-    <%= yield %>
+    <table border='1' width="100%">
+      <thead>
+        <tr>
+          <th>Documents/Branches</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td valign='top'>
+            <ul>
+              <% Repository.all.each do |repo| %>
+                <li><%= link_to "#{repo.name}.master", "/docs/#{repo.name}.master" %></li>
+              <% end %>
+            </ul>
+          </td>
+          <td><%= yield %></td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

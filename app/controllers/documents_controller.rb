@@ -31,6 +31,8 @@ class DocumentsController < ApplicationController
   def edit
     @repo = Repository.find params[:id]
     @branch_name = params[:branch_name] || 'master'
+    session[:current_branch_name] = @branch_name
+    session[:current_repository_id] = @repo.id
     @dir_id, clone = @repo.clone_for_edit
     clone.checkout @branch_name
     @edit_content = clone.gtree(@branch_name).blobs[STONK_CONFIG.document_name].contents
@@ -38,12 +40,38 @@ class DocumentsController < ApplicationController
 
   def update
     dirname = "#{STONK_CONFIG.working_copies_path}/#{params[:dir_id]}"
-    File.open "#{dirname}/#{STONK_CONFIG.document_name}", "w" do |f|
+    doc_filename = "#{dirname}/#{STONK_CONFIG.document_name}"
+    File.open doc_filename, "w" do |f|
       f.write params[:content]
     end
     repo = Git.open dirname
     repo.commit_all params[:remarks]
-    repo.push
+    done = false
+    conflict = false
+    while !done
+      done = true
+      begin
+        repo.push
+      rescue Git::GitExecuteError
+        repo.pull
+        done = false
+        begin
+          repo.merge "origin/#{session[:current_branch_name]}"
+        rescue Git::GitExecuteError
+          flash[:notice] = "Es gab einen Konflikt"
+          @repo = Repository.find session[:current_repository_id]
+          @branch_name = session[:current_branch_name]
+          @dir_id = params[:dir_id]
+          @edit_content = ""
+          File.open doc_filename, "r" do |f|
+            while content = f.gets
+              @edit_content << content
+            end
+          end
+          return render :action => :edit
+        end
+      end
+    end
     FileUtils.rm_rf dirname
     redirect_to "/docs/#{params[:repo_name]}.#{params[:branch_name]}"
   end
