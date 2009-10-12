@@ -1,0 +1,9 @@
+<h1>Dokument nicht gefunden</h1>
+
+<p>
+Ein Dokument mit dem Namen <%= @name %> existiert noch nicht.
+</p>
+
+<p>
+<%= link_to "Dokument neu anlegen", {:controller => :documents, :action => :create, :name => @name} %>
+</p>

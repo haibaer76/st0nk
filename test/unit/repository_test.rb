@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: repositories
+#
+#  id         :integer         not null, primary key
+#  name       :string(80)
+#  path       :string(256)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 require 'test_helper'
 
 class RepositoryTest < ActiveSupport::TestCase

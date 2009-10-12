@@ -1,4 +1,7 @@
 class DocumentsController < ApplicationController
+
+  before_filter :login_required, :only => :create
+
   def index
     @documents = Repository.all
   end
@@ -9,16 +12,28 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    Repository.new_document params[:repository][:name]
-    redirect_to :index
+    doc_name = params.has_key?(:repository) ? params[:repository][:name] : nil
+    doc_name ||= params[:name]
+    Repository.new_document(doc_name, current_user)
+    redirect_to :action => :find_by_name, :docname => doc_name
   end
 
   def find_by_name
-    @repo = Repository.by_name(params[:docname]).first || Repository.new_document(params[:docname])
-    @repository = @repo.bare_repository
-    @branch = params[:branch] || 'master'
-    @content = @repo.bare_content @branch
-    render :action => :show
+    @repo = Repository.by_name(params[:docname]).first
+    if @repo.nil?
+      @name = params[:docname]
+      render :action => :create_new
+    else
+      @repository = @repo.bare_repository
+      branch_name = params[:branch] || 'master'
+      @branch = @repo.branches.by_name(branch_name).first
+      if @branch.nil?
+        redirect_to :controller => :branches, :action => :new, :name => branch_name, :repository_id => @repo.id
+      else
+        @content = @repo.bare_content @branch.name
+        render :action => :show
+      end
+    end
   end
 
   def show

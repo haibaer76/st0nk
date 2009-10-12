@@ -6,5 +6,5 @@
 </div>
 
 <div>
-  <%= link_to "Bearbeiten", {:controller => :documents, :action => :edit, :branch_name => @branch, :id => @repo.id} %>
+  <%= link_to "Bearbeiten", {:controller => :documents, :action => :edit, :branch_name => @branch.name, :id => @repo.id} %>
 </div>

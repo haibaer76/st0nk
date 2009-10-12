@@ -9,7 +9,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091007181458) do
+ActiveRecord::Schema.define(:version => 20091010183026) do
+
+  create_table "branches", :force => true do |t|
+    t.string   "name"
+    t.string   "write_access_for"
+    t.integer  "repository_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "description"
+  end
+
+  create_table "cloned_repositories", :force => true do |t|
+    t.string   "path"
+    t.integer  "original_repository_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "repositories", :force => true do |t|
     t.string   "name",       :limit => 80

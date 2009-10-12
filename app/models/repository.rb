@@ -1,19 +1,37 @@
+# == Schema Information
+#
+# Table name: repositories
+#
+#  id         :integer         not null, primary key
+#  name       :string(80)
+#  path       :string(256)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Repository < ActiveRecord::Base
   validates_presence_of :path
   validates_presence_of :name
   validates_uniqueness_of :name
+
+  has_many :branches, :dependent => :destroy
 
   named_scope :by_name, lambda{|name|
     {:conditions => {:name => name}}
   }
 
   class << self
-    def new_document(name, options={}, &block)
+    def new_document(name, user, options={})
       content = options.delete(:content) || "A New Document"
-      repo = create!(options) do |r|
+      repo = create!(options[:repository_attributes] || {}) do |r|
         r.name = name
         r.path = gen_path(name)
-        yield r if block_given?
+      end
+      Branch.create!(options[:branch_attributes] || {}) do |b|
+        b.repository = repo
+        b.user = user
+        b.name = 'master'
+        b.write_access_for = 'own'
       end
       grit_repo = Grit::Repo.init_bare(repo.path)
       i = grit_repo.index
@@ -38,22 +56,12 @@ class Repository < ActiveRecord::Base
     @bare_content ||= bare_repository.gtree(branch).blobs[STONK_CONFIG.document_name].contents
   end
 
-  def update_content(content, commit_message, branch='master')
-    # clone the repository to a temporary repo
-    dirname = "#{STONK_CONFIG.working_copies_path}/#{Digest::MD5.hexdigest rand.to_s}"
-    cloned = Git.clone path, dirname
-    cloned.checkout branch
-    File.open "#{dirname}/#{STONK_CONFIG.document_name}", "w" do |f|
-      f.write content
-    end
-    cloned.commit_all commit_message
-    cloned.push
-    `rm -rf #{dirname}`
+  def clone_for_edit
+    ClonedRepository.create! :original_repository => self
   end
 
-  def clone_for_edit
-    dir_id = Digest::MD5.hexdigest rand.to_s
-    ret = Git.clone path, "#{STONK_CONFIG.working_copies_path}/#{dir_id}"
-    [dir_id, ret]
+  def before_destroy
+    FileUtils.rm_rf path
   end
 end
+
