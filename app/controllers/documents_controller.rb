@@ -48,27 +48,28 @@ class DocumentsController < ApplicationController
     @branch_name = params[:branch_name] || 'master'
     session[:current_branch_name] = @branch_name
     session[:current_repository_id] = @repo.id
-    @dir_id, clone = @repo.clone_for_edit
-    clone.checkout @branch_name
-    @edit_content = clone.gtree(@branch_name).blobs[STONK_CONFIG.document_name].contents
+    @clone = @repo.clone_for_edit
+    @clone.git_repo.branch("origin/#{@branch_name}").checkout
+    @clone.git_repo.branch("#{@branch_name}").checkout
+    @edit_content = @clone.git_repo.gtree(@branch_name).blobs[STONK_CONFIG.document_name].contents
   end
 
   def update
-    dirname = "#{STONK_CONFIG.working_copies_path}/#{params[:dir_id]}"
-    doc_filename = "#{dirname}/#{STONK_CONFIG.document_name}"
+    clone = ClonedRepository.find params[:clone_id]
+    doc_filename = "#{clone.path}/#{STONK_CONFIG.document_name}"
     File.open doc_filename, "w" do |f|
       f.write params[:content]
     end
-    repo = Git.open dirname
+    repo = clone.git_repo
     repo.commit_all params[:remarks]
     done = false
     conflict = false
     while !done
       done = true
       begin
-        repo.push
+        repo.push "origin", params[:branch_name]
       rescue Git::GitExecuteError
-        repo.pull
+        repo.fetch
         done = false
         begin
           repo.merge "origin/#{session[:current_branch_name]}"
@@ -87,8 +88,8 @@ class DocumentsController < ApplicationController
         end
       end
     end
-    FileUtils.rm_rf dirname
-    redirect_to "/docs/#{params[:repo_name]}.#{params[:branch_name]}"
+    clone.destroy
+    redirect_to "/docs/#{clone.original_repository.name}.#{params[:branch_name]}"
   end
 
   def diff

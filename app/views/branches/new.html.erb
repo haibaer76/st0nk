@@ -6,6 +6,7 @@ Eigenschaften des neuen Zweiges:
 </p>
 <% form_for @branch, :url => {:action => :create} do |f| %>
   <%= f.hidden_field :repository_id %>
+  <%= f.hidden_field :write_access_for %>
   Name des Zweiges :<%= f.text_field :name %><br/>
   Beschreibung: <%= f.text_field :description %><br/>
   Zweig kopieren von:

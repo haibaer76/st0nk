@@ -1,27 +1,31 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-  <head><title>STONK! &mdash; <%= @title %></title></head>
+  <head><title>st0nk &mdash; <%= @title %></title></head>
   <body>
     <%= flash[:notice] %>
     <table border='1' width="100%">
       <thead>
         <tr>
-          <th>Documents/Branches</th>
+          <th>Documents</th>
+          <th>Branches</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td valign='top'>
-            <ul>
-              <% Repository.all.each do |repo| %>
-                <li><%= link_to "#{repo.name}.master", "/docs/#{repo.name}.master" %></li>
+        <% Repository.all.each_with_index do |repo, re_index| %>
+          <tr>
+            <td valign='top' rowspan="<%= repo.branches.size %>"><b><%= h repo.name %></b></td>
+            <td><ul>
+              <% repo.branches.each do |branch| %>
+                <li><%= link_to "#{branch.name}", "/docs/#{repo.name}.#{branch.name}" %></li>
               <% end %>
-            </ul>
-          </td>
-          <td><%= yield %></td>
-        </tr>
+            </ul></td>
+            <% if re_index == 0 then %>
+              <td rowspan="<%= Repository.all.size %>"><%= yield %></td>
+            <% end %>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </body>

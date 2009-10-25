@@ -1,6 +1,6 @@
-<% @title = "#{@repo.name}.#{@branch}" %>
+<% @title = "#{@repo.name}.#{@branch.name}" %>
 <h1><%= h @repo.name %></h1>
-
+<h2>Zweig <%= h @branch.name %></h2>
 <div style="border:black solid 1px">
 <%= RedCloth.new(@content).to_html %>
 </div>
@@ -8,3 +8,13 @@
 <div>
   <%= link_to "Bearbeiten", {:controller => :documents, :action => :edit, :branch_name => @branch.name, :id => @repo.id} %>
 </div>
+
+<div>
+  <% form_tag :controller => :branches, :action => :merge do |f| %>
+    Mit Zweig 
+    <%= hidden_field_tag :merge_destination_id, @branch.id %>
+    <%= collection_select :merge, :merge_source_id, @repo.branches_excluded(@branch), :id, :name %>
+    <%= submit_tag "Zusammenf&uuml;hren" %>
+  <% end %>
+</div>
+

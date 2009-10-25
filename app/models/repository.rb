@@ -60,6 +60,14 @@ class Repository < ActiveRecord::Base
     ClonedRepository.create! :original_repository => self
   end
 
+  def branches_excluded branch
+    ret=[]
+    branches.each do |b|
+      ret << b unless b.id == branch.id
+    end
+    ret
+  end
+
   def before_destroy
     FileUtils.rm_rf path
   end
