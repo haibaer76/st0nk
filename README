@@ -1,5 +1,7 @@
 == st0nk -- Software for a grass groots democracy 2.0
 
+The current status of the project is pre-alpha. No really functionallity is implemented yet.
+
 This Rails project is a prototype for a "better wiki". Current wikis have a problem:
 There is no possibility to make branches like in a software project.
 
