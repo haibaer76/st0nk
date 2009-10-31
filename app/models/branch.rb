@@ -23,7 +23,7 @@ class Branch < ActiveRecord::Base
   validates_presence_of :write_access_for
   validates_presence_of :repository
   validates_presence_of :name
-  validates_inclusion_of :write_access_for, :in => ['public', 'user', 'own', :vote]
+  validates_inclusion_of :write_access_for, :in => ['public', 'user', 'own', 'vote']
   after_create :do_create_branch
 
   attr_accessor :copy_from_branch_id
