@@ -46,15 +46,14 @@ class DocumentsController < ApplicationController
   def edit
     @repo = Repository.find params[:id]
     @branch_name = params[:branch_name] || 'master'
-    session[:current_branch_name] = @branch_name
-    session[:current_repository_id] = @repo.id
-    @clone = @repo.clone_for_edit
-    @clone.git_repo.branch("origin/#{@branch_name}").checkout
-    @clone.git_repo.branch("#{@branch_name}").checkout
     @edit_content = @clone.git_repo.gtree(@branch_name).blobs[STONK_CONFIG.document_name].contents
   end
 
   def update
+    repo = Repository.find params[:id]
+    remarks = params[:remarks]
+    clone = repo.clone_for_edit
+
     clone = ClonedRepository.find params[:clone_id]
     doc_filename = "#{clone.path}/#{STONK_CONFIG.document_name}"
     File.open doc_filename, "w" do |f|
