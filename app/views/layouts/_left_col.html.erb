@@ -1,0 +1,12 @@
+<h2>Alle Dokumente</h2>
+
+<ul>
+  <% Repository.all.each do |repo| %>
+    <li><a href="/docs/<%= repo.name %>"><%= repo.name %></a></li>
+  <% end %>
+</ul>
+
+<% if logged_in? %>
+  <%= link_to "Neues Dokuement anlegen", "/documents/new" %>
+<% end %>
+

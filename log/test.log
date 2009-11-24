@@ -1,0 +1,1377 @@
+  [4;36;1mRepository Delete all (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: repositories: DELETE FROM "repositories" WHERE 1=1[0m
+  [4;36;1mRepository Delete all (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: repositories: DELETE FROM "repositories" WHERE 1=1[0m
+  [4;36;1mRepository Delete all (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: repositories: DELETE FROM "repositories" WHERE 1=1[0m
+  [4;36;1mRepository Delete all (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: repositories: DELETE FROM "repositories" WHERE 1=1[0m
+  [4;36;1mRepository Delete all (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: repositories: DELETE FROM "repositories" WHERE 1=1[0m
+  [4;36;1mRepository Delete all (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: repositories: DELETE FROM "repositories" WHERE 1=1[0m
+  [4;36;1mRepository Delete all (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: repositories: DELETE FROM "repositories" WHERE 1=1[0m
+  [4;36;1mRepository Delete all (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: repositories: DELETE FROM "repositories" WHERE 1=1[0m
+  [4;36;1mRepository Delete all (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: repositories: DELETE FROM "repositories" WHERE 1=1[0m
+  [4;36;1mRepository Delete all (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: repositories: DELETE FROM "repositories" WHERE 1=1[0m
+  [4;36;1mRepository Delete all (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: repositories: DELETE FROM "repositories" WHERE 1=1[0m
+  [4;36;1mRepository Delete all (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: repositories: DELETE FROM "repositories" WHERE 1=1[0m
+  [4;36;1mRepository Delete all (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: repositories: DELETE FROM "repositories" WHERE 1=1[0m
+  [4;36;1mRepository Delete all (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: repositories: DELETE FROM "repositories" WHERE 1=1[0m
+  [4;36;1mSQL (0.000280)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000156)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000293)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000120)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000137)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000138)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000138)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000183)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000165)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000192)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000123)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000129)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000218)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000060)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000070)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000065)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000527)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000071)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000064)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000065)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000129)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name IS NULL) [0m
+  [4;35;1mSQL (0.000079)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;36;1mSQL (0.000287)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000160)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000329)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000123)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000138)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000139)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000169)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000163)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000221)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000134)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000133)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000221)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000062)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000072)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000063)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000062)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000076)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000124)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name IS NULL) [0m
+  [4;35;1mSQL (0.000081)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;36;1mSQL (0.000285)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000163)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000300)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000125)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000144)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000141)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000170)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000164)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000192)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000125)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000131)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000218)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000064)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000071)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000066)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000174)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000073)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000070)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000371)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000290)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000178)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000298)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000126)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000139)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000139)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000144)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000170)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000166)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000191)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000126)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000131)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000219)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000063)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000071)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000063)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000062)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000209)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'A_Repository_for_testing') [0m
+  [4;35;1mSQL (0.000082)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'A_Repository_for_testing') [0m
+  [4;36;1mSQL (0.000075)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;35;1mRepository Create (0.000105)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('A_Repository_for_testing', '2009-11-24 17:06:10', '2009-11-24 17:06:10', '/home/feson/stonk/repositories/A_Repository_for_testing.git', 'A Repository for testing')[0m
+  [4;36;1mSQL (0.000318)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000177)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000328)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000188)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000178)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000182)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000190)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000223)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000199)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000217)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000139)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000143)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000239)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000071)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000081)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000070)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000071)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000071)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000067)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000068)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000207)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'A_Repository_for_testing') [0m
+  [4;35;1mSQL (0.000083)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'A_Repository_for_testing') [0m
+  [4;36;1mSQL (0.000077)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;35;1mRepository Create (0.000105)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('A_Repository_for_testing', '2009-11-24 17:08:15', '2009-11-24 17:08:15', '/home/feson/stonk/repositories/A_Repository_for_testing.git', 'A Repository for testing')[0m
+  [4;36;1mSQL (0.000287)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000258)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000340)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000123)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000140)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000139)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000185)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000165)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000200)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000126)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000133)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000219)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000062)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000071)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000065)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000065)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000064)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000257)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'A_Repository_for_testing') [0m
+  [4;35;1mSQL (0.000082)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'A_Repository_for_testing') [0m
+  [4;36;1mSQL (0.000075)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;35;1mRepository Create (0.000104)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('A_Repository_for_testing', '2009-11-24 17:08:17', '2009-11-24 17:08:17', '/home/feson/stonk/repositories/A_Repository_for_testing.git', 'A Repository for testing')[0m
+  [4;36;1mSQL (0.000293)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000160)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000301)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000121)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000141)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000138)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000167)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000168)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000204)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000129)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000131)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000219)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000071)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000070)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000066)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000064)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000063)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000196)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'A_Repository_for_testing') [0m
+  [4;35;1mSQL (0.000084)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'A_Repository_for_testing') [0m
+  [4;36;1mSQL (0.000074)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;35;1mRepository Create (0.000106)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('A_Repository_for_testing', '2009-11-24 17:13:00', '2009-11-24 17:13:00', '/home/feson/stonk/repositories/A_Repository_for_testing.git', 'A Repository for testing')[0m
+  [4;36;1mSQL (0.000327)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000196)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000331)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000140)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000167)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000191)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000172)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000191)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000194)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000215)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000143)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000244)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000089)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000092)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000074)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000076)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000109)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000193)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'A_Repository_for_testing') [0m
+  [4;35;1mSQL (0.000085)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'A_Repository_for_testing') [0m
+  [4;36;1mSQL (0.000076)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;35;1mRepository Create (0.000121)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('A_Repository_for_testing', '2009-11-24 17:13:03', '2009-11-24 17:13:03', '/home/feson/stonk/repositories/A_Repository_for_testing.git', 'A Repository for testing')[0m
+  [4;36;1mSQL (0.000314)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000167)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000304)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000121)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000148)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000142)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000167)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000166)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000190)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000126)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000131)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000218)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000063)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000071)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000062)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000062)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000204)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;35;1mSQL (0.000085)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;36;1mSQL (0.000075)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000137)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 17:16:17', '2009-11-24 17:16:17', '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;36;1mBranch Load (0.000185)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;35;1mRepository Destroy (0.000104)[0m   [0m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000209)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'A_Repository_for_testing') [0m
+  [4;35;1mSQL (0.000084)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'A_Repository_for_testing') [0m
+  [4;36;1mSQL (0.000080)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;35;1mRepository Create (0.000113)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('A_Repository_for_testing', '2009-11-24 17:16:17', '2009-11-24 17:16:17', '/home/feson/stonk/repositories/A_Repository_for_testing.git', 'A Repository for testing')[0m
+  [4;36;1mBranch Load (0.000275)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;35;1mRepository Destroy (0.000121)[0m   [0m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000288)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000160)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000296)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000122)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000139)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000142)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000141)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000182)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000162)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000189)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000127)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000130)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000224)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000061)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000069)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000063)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000209)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;35;1mSQL (0.000080)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test_') [0m
+  [4;36;1mSQL (0.000076)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test+') [0m
+  [4;35;1mRepository Create (0.000106)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test_', '2009-11-24 17:21:24', '2009-11-24 17:21:24', '/home/feson/stonk/repositories/Test_.git', 'Test+')[0m
+  [4;36;1mSQL (0.000427)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;35;1mSQL (0.000241)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test__1') [0m
+  [4;36;1mSQL (0.000158)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test__1') [0m
+  [4;35;1mSQL (0.000139)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test-') [0m
+  [4;36;1mRepository Create (0.000130)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test__1', '2009-11-24 17:21:24', '2009-11-24 17:21:24', '/home/feson/stonk/repositories/Test__1.git', 'Test-')[0m
+  [4;35;1mBranch Load (0.000185)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000101)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mBranch Load (0.000108)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 2) [0m
+  [4;36;1mRepository Destroy (0.000086)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 2
+[0m
+  [4;35;1mSQL (0.000202)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;36;1mSQL (0.000086)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;35;1mSQL (0.000078)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;36;1mRepository Create (0.000114)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 17:21:24', '2009-11-24 17:21:24', '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;35;1mBranch Load (0.000218)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000120)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mSQL (0.000245)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'A_Repository_for_testing') [0m
+  [4;36;1mSQL (0.000091)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'A_Repository_for_testing') [0m
+  [4;35;1mSQL (0.000080)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;36;1mRepository Create (0.000108)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('A_Repository_for_testing', '2009-11-24 17:21:24', '2009-11-24 17:21:24', '/home/feson/stonk/repositories/A_Repository_for_testing.git', 'A Repository for testing')[0m
+  [4;35;1mBranch Load (0.000144)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000100)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000812)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000165)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000310)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000174)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000149)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000142)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000172)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000166)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000195)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000128)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000134)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000225)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000060)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000071)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000065)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000064)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000250)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;35;1mSQL (0.000096)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;36;1mSQL (0.000077)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000105)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:09:02', '2009-11-24 18:09:02', '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;36;1mBranch Load (0.000185)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;35;1mRepository Destroy (0.000122)[0m   [0m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000220)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;35;1mSQL (0.000094)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test_') [0m
+  [4;36;1mSQL (0.000082)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test+') [0m
+  [4;35;1mRepository Create (0.000107)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test_', '2009-11-24 18:09:02', '2009-11-24 18:09:02', '/home/feson/stonk/repositories/Test_.git', 'Test+')[0m
+  [4;36;1mSQL (0.000337)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;35;1mSQL (0.000177)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test__1') [0m
+  [4;36;1mSQL (0.000103)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test__1') [0m
+  [4;35;1mSQL (0.000088)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test-') [0m
+  [4;36;1mRepository Create (0.000123)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test__1', '2009-11-24 18:09:02', '2009-11-24 18:09:02', '/home/feson/stonk/repositories/Test__1.git', 'Test-')[0m
+  [4;35;1mBranch Load (0.000218)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000134)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mBranch Load (0.000118)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 2) [0m
+  [4;36;1mRepository Destroy (0.000111)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 2
+[0m
+  [4;35;1mSQL (0.000243)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;36;1mSQL (0.000099)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;35;1mSQL (0.000087)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;36;1mRepository Create (0.000138)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:09:02', '2009-11-24 18:09:02', '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;35;1mBranch Load (0.000199)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000101)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mSQL (0.000212)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'A_Repository_for_testing') [0m
+  [4;36;1mSQL (0.000086)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'A_Repository_for_testing') [0m
+  [4;35;1mSQL (0.000093)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;36;1mRepository Create (0.000117)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('A_Repository_for_testing', '2009-11-24 18:09:02', '2009-11-24 18:09:02', '/home/feson/stonk/repositories/A_Repository_for_testing.git', 'A Repository for testing')[0m
+  [4;35;1mBranch Load (0.000225)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000159)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000329)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000201)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000338)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000180)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000167)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000172)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000164)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000204)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000195)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000238)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000146)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000141)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000253)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000091)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000084)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000071)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000068)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000068)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000098)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000067)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000210)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;35;1mSQL (0.000081)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;36;1mSQL (0.000075)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000106)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:13:25', '2009-11-24 18:13:25', '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;36;1mBranch Load (0.000192)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;35;1mRepository Destroy (0.000102)[0m   [0m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000207)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;35;1mSQL (0.000079)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test_') [0m
+  [4;36;1mSQL (0.000079)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test+') [0m
+  [4;35;1mRepository Create (0.000106)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test_', '2009-11-24 18:13:25', '2009-11-24 18:13:25', '/home/feson/stonk/repositories/Test_.git', 'Test+')[0m
+  [4;36;1mSQL (0.000312)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;35;1mSQL (0.000152)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test__1') [0m
+  [4;36;1mSQL (0.000111)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test__1') [0m
+  [4;35;1mSQL (0.000092)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test-') [0m
+  [4;36;1mRepository Create (0.000127)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test__1', '2009-11-24 18:13:25', '2009-11-24 18:13:25', '/home/feson/stonk/repositories/Test__1.git', 'Test-')[0m
+  [4;35;1mBranch Load (0.000193)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000114)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mBranch Load (0.000122)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 2) [0m
+  [4;36;1mRepository Destroy (0.000122)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 2
+[0m
+  [4;35;1mSQL (0.000267)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;36;1mSQL (0.000105)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;35;1mSQL (0.000102)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;36;1mRepository Create (0.000135)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:13:25', '2009-11-24 18:13:25', '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;35;1mBranch Load (0.000198)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000098)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mSQL (0.000219)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'A_Repository_for_testing') [0m
+  [4;36;1mSQL (0.000089)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'A_Repository_for_testing') [0m
+  [4;35;1mSQL (0.000079)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;36;1mRepository Create (0.000118)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('A_Repository_for_testing', '2009-11-24 18:13:25', '2009-11-24 18:13:25', '/home/feson/stonk/repositories/A_Repository_for_testing.git', 'A Repository for testing')[0m
+  [4;35;1mBranch Load (0.000323)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000129)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000287)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000160)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000295)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000121)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000138)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000140)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000139)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000173)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000185)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000197)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000127)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000129)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000222)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000062)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000075)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000174)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000074)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000070)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000064)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000205)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;35;1mSQL (0.000081)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;36;1mSQL (0.000075)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000103)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:13:58', '2009-11-24 18:13:58', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;36;1mBranch Load (0.000232)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;35;1mRepository Destroy (0.000153)[0m   [0m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000261)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;35;1mSQL (0.000097)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test_') [0m
+  [4;36;1mSQL (0.000086)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test+') [0m
+  [4;35;1mRepository Create (0.000118)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test_', '2009-11-24 18:13:58', '2009-11-24 18:13:58', '/tmp/test_repos/Test_.git', 'Test+')[0m
+  [4;36;1mSQL (0.000325)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;35;1mSQL (0.000169)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test__1') [0m
+  [4;36;1mSQL (0.000104)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test__1') [0m
+  [4;35;1mSQL (0.000088)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test-') [0m
+  [4;36;1mRepository Create (0.000123)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test__1', '2009-11-24 18:13:58', '2009-11-24 18:13:58', '/tmp/test_repos/Test__1.git', 'Test-')[0m
+  [4;35;1mBranch Load (0.000275)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000132)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mBranch Load (0.000125)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 2) [0m
+  [4;36;1mRepository Destroy (0.000112)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 2
+[0m
+  [4;35;1mSQL (0.000278)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;36;1mSQL (0.000113)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;35;1mSQL (0.000092)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;36;1mRepository Create (0.000126)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:13:58', '2009-11-24 18:13:58', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;35;1mBranch Load (0.000195)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000108)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mSQL (0.000222)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'A_Repository_for_testing') [0m
+  [4;36;1mSQL (0.000093)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'A_Repository_for_testing') [0m
+  [4;35;1mSQL (0.000082)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;36;1mRepository Create (0.000110)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('A_Repository_for_testing', '2009-11-24 18:13:58', '2009-11-24 18:13:58', '/tmp/test_repos/A_Repository_for_testing.git', 'A Repository for testing')[0m
+  [4;35;1mBranch Load (0.000173)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000134)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000283)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000161)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000342)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000122)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000144)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000141)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000141)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000187)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000170)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000193)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000124)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000130)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000217)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000061)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000067)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000062)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000061)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000213)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;35;1mSQL (0.000086)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;36;1mSQL (0.000078)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000107)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:14:22', '2009-11-24 18:14:22', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;36;1mBranch Load (0.000184)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;35;1mRepository Destroy (0.000121)[0m   [0m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000224)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;35;1mSQL (0.000092)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test_') [0m
+  [4;36;1mSQL (0.000080)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test+') [0m
+  [4;35;1mRepository Create (0.000130)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test_', '2009-11-24 18:14:22', '2009-11-24 18:14:22', '/tmp/test_repos/Test_.git', 'Test+')[0m
+  [4;36;1mSQL (0.000331)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;35;1mSQL (0.000168)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test__1') [0m
+  [4;36;1mSQL (0.000103)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test__1') [0m
+  [4;35;1mSQL (0.000091)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test-') [0m
+  [4;36;1mRepository Create (0.000128)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test__1', '2009-11-24 18:14:22', '2009-11-24 18:14:22', '/tmp/test_repos/Test__1.git', 'Test-')[0m
+  [4;35;1mBranch Load (0.000213)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000139)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mBranch Load (0.000125)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 2) [0m
+  [4;36;1mRepository Destroy (0.000126)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 2
+[0m
+  [4;35;1mSQL (0.000245)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;36;1mSQL (0.000102)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;35;1mSQL (0.000090)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;36;1mRepository Create (0.000128)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:14:22', '2009-11-24 18:14:22', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;35;1mBranch Load (0.000256)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000170)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mSQL (0.000321)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'A_Repository_for_testing') [0m
+  [4;36;1mSQL (0.000134)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'A_Repository_for_testing') [0m
+  [4;35;1mSQL (0.000128)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;36;1mRepository Create (0.000322)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('A_Repository_for_testing', '2009-11-24 18:14:22', '2009-11-24 18:14:22', '/tmp/test_repos/A_Repository_for_testing.git', 'A Repository for testing')[0m
+  [4;35;1mBranch Load (0.000170)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000133)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000287)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000160)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000336)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000125)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000138)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000138)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000137)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000167)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000163)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000190)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000143)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000152)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000251)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000088)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000087)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000071)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000069)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000066)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000068)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000069)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000186)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;35;1mSQL (0.000079)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;36;1mSQL (0.000074)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000114)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:23:34', '2009-11-24 18:23:34', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.000484)[0m   [0;1mSELECT "path" FROM "cloned_repositories" WHERE ("cloned_repositories".path = '/tmp/working_copies/b3fe29e98e82956dcc79cfba414ad5a8') [0m
+  [4;35;1mClonedRepository Create (0.000361)[0m   [0mINSERT INTO "cloned_repositories" ("created_at", "updated_at", "path", "original_repository_id") VALUES('2009-11-24 18:23:34', '2009-11-24 18:23:34', '/tmp/working_copies/b3fe29e98e82956dcc79cfba414ad5a8', 1)[0m
+  [4;36;1mClonedRepository Destroy (0.000341)[0m   [0;1m DELETE FROM "cloned_repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mBranch Load (0.000167)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000139)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000288)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000161)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000299)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000121)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000139)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000141)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000172)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000166)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000195)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000142)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000240)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000064)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000078)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000066)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000064)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000063)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000192)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;35;1mSQL (0.000081)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;36;1mSQL (0.000076)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000105)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:24:06', '2009-11-24 18:24:06', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.000333)[0m   [0;1mSELECT "path" FROM "cloned_repositories" WHERE ("cloned_repositories".path = '/tmp/working_copies/506269a8c81ebe8df44565a9b366df3c') [0m
+  [4;35;1mClonedRepository Create (0.000245)[0m   [0mINSERT INTO "cloned_repositories" ("created_at", "updated_at", "path", "original_repository_id") VALUES('2009-11-24 18:24:06', '2009-11-24 18:24:06', '/tmp/working_copies/506269a8c81ebe8df44565a9b366df3c', 1)[0m
+  [4;36;1mClonedRepository Destroy (0.000228)[0m   [0;1m DELETE FROM "cloned_repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mBranch Load (0.000156)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000105)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000295)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000162)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000305)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000129)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000140)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000139)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000174)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000168)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000191)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000127)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000134)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000240)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000079)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000077)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000066)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000064)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000062)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000240)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;35;1mSQL (0.000095)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;36;1mSQL (0.000084)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000121)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:24:09', '2009-11-24 18:24:09', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;36;1mBranch Load (0.000199)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;35;1mRepository Destroy (0.000129)[0m   [0m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000249)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;35;1mSQL (0.000101)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test_') [0m
+  [4;36;1mSQL (0.000090)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test+') [0m
+  [4;35;1mRepository Create (0.000125)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test_', '2009-11-24 18:24:09', '2009-11-24 18:24:09', '/tmp/test_repos/Test_.git', 'Test+')[0m
+  [4;36;1mSQL (0.000392)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;35;1mSQL (0.000267)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test__1') [0m
+  [4;36;1mSQL (0.000129)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test__1') [0m
+  [4;35;1mSQL (0.000114)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test-') [0m
+  [4;36;1mRepository Create (0.000109)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test__1', '2009-11-24 18:24:09', '2009-11-24 18:24:09', '/tmp/test_repos/Test__1.git', 'Test-')[0m
+  [4;35;1mBranch Load (0.000217)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000113)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mBranch Load (0.000107)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 2) [0m
+  [4;36;1mRepository Destroy (0.000094)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 2
+[0m
+  [4;35;1mSQL (0.000242)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;36;1mSQL (0.000090)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;35;1mSQL (0.000084)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;36;1mRepository Create (0.000197)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:24:09', '2009-11-24 18:24:09', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;35;1mBranch Load (0.000250)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000195)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mSQL (0.000267)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'A_Repository_for_testing') [0m
+  [4;36;1mSQL (0.000237)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'A_Repository_for_testing') [0m
+  [4;35;1mSQL (0.000153)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;36;1mRepository Create (0.000185)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('A_Repository_for_testing', '2009-11-24 18:24:09', '2009-11-24 18:24:09', '/tmp/test_repos/A_Repository_for_testing.git', 'A Repository for testing')[0m
+  [4;35;1mBranch Load (0.000186)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000194)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mSQL (0.000354)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;36;1mSQL (0.000128)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;35;1mSQL (0.000113)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;36;1mRepository Create (0.000182)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:24:09', '2009-11-24 18:24:09', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;35;1mSQL (0.000249)[0m   [0mSELECT "path" FROM "cloned_repositories" WHERE ("cloned_repositories".path = '/tmp/working_copies/6bc470c35cb331a1fa6d1be36bb4c51e') [0m
+  [4;36;1mClonedRepository Create (0.000481)[0m   [0;1mINSERT INTO "cloned_repositories" ("created_at", "updated_at", "path", "original_repository_id") VALUES('2009-11-24 18:24:09', '2009-11-24 18:24:09', '/tmp/working_copies/6bc470c35cb331a1fa6d1be36bb4c51e', 2)[0m
+  [4;35;1mClonedRepository Destroy (0.000155)[0m   [0m DELETE FROM "cloned_repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mBranch Load (0.000129)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 2) [0m
+  [4;35;1mRepository Destroy (0.000126)[0m   [0m DELETE FROM "repositories"
+ WHERE "id" = 2
+[0m
+  [4;36;1mSQL (0.000287)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000160)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000301)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000125)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000139)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000145)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000268)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000167)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000191)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000125)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000142)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000216)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000062)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000068)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000064)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000206)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;35;1mSQL (0.000084)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;36;1mSQL (0.000075)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000107)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:27:30', '2009-11-24 18:27:30', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.000346)[0m   [0;1mSELECT "path" FROM "cloned_repositories" WHERE ("cloned_repositories".path = '/tmp/working_copies/1c3c7ef0ca34959847d85f8a66fc07f4') [0m
+  [4;35;1mClonedRepository Create (0.000245)[0m   [0mINSERT INTO "cloned_repositories" ("created_at", "updated_at", "path", "original_repository_id") VALUES('2009-11-24 18:27:30', '2009-11-24 18:27:30', '/tmp/working_copies/1c3c7ef0ca34959847d85f8a66fc07f4', 1)[0m
+  [4;36;1mClonedRepository Destroy (0.000207)[0m   [0;1m DELETE FROM "cloned_repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mBranch Load (0.000153)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000107)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mSQL (0.000212)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;36;1mSQL (0.000086)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;35;1mSQL (0.000084)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;36;1mRepository Create (0.000129)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:27:30', '2009-11-24 18:27:30', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;35;1mSQL (0.000207)[0m   [0mSELECT "path" FROM "cloned_repositories" WHERE ("cloned_repositories".path = '/tmp/working_copies/02592dfafbab72c129452931ae2bab9c') [0m
+  [4;36;1mClonedRepository Create (0.000130)[0m   [0;1mINSERT INTO "cloned_repositories" ("created_at", "updated_at", "path", "original_repository_id") VALUES('2009-11-24 18:27:30', '2009-11-24 18:27:30', '/tmp/working_copies/02592dfafbab72c129452931ae2bab9c', 2)[0m
+  [4;35;1mClonedRepository Destroy (0.000124)[0m   [0m DELETE FROM "cloned_repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mBranch Load (0.000118)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 2) [0m
+  [4;35;1mRepository Destroy (0.000117)[0m   [0m DELETE FROM "repositories"
+ WHERE "id" = 2
+[0m
+  [4;36;1mSQL (0.000367)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000179)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000303)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000125)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000139)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000137)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000139)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000167)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000166)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000191)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000128)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000172)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000218)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000062)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000188)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000077)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000074)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000064)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000195)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;35;1mSQL (0.000080)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;36;1mSQL (0.000090)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000114)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:29:49', '2009-11-24 18:29:49', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.000215)[0m   [0;1mSELECT "path" FROM "cloned_repositories" WHERE ("cloned_repositories".path = '/tmp/working_copies/b63c6b2a79594c7f1210efbc8dd32107') [0m
+  [4;35;1mClonedRepository Create (0.000143)[0m   [0mINSERT INTO "cloned_repositories" ("created_at", "updated_at", "path", "original_repository_id") VALUES('2009-11-24 18:29:49', '2009-11-24 18:29:49', '/tmp/working_copies/b63c6b2a79594c7f1210efbc8dd32107', 1)[0m
+  [4;36;1mClonedRepository Destroy (0.000152)[0m   [0;1m DELETE FROM "cloned_repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mBranch Load (0.000163)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000134)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mSQL (0.000275)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;36;1mSQL (0.000101)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;35;1mSQL (0.000085)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;36;1mRepository Create (0.000124)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:29:49', '2009-11-24 18:29:49', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;35;1mSQL (0.000194)[0m   [0mSELECT "path" FROM "cloned_repositories" WHERE ("cloned_repositories".path = '/tmp/working_copies/f902aa2d5b848d8e51a1a2d16fae88a4') [0m
+  [4;36;1mClonedRepository Create (0.000123)[0m   [0;1mINSERT INTO "cloned_repositories" ("created_at", "updated_at", "path", "original_repository_id") VALUES('2009-11-24 18:29:49', '2009-11-24 18:29:49', '/tmp/working_copies/f902aa2d5b848d8e51a1a2d16fae88a4', 2)[0m
+  [4;35;1mClonedRepository Destroy (0.000105)[0m   [0m DELETE FROM "cloned_repositories"
+ WHERE "id" = 2
+[0m
+  [4;36;1mBranch Load (0.000260)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 2) [0m
+  [4;35;1mRepository Destroy (0.000096)[0m   [0m DELETE FROM "repositories"
+ WHERE "id" = 2
+[0m
+  [4;36;1mSQL (0.000205)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;35;1mSQL (0.000085)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;36;1mSQL (0.000081)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000103)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:29:49', '2009-11-24 18:29:49', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.000192)[0m   [0;1mSELECT "path" FROM "cloned_repositories" WHERE ("cloned_repositories".path = '/tmp/working_copies/c8bb27750198003b6210077fd001e9d8') [0m
+  [4;35;1mClonedRepository Create (0.000122)[0m   [0mINSERT INTO "cloned_repositories" ("created_at", "updated_at", "path", "original_repository_id") VALUES('2009-11-24 18:29:49', '2009-11-24 18:29:49', '/tmp/working_copies/c8bb27750198003b6210077fd001e9d8', 3)[0m
+  [4;36;1mClonedRepository Destroy (0.000159)[0m   [0;1m DELETE FROM "cloned_repositories"
+ WHERE "id" = 2
+[0m
+  [4;35;1mBranch Load (0.000156)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 3) [0m
+  [4;36;1mRepository Destroy (0.000143)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 3
+[0m
+  [4;36;1mSQL (0.000351)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000178)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000835)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000141)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000142)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000142)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000142)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000171)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000183)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000196)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000127)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000130)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000222)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000063)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000069)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000063)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000282)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;35;1mSQL (0.000137)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;36;1mSQL (0.000099)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000148)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:35:58', '2009-11-24 18:35:58', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.000205)[0m   [0;1mSELECT "name" FROM "branches" WHERE ("branches".name = 'master' AND "branches".repository_id = 1) [0m
+  [4;35;1mSQL (0.000277)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;36;1mSQL (0.000128)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test_') [0m
+  [4;35;1mSQL (0.000101)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test+') [0m
+  [4;36;1mRepository Create (0.000131)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test_', '2009-11-24 18:35:59', '2009-11-24 18:35:59', '/tmp/test_repos/Test_.git', 'Test+')[0m
+  [4;35;1mSQL (0.000212)[0m   [0mSELECT "name" FROM "branches" WHERE ("branches".name = 'master' AND "branches".repository_id = 1) [0m
+  [4;36;1mSQL (0.000223)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;35;1mSQL (0.000100)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;36;1mSQL (0.000086)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000128)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:35:59', '2009-11-24 18:35:59', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.000209)[0m   [0;1mSELECT "name" FROM "branches" WHERE ("branches".name = 'master' AND "branches".repository_id = 1) [0m
+  [4;35;1mSQL (0.000233)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'A_Repository_for_testing') [0m
+  [4;36;1mSQL (0.000099)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'A_Repository_for_testing') [0m
+  [4;35;1mSQL (0.000087)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;36;1mRepository Create (0.000123)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('A_Repository_for_testing', '2009-11-24 18:35:59', '2009-11-24 18:35:59', '/tmp/test_repos/A_Repository_for_testing.git', 'A Repository for testing')[0m
+  [4;35;1mSQL (0.000190)[0m   [0mSELECT "name" FROM "branches" WHERE ("branches".name = 'master' AND "branches".repository_id = 1) [0m
+  [4;36;1mSQL (0.000295)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000160)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000301)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000120)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000157)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000142)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000139)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000170)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000164)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000189)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000128)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000130)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000223)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000062)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000071)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000061)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000062)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000216)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;35;1mSQL (0.000082)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;36;1mSQL (0.000076)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000107)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:36:39', '2009-11-24 18:36:39', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;36;1mBranch Load (0.000188)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;35;1mRepository Destroy (0.000170)[0m   [0m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000229)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;35;1mSQL (0.000090)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test_') [0m
+  [4;36;1mSQL (0.000081)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test+') [0m
+  [4;35;1mRepository Create (0.000111)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test_', '2009-11-24 18:36:39', '2009-11-24 18:36:39', '/tmp/test_repos/Test_.git', 'Test+')[0m
+  [4;36;1mSQL (0.000334)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;35;1mSQL (0.000162)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test__1') [0m
+  [4;36;1mSQL (0.000089)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test__1') [0m
+  [4;35;1mSQL (0.000086)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test-') [0m
+  [4;36;1mRepository Create (0.000109)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test__1', '2009-11-24 18:36:39', '2009-11-24 18:36:39', '/tmp/test_repos/Test__1.git', 'Test-')[0m
+  [4;35;1mBranch Load (0.000216)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000112)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mBranch Load (0.000217)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 2) [0m
+  [4;36;1mRepository Destroy (0.000104)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 2
+[0m
+  [4;35;1mSQL (0.000268)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;36;1mSQL (0.000106)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;35;1mSQL (0.000101)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;36;1mRepository Create (0.000135)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:36:39', '2009-11-24 18:36:39', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;35;1mBranch Load (0.000211)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000131)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mSQL (0.000244)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'A_Repository_for_testing') [0m
+  [4;36;1mSQL (0.000096)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'A_Repository_for_testing') [0m
+  [4;35;1mSQL (0.000089)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;36;1mRepository Create (0.000125)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('A_Repository_for_testing', '2009-11-24 18:36:39', '2009-11-24 18:36:39', '/tmp/test_repos/A_Repository_for_testing.git', 'A Repository for testing')[0m
+  [4;35;1mBranch Load (0.000152)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000141)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000318)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000174)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000334)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000144)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000176)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000174)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000170)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000176)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000165)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000192)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000127)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000130)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000218)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000063)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000069)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000063)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000205)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;35;1mSQL (0.000080)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;36;1mSQL (0.000074)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000102)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:36:42', '2009-11-24 18:36:42', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;36;1mBranch Load (0.000186)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;35;1mRepository Destroy (0.000104)[0m   [0m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mSQL (0.000208)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;35;1mSQL (0.000089)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test_') [0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test+') [0m
+  [4;35;1mRepository Create (0.000117)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test_', '2009-11-24 18:36:42', '2009-11-24 18:36:42', '/tmp/test_repos/Test_.git', 'Test+')[0m
+  [4;36;1mSQL (0.000300)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test_') [0m
+  [4;35;1mSQL (0.000153)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test__1') [0m
+  [4;36;1mSQL (0.000087)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test__1') [0m
+  [4;35;1mSQL (0.000083)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test-') [0m
+  [4;36;1mRepository Create (0.000108)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test__1', '2009-11-24 18:36:42', '2009-11-24 18:36:42', '/tmp/test_repos/Test__1.git', 'Test-')[0m
+  [4;35;1mBranch Load (0.000204)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000222)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mBranch Load (0.000101)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 2) [0m
+  [4;36;1mRepository Destroy (0.000112)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 2
+[0m
+  [4;35;1mSQL (0.000250)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;36;1mSQL (0.000117)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;35;1mSQL (0.000111)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;36;1mRepository Create (0.000133)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:36:42', '2009-11-24 18:36:42', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;35;1mBranch Load (0.000194)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000097)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mSQL (0.000215)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'A_Repository_for_testing') [0m
+  [4;36;1mSQL (0.000081)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'A_Repository_for_testing') [0m
+  [4;35;1mSQL (0.000080)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'A Repository for testing') [0m
+  [4;36;1mRepository Create (0.067371)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('A_Repository_for_testing', '2009-11-24 18:36:42', '2009-11-24 18:36:42', '/tmp/test_repos/A_Repository_for_testing.git', 'A Repository for testing')[0m
+  [4;35;1mBranch Load (0.000170)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Destroy (0.000394)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mSQL (0.000239)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;36;1mSQL (0.000096)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;35;1mSQL (0.000100)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;36;1mRepository Create (0.000135)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:36:42', '2009-11-24 18:36:42', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;35;1mSQL (0.000597)[0m   [0mSELECT "path" FROM "cloned_repositories" WHERE ("cloned_repositories".path = '/tmp/working_copies/82d8967894535c142168a9a3f2ec4810') [0m
+  [4;36;1mClonedRepository Create (0.000462)[0m   [0;1mINSERT INTO "cloned_repositories" ("created_at", "updated_at", "path", "original_repository_id") VALUES('2009-11-24 18:36:42', '2009-11-24 18:36:42', '/tmp/working_copies/82d8967894535c142168a9a3f2ec4810', 2)[0m
+  [4;35;1mClonedRepository Destroy (0.000378)[0m   [0m DELETE FROM "cloned_repositories"
+ WHERE "id" = 1
+[0m
+  [4;36;1mBranch Load (0.000141)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 2) [0m
+  [4;35;1mRepository Destroy (0.000119)[0m   [0m DELETE FROM "repositories"
+ WHERE "id" = 2
+[0m
+  [4;36;1mSQL (0.000232)[0m   [0;1mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;35;1mSQL (0.000098)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;36;1mSQL (0.000094)[0m   [0;1mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000132)[0m   [0mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:36:42', '2009-11-24 18:36:42', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.000249)[0m   [0;1mSELECT "path" FROM "cloned_repositories" WHERE ("cloned_repositories".path = '/tmp/working_copies/27f1b6deb6f9715ae27f5912e0ecfc32') [0m
+  [4;35;1mClonedRepository Create (0.000182)[0m   [0mINSERT INTO "cloned_repositories" ("created_at", "updated_at", "path", "original_repository_id") VALUES('2009-11-24 18:36:42', '2009-11-24 18:36:42', '/tmp/working_copies/27f1b6deb6f9715ae27f5912e0ecfc32', 3)[0m
+  [4;36;1mClonedRepository Destroy (0.000163)[0m   [0;1m DELETE FROM "cloned_repositories"
+ WHERE "id" = 2
+[0m
+  [4;35;1mBranch Load (0.000146)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 3) [0m
+  [4;36;1mRepository Destroy (0.000140)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 3
+[0m
+  [4;35;1mSQL (0.000268)[0m   [0mSELECT count(*) AS count_all FROM "repositories" WHERE ("repositories"."name" = 'Test') [0m
+  [4;36;1mSQL (0.000112)[0m   [0;1mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'Test') [0m
+  [4;35;1mSQL (0.000096)[0m   [0mSELECT "human_name" FROM "repositories" WHERE ("repositories".human_name = 'Test') [0m
+  [4;36;1mRepository Create (0.000156)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path", "human_name") VALUES('Test', '2009-11-24 18:36:42', '2009-11-24 18:36:42', '/tmp/test_repos/Test.git', 'Test')[0m
+  [4;35;1mSQL (0.000227)[0m   [0mSELECT "path" FROM "cloned_repositories" WHERE ("cloned_repositories".path = '/tmp/working_copies/107bfb8c04da1db058314a4c9d77b07c') [0m
+  [4;36;1mClonedRepository Create (0.000153)[0m   [0;1mINSERT INTO "cloned_repositories" ("created_at", "updated_at", "path", "original_repository_id") VALUES('2009-11-24 18:36:42', '2009-11-24 18:36:42', '/tmp/working_copies/107bfb8c04da1db058314a4c9d77b07c', 4)[0m
+  [4;35;1mClonedRepository Destroy (0.000171)[0m   [0m DELETE FROM "cloned_repositories"
+ WHERE "id" = 2
+[0m
+  [4;36;1mBranch Load (0.000132)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 4) [0m
+  [4;35;1mRepository Destroy (0.000105)[0m   [0m DELETE FROM "repositories"
+ WHERE "id" = 4
+[0m

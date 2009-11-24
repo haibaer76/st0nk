@@ -7,6 +7,7 @@
 #  path       :string(256)
 #  created_at :datetime
 #  updated_at :datetime
+#  human_name :string(255)
 #
 
 require 'test_helper'

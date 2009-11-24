@@ -1,0 +1,19 @@
+#idLeftCol {
+  float: left;
+  max-width: 200px;
+  border: black solid 1px;
+}
+
+#idRightCol {
+  float: right;
+  max-width: 200px;
+  border: black dotted 1px;
+}
+
+#idContent {
+}
+
+.clsForm {
+  display: block;
+}
+

@@ -13594,3 +13594,2808 @@ error: failed to push some refs to '/home/feson/stonk/repositories/master.git'):
     script/server:3
 
 Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;36;1mSQL (0.000314)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000141)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.004887)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.003024)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000134)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000128)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRepositories (20091004132559)
+  [4;36;1mSQL (0.003192)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.002856)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091004132559')[0m
+Migrating to CreateUsers (20091007181458)
+  [4;36;1mSQL (0.000358)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.004717)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;36;1mSQL (0.003435)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091007181458')[0m
+Migrating to CreateBranches (20091009170903)
+  [4;35;1mSQL (0.005210)[0m   [0mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.005454)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091009170903')[0m
+Migrating to AddDescriptionToBranch (20091010144329)
+  [4;35;1mSQL (0.004030)[0m   [0mALTER TABLE "branches" ADD "description" varchar(255)[0m
+  [4;36;1mSQL (0.051087)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.003293)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091010144329')[0m
+Migrating to CreateClonedRepositories (20091010183026)
+  [4;36;1mSQL (0.003303)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.002636)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091010183026')[0m
+  [4;36;1mSQL (0.000346)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000246)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000262)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000055)[0m   [0mPRAGMA index_list("branches")[0m
+  [4;36;1mSQL (0.000051)[0m   [0;1mPRAGMA index_list("cloned_repositories")[0m
+  [4;35;1mSQL (0.000049)[0m   [0mPRAGMA index_list("repositories")[0m
+  [4;36;1mSQL (0.000056)[0m   [0;1mPRAGMA index_list("users")[0m
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 16:33:49) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000483)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendering template within layouts/documents
+Rendering documents/index
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "repositories" [0m
+Completed in 0.05000 (20 reqs/sec) | Rendering: 0.01798 (35%) | DB: 0.00048 (0%) | 200 OK [http://localhost/documents/]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-11-22 16:34:18) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"find_by_name", "docname"=>"first", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000394)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'first') LIMIT 1[0m
+Rendering template within layouts/documents
+Rendering documents/create_new
+  [4;35;1mRepository Load (0.000158)[0m   [0mSELECT * FROM "repositories" [0m
+Completed in 0.01954 (51 reqs/sec) | Rendering: 0.01326 (67%) | DB: 0.00055 (2%) | 200 OK [http://localhost/docs/first]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-11-22 16:34:21) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"find_by_name", "docname"=>"first", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000419)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'first') LIMIT 1[0m
+Rendering template within layouts/documents
+Rendering documents/create_new
+  [4;35;1mRepository Load (0.000134)[0m   [0mSELECT * FROM "repositories" [0m
+Completed in 0.00860 (116 reqs/sec) | Rendering: 0.00146 (16%) | DB: 0.00055 (6%) | 200 OK [http://localhost/docs/first]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-11-22 16:34:25) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"find_by_name", "branch"=>"master", "docname"=>"first", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000434)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'first') LIMIT 1[0m
+Rendering template within layouts/documents
+Rendering documents/create_new
+  [4;35;1mRepository Load (0.000173)[0m   [0mSELECT * FROM "repositories" [0m
+Completed in 0.03032 (32 reqs/sec) | Rendering: 0.00162 (5%) | DB: 0.00061 (2%) | 200 OK [http://localhost/docs/first.master]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-11-22 16:35:20) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"find_by_name", "docname"=>"first", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000380)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'first') LIMIT 1[0m
+Rendering template within layouts/documents
+Rendering documents/create_new
+  [4;35;1mRepository Load (0.000113)[0m   [0mSELECT * FROM "repositories" [0m
+Completed in 0.00739 (135 reqs/sec) | Rendering: 0.00142 (19%) | DB: 0.00049 (6%) | 200 OK [http://localhost/docs/first]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-11-22 16:35:29) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"find_by_name", "docname"=>"first", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000373)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'first') LIMIT 1[0m
+Rendering template within layouts/documents
+Rendering documents/create_new
+  [4;35;1mRepository Load (0.000102)[0m   [0mSELECT * FROM "repositories" [0m
+Completed in 0.00705 (141 reqs/sec) | Rendering: 0.00128 (18%) | DB: 0.00047 (6%) | 200 OK [http://localhost/docs/first]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-11-22 16:36:09) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"find_by_name", "docname"=>"first", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000370)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'first') LIMIT 1[0m
+Finding name first
+Rendering template within layouts/documents
+Rendering documents/create_new
+  [4;35;1mRepository Load (0.000110)[0m   [0mSELECT * FROM "repositories" [0m
+Completed in 0.00741 (134 reqs/sec) | Rendering: 0.00133 (17%) | DB: 0.00048 (6%) | 200 OK [http://localhost/docs/first]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-11-22 16:36:19) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"find_by_name", "docname"=>"first", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000363)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'first') LIMIT 1[0m
+Finding name first
+Rendering template within layouts/documents
+Rendering documents/create_new
+  [4;35;1mRepository Load (0.000110)[0m   [0mSELECT * FROM "repositories" [0m
+Completed in 0.00736 (135 reqs/sec) | Rendering: 0.00128 (17%) | DB: 0.00047 (6%) | 200 OK [http://localhost/docs/first]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-11-22 16:37:26) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"find_by_name", "docname"=>"first", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000346)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'first') LIMIT 1[0m
+Finding name first
+Rendering template within layouts/documents
+Rendering documents/create_new
+  [4;35;1mRepository Load (0.000106)[0m   [0mSELECT * FROM "repositories" [0m
+Completed in 0.00665 (150 reqs/sec) | Rendering: 0.00124 (18%) | DB: 0.00045 (6%) | 200 OK [http://localhost/docs/first]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-11-22 16:40:28) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"find_by_name", "docname"=>"first", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000375)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'first') LIMIT 1[0m
+Finding name first
+Rendering template within layouts/application
+Rendering documents/create_new
+ERROR: compiling _run_erb_47app47views47layouts47application46html46erb RAISED compile error
+/home/feson/projects/st0nk/app/views/layouts/application.html.erb:8: syntax error, unexpected '=', expecting kEND
+;  = yield ; _erbout.concat "\n</body>\n</html>\n"
+    ^
+Function body: def _run_erb_47app47views47layouts47application46html46erb(local_assigns)
+_erbout = ''; _erbout.concat "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n        \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html>\n<head><title>st0nk &mdash; "
+
+
+; _erbout.concat(( @title ).to_s); _erbout.concat "</title></head>\n<body>\n  "
+
+; _erbout.concat(( flash[:notice] ).to_s); _erbout.concat "\n\n  "
+
+;  = yield ; _erbout.concat "\n</body>\n</html>\n"
+
+
+; _erbout
+end
+Backtrace: /home/feson/projects/st0nk/app/views/layouts/application.html.erb:12:in `compile_template'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:55:in `prepare!'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:34:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:22:in `render_template'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:248:in `render_file'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+/var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+/home/feson/projects/st0nk/app/controllers/documents_controller.rb:26:in `find_by_name'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1166:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+/var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+/var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+/var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+/var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+/var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+/var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+/var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+/var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+
+ActionView::TemplateError (compile error
+/home/feson/projects/st0nk/app/views/layouts/application.html.erb:8: syntax error, unexpected '=', expecting kEND
+;  = yield ; _erbout.concat "\n</body>\n</html>\n"
+    ^) on line #8 of layouts/application.html.erb:
+5: <body>
+6:   <%= flash[:notice] %>
+7: 
+8:   <% = yield %>
+9: </body>
+10: </html>
+
+    app/views/layouts/application.html.erb:12:in `compile_template'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:55:in `prepare!'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:34:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:22:in `render_template'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:248:in `render_file'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    app/controllers/documents_controller.rb:26:in `find_by_name'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1166:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-11-22 16:40:39) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"find_by_name", "docname"=>"first", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000341)[0m   [0mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'first') LIMIT 1[0m
+Finding name first
+Rendering template within layouts/application
+Rendering documents/create_new
+Completed in 0.00678 (147 reqs/sec) | Rendering: 0.00166 (24%) | DB: 0.00034 (5%) | 200 OK [http://localhost/docs/first]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-11-22 16:49:18) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"find_by_name", "docname"=>"first", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000512)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'first') LIMIT 1[0m
+Finding name first
+Rendering template within layouts/application
+Rendering documents/create_new
+Completed in 0.00897 (111 reqs/sec) | Rendering: 0.00178 (19%) | DB: 0.00051 (5%) | 200 OK [http://localhost/docs/first]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-11-22 16:55:52) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"find_by_name", "docname"=>"first", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000580)[0m   [0mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'first') LIMIT 1[0m
+Finding name first
+Rendering template within layouts/application
+Rendering documents/create_new
+
+
+ActionView::TemplateError (Missing layout layouts/_left_col.html.erb in view path /home/feson/projects/st0nk/app/views) on line #14 of layouts/application.html.erb:
+11:     <%= flash[:notice] %>
+12:   </div>
+13:   <div id='idLeftCol'>
+14:     <%= render :partial => 'layouts/left_col'%>
+15:   </div>
+16:   <div id='idRightCol'>
+17:     <% render :partial => (current_user ? 'layouts/user_info' : 'layouts/login') %>
+
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:85:in `raise_missing_template_exception'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:78:in `set_extension_and_file_name'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:15:in `initialize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partial_template.rb:8:in `initialize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `new'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `render_partial'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:277:in `render'
+    app/views/layouts/application.html.erb:14:in `_run_erb_47app47views47layouts47application46html46erb'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `execute'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:35:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:22:in `render_template'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:248:in `render_file'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    app/controllers/documents_controller.rb:26:in `find_by_name'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1166:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 16:56:51) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000399)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+
+
+ActionView::TemplateError (Missing layout layouts/_left_col.html.erb in view path /home/feson/projects/st0nk/app/views) on line #14 of layouts/application.html.erb:
+11:     <%= flash[:notice] %>
+12:   </div>
+13:   <div id='idLeftCol'>
+14:     <%= render :partial => 'layouts/left_col'%>
+15:   </div>
+16:   <div id='idRightCol'>
+17:     <% render :partial => (current_user ? 'layouts/user_info' : 'layouts/login') %>
+
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:85:in `raise_missing_template_exception'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:78:in `set_extension_and_file_name'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:15:in `initialize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partial_template.rb:8:in `initialize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `new'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `render_partial'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:277:in `render'
+    app/views/layouts/application.html.erb:14:in `_run_erb_47app47views47layouts47application46html46erb'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `execute'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:35:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:22:in `render_template'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:248:in `render_file'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1161:in `default_render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1167:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 17:00:13) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000423)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00022)
+
+
+ActionView::TemplateError (Missing layout layouts/_user_info.html.erb in view path /home/feson/projects/st0nk/app/views) on line #17 of layouts/application.html.erb:
+14:     <%= render :partial => 'layouts/left_col'%>
+15:   </div>
+16:   <div id='idRightCol'>
+17:     <% render :partial => (current_user ? 'layouts/user_info' : 'layouts/login') %>
+18:   </div>
+19:   <div id='idContent'>
+20:     <%= yield %>
+
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:85:in `raise_missing_template_exception'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:78:in `set_extension_and_file_name'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:15:in `initialize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partial_template.rb:8:in `initialize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `new'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `render_partial'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:277:in `render'
+    app/views/layouts/application.html.erb:17:in `_run_erb_47app47views47layouts47application46html46erb'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `execute'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:35:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:22:in `render_template'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:248:in `render_file'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1161:in `default_render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1167:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 17:00:44) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000329)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00019)
+
+
+ActionView::TemplateError (undefined method `nil' for :false:Symbol) on line #17 of layouts/application.html.erb:
+14:     <%= render :partial => 'layouts/left_col'%>
+15:   </div>
+16:   <div id='idRightCol'>
+17:     <% render :partial => (current_user.nil ? 'layouts/login' : 'layouts/user_info') %>
+18:   </div>
+19:   <div id='idContent'>
+20:     <%= yield %>
+
+    app/views/layouts/application.html.erb:17:in `_run_erb_47app47views47layouts47application46html46erb'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `execute'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:35:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:22:in `render_template'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:248:in `render_file'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1161:in `default_render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1167:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 17:03:02) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000337)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00019)
+
+
+ActionView::TemplateError (undefined method `nil' for :false:Symbol) on line #17 of layouts/application.html.erb:
+14:     <%= render :partial => 'layouts/left_col'%>
+15:   </div>
+16:   <div id='idRightCol'>
+17:     <%= render(:partial => (current_user.nil ? 'layouts/login' : 'layouts/user_info')) %>
+18:   </div>
+19:   <div id='idContent'>
+20:     <%= yield %>
+
+    app/views/layouts/application.html.erb:17:in `_run_erb_47app47views47layouts47application46html46erb'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `execute'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:35:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:22:in `render_template'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:248:in `render_file'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1161:in `default_render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1167:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 17:03:30) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000390)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00024)
+Completed in 0.00879 (113 reqs/sec) | Rendering: 0.00232 (26%) | DB: 0.00039 (4%) | 200 OK [http://localhost/]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 17:03:57) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000371)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00019)
+Completed in 0.00668 (149 reqs/sec) | Rendering: 0.00137 (20%) | DB: 0.00037 (5%) | 200 OK [http://localhost/]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 17:05:00) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000327)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00086)
+
+
+ActionView::TemplateError (Missing layout layouts/_user_info.html.erb in view path /home/feson/projects/st0nk/app/views) on line #18 of layouts/application.html.erb:
+15:   </div>
+16:   <div id='idRightCol'>
+17:     <% if current_user %>
+18:       <%= render :partial => 'layouts/user_info' %>
+19:     <% else %>
+20:       <%= render :partial => 'layouts/login' %>
+21:     <% end %>
+
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:85:in `raise_missing_template_exception'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:78:in `set_extension_and_file_name'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:15:in `initialize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partial_template.rb:8:in `initialize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `new'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `render_partial'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:277:in `render'
+    app/views/layouts/application.html.erb:18:in `_run_erb_47app47views47layouts47application46html46erb'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `execute'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:35:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:22:in `render_template'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:248:in `render_file'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1161:in `default_render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1167:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 17:05:35) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000346)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00018)
+Rendered layouts/_user_info (0.00001)
+Completed in 0.00689 (145 reqs/sec) | Rendering: 0.00185 (26%) | DB: 0.00035 (5%) | 200 OK [http://localhost/]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 17:05:55) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000429)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00022)
+
+
+ActionView::TemplateError (Missing layout layouts/_login.html.erb in view path /home/feson/projects/st0nk/app/views) on line #20 of layouts/application.html.erb:
+17:     <% unless current_user %>
+18:       <%= render :partial => 'layouts/user_info' %>
+19:     <% else %>
+20:       <%= render :partial => 'layouts/login' %>
+21:     <% end %>
+22:   </div>
+23:   <div id='idContent'>
+
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:85:in `raise_missing_template_exception'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:78:in `set_extension_and_file_name'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:15:in `initialize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partial_template.rb:8:in `initialize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `new'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `render_partial'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:277:in `render'
+    app/views/layouts/application.html.erb:20:in `_run_erb_47app47views47layouts47application46html46erb'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `execute'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:35:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:22:in `render_template'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:248:in `render_file'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1161:in `default_render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1167:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 17:07:02) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000331)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00018)
+
+
+ActionView::TemplateError (Missing layout layouts/_login.html.erb in view path /home/feson/projects/st0nk/app/views) on line #20 of layouts/application.html.erb:
+17:     <% if logged_in? %>
+18:       <%= render :partial => 'layouts/user_info' %>
+19:     <% else %>
+20:       <%= render :partial => 'layouts/login' %>
+21:     <% end %>
+22:   </div>
+23:   <div id='idContent'>
+
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:85:in `raise_missing_template_exception'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:78:in `set_extension_and_file_name'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:15:in `initialize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partial_template.rb:8:in `initialize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `new'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `render_partial'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:277:in `render'
+    app/views/layouts/application.html.erb:20:in `_run_erb_47app47views47layouts47application46html46erb'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `execute'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:35:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:22:in `render_template'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:248:in `render_file'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1161:in `default_render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1167:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 17:13:11) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000328)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00017)
+ERROR: compiling _run_erb_47app47views47layouts47_login46html46erb RAISED compile error
+/home/feson/projects/st0nk/app/views/layouts/_login.html.erb:1: syntax error, unexpected ';'
+...'';  form_tag("/login") do - ; _erbout.concat "\n  <p><label...
+                              ^
+Function body: def _run_erb_47app47views47layouts47_login46html46erb(local_assigns)
+login = local_assigns[:login]
+object = local_assigns[:object]
+login_counter = local_assigns[:login_counter]
+_erbout = '';  form_tag("/login") do - ; _erbout.concat "\n  <p><label for=\"login\">Login:</label><br/>\n  "
+
+; _erbout.concat(( text_field_tag 'login' ).to_s); _erbout.concat "</p>\n\n  <p><label for='password'>Passwort:</label><br/>\n  "
+
+
+; _erbout.concat(( password_field_tag 'password' ).to_s); _erbout.concat "</p>\n\n  <p><label for=\"remember_me\">Auf diesem Rechner merken</label>\n  "
+
+
+; _erbout.concat(( check_box_tag 'remember_me' ).to_s); _erbout.concat "</p>\n\n  <p>"
+
+; _erbout.concat(( submit_tag 'Login' ).to_s); _erbout.concat "\n"
+;  end 
+_erbout.concat "\n<p>\n  "
+
+; _erbout.concat(( link_to "Neuen Account anlegen", :signup ).to_s); _erbout.concat "\n</p>\n\n"
+
+
+; _erbout
+end
+Backtrace: /home/feson/projects/st0nk/app/views/layouts/_login.html.erb:19:in `compile_template'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:55:in `prepare!'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partial_template.rb:15:in `initialize'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `new'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `render_partial'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:277:in `render'
+/home/feson/projects/st0nk/app/views/layouts/application.html.erb:20:in `_run_erb_47app47views47layouts47application46html46erb'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `execute'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:35:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:22:in `render_template'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:248:in `render_file'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+/var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1161:in `default_render'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1167:in `perform_action_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+/var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+/var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+/var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+/var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+/var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+/var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+/var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+/var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+
+ActionView::TemplateError (compile error
+/home/feson/projects/st0nk/app/views/layouts/_login.html.erb:1: syntax error, unexpected ';'
+...'';  form_tag("/login") do - ; _erbout.concat "\n  <p><label...
+                              ^) on line #1 of layouts/_login.html.erb:
+1: <% form_tag("/login") do - %>
+2:   <p><label for="login">Login:</label><br/>
+3:   <%= text_field_tag 'login' %></p>
+4: 
+
+    app/views/layouts/_login.html.erb:19:in `compile_template'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:55:in `prepare!'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partial_template.rb:15:in `initialize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `new'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `render_partial'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:277:in `render'
+    app/views/layouts/application.html.erb:20:in `_run_erb_47app47views47layouts47application46html46erb'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `execute'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:35:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:22:in `render_template'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:248:in `render_file'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1161:in `default_render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1167:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 17:13:46) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--58a9c6c8171b2c01f8c7ea003bd7e62c19ea061c
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000357)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00019)
+Rendered layouts/_login (0.00093)
+Completed in 0.00885 (112 reqs/sec) | Rendering: 0.00322 (36%) | DB: 0.00036 (4%) | 200 OK [http://localhost/]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 17:14:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000336)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00019)
+Rendered layouts/_login (0.00054)
+Completed in 0.00769 (130 reqs/sec) | Rendering: 0.00252 (32%) | DB: 0.00034 (4%) | 200 OK [http://localhost/]
+
+
+Processing DocumentsController#new (for 127.0.0.1 at 2009-11-22 17:15:27) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"action"=>"new", "controller"=>"documents"}
+Params = {"action"=>"new", "controller"=>"documents"}
+Rendering template within layouts/application
+Rendering documents/new
+  [4;35;1mRepository Load (0.000414)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00106)
+Rendered layouts/_login (0.00174)
+Completed in 0.03473 (28 reqs/sec) | Rendering: 0.02650 (76%) | DB: 0.00041 (1%) | 200 OK [http://localhost/documents/new]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 17:16:56) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000408)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00021)
+Rendered layouts/_login (0.00069)
+Completed in 0.00930 (107 reqs/sec) | Rendering: 0.00292 (31%) | DB: 0.00041 (4%) | 200 OK [http://localhost/]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 17:19:38) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000334)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00019)
+Rendered layouts/_login (0.00055)
+Completed in 0.00751 (133 reqs/sec) | Rendering: 0.00241 (32%) | DB: 0.00033 (4%) | 200 OK [http://localhost/]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-11-22 17:19:54) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+Rendering template within layouts/account
+Rendering account/signup
+Completed in 0.04966 (20 reqs/sec) | Rendering: 0.02225 (44%) | DB: 0.00000 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-11-22 17:20:35) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+Rendering template within layouts/application
+Rendering account/signup
+  [4;36;1mRepository Load (0.000180)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00716)
+Rendered layouts/_login (0.00056)
+Completed in 0.01962 (50 reqs/sec) | Rendering: 0.01115 (56%) | DB: 0.00018 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-11-22 17:21:44) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+Rendering template within layouts/application
+Rendering account/signup
+  [4;35;1mRepository Load (0.000190)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.13561)
+Rendered layouts/_login (0.00065)
+Completed in 0.14747 (6 reqs/sec) | Rendering: 0.14010 (95%) | DB: 0.00019 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-11-22 17:21:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+Rendering template within layouts/application
+Rendering account/signup
+  [4;36;1mRepository Load (0.000182)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00522)
+Rendered layouts/_login (0.00070)
+Completed in 0.04383 (22 reqs/sec) | Rendering: 0.03563 (81%) | DB: 0.00018 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-11-22 17:22:18) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+Rendering template within layouts/application
+Rendering account/signup
+  [4;35;1mRepository Load (0.000176)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00519)
+Rendered layouts/_login (0.00047)
+Completed in 0.02550 (39 reqs/sec) | Rendering: 0.01428 (55%) | DB: 0.00018 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-11-22 17:22:39) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+Rendering template within layouts/application
+Rendering account/signup
+  [4;36;1mRepository Load (0.000176)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00516)
+Rendered layouts/_login (0.00060)
+Completed in 0.01863 (53 reqs/sec) | Rendering: 0.00986 (52%) | DB: 0.00018 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-11-22 17:22:49) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+Rendering template within layouts/application
+Rendering account/signup
+  [4;35;1mRepository Load (0.000167)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00426)
+Rendered layouts/_login (0.00046)
+Completed in 0.01690 (59 reqs/sec) | Rendering: 0.00922 (54%) | DB: 0.00017 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-11-22 17:24:03) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+Rendering template within layouts/application
+Rendering account/signup
+  [4;36;1mRepository Load (0.000175)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00554)
+Rendered layouts/_login (0.00062)
+Completed in 0.01827 (54 reqs/sec) | Rendering: 0.00971 (53%) | DB: 0.00017 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-11-22 17:24:36) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+Rendering template within layouts/application
+Rendering account/signup
+  [4;35;1mRepository Load (0.000174)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00462)
+Rendered layouts/_login (0.00050)
+Completed in 0.01869 (53 reqs/sec) | Rendering: 0.00902 (48%) | DB: 0.00017 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-11-22 17:25:44) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+Rendering template within layouts/application
+Rendering account/signup
+  [4;36;1mRepository Load (0.000204)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00640)
+Rendered layouts/_login (0.00070)
+Completed in 0.02194 (45 reqs/sec) | Rendering: 0.01106 (50%) | DB: 0.00020 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-11-22 17:26:03) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+Rendering template within layouts/application
+Rendering account/signup
+  [4;35;1mRepository Load (0.000177)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00529)
+Rendered layouts/_login (0.00055)
+Completed in 0.01776 (56 reqs/sec) | Rendering: 0.00923 (51%) | DB: 0.00018 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 17:26:40) [GET]
+  Session ID: 7c7c72193237abcf5d8a8f47e8134369
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000365)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00022)
+Rendered layouts/_login (0.00059)
+Completed in 0.00893 (111 reqs/sec) | Rendering: 0.00224 (25%) | DB: 0.00037 (4%) | 200 OK [http://localhost/]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-11-22 17:26:43) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMzBkOTNiYzFkNzZkMmM2MmEzZDZlODU5MTQyYzcy
+ZTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8b698cc49906a24c9c4a12d103247b99c74657ad
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+Rendering template within layouts/application
+Rendering account/signup
+  [4;36;1mRepository Load (0.000193)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00540)
+Rendered layouts/_login (0.00061)
+Completed in 0.02810 (35 reqs/sec) | Rendering: 0.00949 (33%) | DB: 0.00019 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-11-22 17:27:03) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMzBkOTNiYzFkNzZkMmM2MmEzZDZlODU5MTQyYzcy
+ZTIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8b698cc49906a24c9c4a12d103247b99c74657ad
+  Parameters: {"commit"=>"Account anlegen", "authenticity_token"=>"29f20964880c790d2132175759a889087f224db6", "action"=>"signup", "controller"=>"account", "user"=>{"password_confirmation"=>"asd", "login"=>"test", "password"=>"asd", "email"=>"test@example.com"}}
+  [4;35;1mSQL (0.000192)[0m   [0mSELECT "login" FROM "users" WHERE (LOWER("users".login) = 'test') [0m
+  [4;36;1mSQL (0.000072)[0m   [0;1mSELECT "email" FROM "users" WHERE (LOWER("users".email) = 'test@example.com') [0m
+Rendering template within layouts/application
+Rendering account/signup
+  [4;35;1mRepository Load (0.000171)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00487)
+Rendered layouts/_login (0.00053)
+Completed in 0.21661 (4 reqs/sec) | Rendering: 0.00779 (3%) | DB: 0.00044 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-11-22 17:27:32) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+Rendering template within layouts/application
+Rendering account/signup
+  [4;36;1mRepository Load (0.000171)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00459)
+Rendered layouts/_login (0.00054)
+Completed in 0.01794 (55 reqs/sec) | Rendering: 0.00912 (50%) | DB: 0.00017 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-11-22 18:06:56) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYmRhMzBjYzUwN2UwODQ1NTNjOTU3YTUxMGY3OTcy
+ZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7656b4de0aa70df907afed4908d488f9b98643be
+  Parameters: {"commit"=>"Account anlegen", "authenticity_token"=>"3d309d21c1c252b50998789de54cd8d5d9e9a9ec", "action"=>"signup", "controller"=>"account", "user"=>{"password_confirmation"=>"asdf", "login"=>"test", "password"=>"asdf", "email"=>"test@example.com"}}
+  [4;35;1mSQL (0.000119)[0m   [0mSELECT "login" FROM "users" WHERE (LOWER("users".login) = 'test') [0m
+  [4;36;1mSQL (0.000067)[0m   [0;1mSELECT "email" FROM "users" WHERE (LOWER("users".email) = 'test@example.com') [0m
+  [4;35;1mUser Create (0.000310)[0m   [0mINSERT INTO "users" ("salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('caaced3ae442d5266f5baf05fc192860ca749eb7', '2009-11-22 17:06:56', 'cc27fbb875e588bd6bdb049037dbd05205e06e5b', NULL, '2009-11-22 17:06:56', NULL, 'test', 'test@example.com')[0m
+Redirected to http://localhost:3000/account
+Completed in 0.01689 (59 reqs/sec) | DB: 0.00050 (2%) | 302 Found [http://localhost/signup]
+
+
+Processing AccountController#index (for 127.0.0.1 at 2009-11-22 18:06:56) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiViZGEzMGNjNTA3
+ZTA4NDU1M2M5NTdhNTEwZjc5NzJkMCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG1RoYW5rcyBmb3Ig
+c2lnbmluZyB1cCEGOgpAdXNlZHsGOwlG--c31800cff850d89c46c31c8d7903727e7c61d574
+  Parameters: {"action"=>"index", "controller"=>"account"}
+  [4;36;1mUser Load (0.000265)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering account/index
+  [4;35;1mRepository Load (0.000195)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.10410)
+Rendered layouts/_user_info (0.00002)
+Completed in 0.15970 (6 reqs/sec) | Rendering: 0.15106 (94%) | DB: 0.00046 (0%) | 200 OK [http://localhost/account]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 18:07:05) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiViZGEzMGNjNTA3
+ZTA4NDU1M2M5NTdhNTEwZjc5NzJkMCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG1RoYW5rcyBmb3Ig
+c2lnbmluZyB1cCEGOgpAdXNlZHsGOwlU--0b2ae87883f7252f55b357a3251aa901f48521e4
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000397)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "repositories" [0m
+  [4;36;1mUser Load (0.000347)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_left_col (0.00829)
+Rendered layouts/_user_info (0.00002)
+Completed in 0.01627 (61 reqs/sec) | Rendering: 0.00971 (59%) | DB: 0.00074 (4%) | 200 OK [http://localhost/]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 18:08:35) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiViZGEzMGNjNTA3
+ZTA4NDU1M2M5NTdhNTEwZjc5NzJkMCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--01a881c7e88df4a6376097f2f90dea922faa1a07
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000408)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+  [4;35;1mUser Load (0.000362)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_left_col (0.00860)
+
+
+ActionView::TemplateError (undefined method `name' for #<User:0x7f0b69cb5a18>) on line #2 of layouts/_user_info.html.erb:
+1: Angemeldet als
+2: <% current_user.name %>
+3: 
+
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/attribute_methods.rb:256:in `method_missing'
+    app/views/layouts/_user_info.html.erb:2:in `_run_erb_47app47views47layouts47_user_info46html46erb'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `execute'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partial_template.rb:20:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partial_template.rb:19:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:22:in `render_template'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/partials.rb:110:in `render_partial'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:277:in `render'
+    app/views/layouts/application.html.erb:18:in `_run_erb_47app47views47layouts47application46html46erb'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:342:in `execute'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:35:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:22:in `render_template'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:248:in `render_file'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1161:in `default_render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1167:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 18:08:45) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiViZGEzMGNjNTA3
+ZTA4NDU1M2M5NTdhNTEwZjc5NzJkMCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--01a881c7e88df4a6376097f2f90dea922faa1a07
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000391)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "repositories" [0m
+  [4;36;1mUser Load (0.000363)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_left_col (0.00890)
+Rendered layouts/_user_info (0.00120)
+Completed in 0.01853 (53 reqs/sec) | Rendering: 0.01184 (63%) | DB: 0.00075 (4%) | 200 OK [http://localhost/]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 18:08:55) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiViZGEzMGNjNTA3
+ZTA4NDU1M2M5NTdhNTEwZjc5NzJkMCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--01a881c7e88df4a6376097f2f90dea922faa1a07
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000421)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+  [4;35;1mUser Load (0.000458)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_left_col (0.01447)
+Rendered layouts/_user_info (0.00140)
+Completed in 0.02650 (37 reqs/sec) | Rendering: 0.01810 (68%) | DB: 0.00088 (3%) | 200 OK [http://localhost/]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 18:09:15) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiViZGEzMGNjNTA3
+ZTA4NDU1M2M5NTdhNTEwZjc5NzJkMCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--01a881c7e88df4a6376097f2f90dea922faa1a07
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000371)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "repositories" [0m
+  [4;36;1mUser Load (0.000359)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_left_col (0.00846)
+Rendered layouts/_user_info (0.00122)
+Completed in 0.01703 (58 reqs/sec) | Rendering: 0.01104 (64%) | DB: 0.00073 (4%) | 200 OK [http://localhost/]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 18:09:25) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiViZGEzMGNjNTA3
+ZTA4NDU1M2M5NTdhNTEwZjc5NzJkMCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--01a881c7e88df4a6376097f2f90dea922faa1a07
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000396)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+  [4;35;1mUser Load (0.000332)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_left_col (0.09101)
+Rendered layouts/_user_info (0.00122)
+Completed in 0.09917 (10 reqs/sec) | Rendering: 0.09356 (94%) | DB: 0.00073 (0%) | 200 OK [http://localhost/]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 18:09:42) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiViZGEzMGNjNTA3
+ZTA4NDU1M2M5NTdhNTEwZjc5NzJkMCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--01a881c7e88df4a6376097f2f90dea922faa1a07
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000375)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "repositories" [0m
+  [4;36;1mUser Load (0.000351)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_left_col (0.00924)
+Rendered layouts/_user_info (0.00128)
+Completed in 0.01832 (54 reqs/sec) | Rendering: 0.01235 (67%) | DB: 0.00073 (3%) | 200 OK [http://localhost/]
+
+
+Processing AccountController#logout (for 127.0.0.1 at 2009-11-22 18:09:46) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiViZGEzMGNjNTA3
+ZTA4NDU1M2M5NTdhNTEwZjc5NzJkMCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--01a881c7e88df4a6376097f2f90dea922faa1a07
+  Parameters: {"action"=>"logout", "controller"=>"account"}
+  [4;35;1mUser Load (0.000308)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://localhost:3000/account
+Completed in 0.15771 (6 reqs/sec) | DB: 0.00031 (0%) | 302 Found [http://localhost/logout]
+
+
+Processing AccountController#index (for 127.0.0.1 at 2009-11-22 18:09:46) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6
+Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiHllvdSBoYXZlIGJlZW4gbG9n
+Z2VkIG91dC4GOgpAdXNlZHsGOwdG--1c7ea7ed3e988350ed25d6e745f4a2d61396cbfc
+  Parameters: {"action"=>"index", "controller"=>"account"}
+  [4;36;1mSQL (0.000152)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering account/index
+  [4;35;1mRepository Load (0.000170)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00485)
+Rendered layouts/_login (0.00064)
+Completed in 0.01739 (57 reqs/sec) | Rendering: 0.00738 (42%) | DB: 0.00032 (1%) | 200 OK [http://localhost/account]
+
+
+Processing AccountController#index (for 127.0.0.1 at 2009-11-22 18:10:20) [GET]
+  Session ID: BAh7CDoOcmV0dXJuX3RvMDoMY3NyZl9pZCIlN2E1YzU5YTQzMzIxYjM2ZjZj
+NjhlNjBlOWIwYjkzMmUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs
+YXNoOjpGbGFzaEhhc2h7BjoLbm90aWNlIh5Zb3UgaGF2ZSBiZWVuIGxvZ2dl
+ZCBvdXQuBjoKQHVzZWR7BjsIVA==--ba67aa625eb6a3686d349910fbae30ec2cc23ec8
+  Parameters: {"action"=>"index", "controller"=>"account"}
+  [4;36;1mSQL (0.000138)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Rendering template within layouts/application
+Rendering account/index
+  [4;35;1mRepository Load (0.000205)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00592)
+Rendered layouts/_login (0.00063)
+Completed in 0.01641 (60 reqs/sec) | Rendering: 0.00835 (50%) | DB: 0.00034 (2%) | 200 OK [http://localhost/account]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 18:10:24) [GET]
+  Session ID: BAh7CDoOcmV0dXJuX3RvMDoMY3NyZl9pZCIlN2E1YzU5YTQzMzIxYjM2ZjZj
+NjhlNjBlOWIwYjkzMmUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs
+YXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--abfec8b1beb45ef2461633e6811b8037073ee428
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000356)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00019)
+Rendered layouts/_login (0.00056)
+Completed in 0.00836 (119 reqs/sec) | Rendering: 0.00217 (25%) | DB: 0.00036 (4%) | 200 OK [http://localhost/]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2009-11-22 18:10:31) [POST]
+  Session ID: BAh7CDoOcmV0dXJuX3RvMDoMY3NyZl9pZCIlN2E1YzU5YTQzMzIxYjM2ZjZj
+NjhlNjBlOWIwYjkzMmUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs
+YXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--abfec8b1beb45ef2461633e6811b8037073ee428
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"d5beb4fbdd5a21418c9a1030f1f668bb2453cd72", "action"=>"login", "controller"=>"account", "password"=>"asdf", "login"=>"test"}
+  [4;36;1mUser Load (0.000306)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'test') LIMIT 1[0m
+Redirected to http://localhost:3000/account
+Completed in 0.01078 (92 reqs/sec) | DB: 0.00031 (2%) | 302 Found [http://localhost/login]
+
+
+Processing AccountController#index (for 127.0.0.1 at 2009-11-22 18:10:31) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiU3YTVjNTlhNDMz
+MjFiMzZmNmM2OGU2MGU5YjBiOTMyZSIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBz
+dWNjZXNzZnVsbHkGOgpAdXNlZHsGOwlG--e825ad0e7a021ed304b47d8322ef0220c815b1e2
+  Parameters: {"action"=>"index", "controller"=>"account"}
+  [4;35;1mUser Load (0.000324)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering account/index
+  [4;36;1mRepository Load (0.000189)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00552)
+Rendered layouts/_user_info (0.00121)
+Completed in 0.01710 (58 reqs/sec) | Rendering: 0.00867 (50%) | DB: 0.00051 (3%) | 200 OK [http://localhost/account]
+
+
+Processing AccountController#logout (for 127.0.0.1 at 2009-11-22 18:11:04) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiU3YTVjNTlhNDMz
+MjFiMzZmNmM2OGU2MGU5YjBiOTMyZSIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBz
+dWNjZXNzZnVsbHkGOgpAdXNlZHsGOwlU--373101ef25d671b01c66f389e35fabd068424c96
+  Parameters: {"action"=>"logout", "controller"=>"account"}
+  [4;35;1mUser Load (0.000307)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://localhost:3000/
+Completed in 0.01324 (75 reqs/sec) | DB: 0.00031 (2%) | 302 Found [http://localhost/logout]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 18:11:04) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6
+Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiJlNpZSB3dXJkZW4gdm9tIFN5
+c3RlbSBhYmdlbWVsZGV0LgY6CkB1c2VkewY7B0Y=--ffe3bce27aade49319c08dd6f755797ae1cb49ef
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000388)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00024)
+Rendered layouts/_login (0.00056)
+Completed in 0.00993 (100 reqs/sec) | Rendering: 0.00233 (23%) | DB: 0.00039 (3%) | 200 OK [http://localhost/]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2009-11-22 18:11:09) [POST]
+  Session ID: BAh7CDoOcmV0dXJuX3RvMDoMY3NyZl9pZCIlNDkwOGY2M2Y5YTY3NDQ5NTA4
+MWY3NjRjYTVlZTZmMjQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs
+YXNoOjpGbGFzaEhhc2h7BjoLbm90aWNlIiZTaWUgd3VyZGVuIHZvbSBTeXN0
+ZW0gYWJnZW1lbGRldC4GOgpAdXNlZHsGOwhU--9dc488137f6ded3ced6d6a1b4d30ef26ab21be96
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"8abdc18ac59d787696d7832d66cac0de721c5e37", "action"=>"login", "controller"=>"account", "password"=>"adsf", "login"=>"test"}
+  [4;36;1mUser Load (0.000259)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'test') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering account/login
+  [4;35;1mRepository Load (0.000199)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00461)
+Rendered layouts/_login (0.00053)
+Completed in 0.01855 (53 reqs/sec) | Rendering: 0.00814 (43%) | DB: 0.00046 (2%) | 200 OK [http://localhost/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2009-11-22 18:11:17) [POST]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcjA6DGNzcmZfaWQiJTQ5MDhmNjNmOWE2
+NzQ0OTUwODFmNzY0Y2E1ZWU2ZjI0IgpmbGFzaElDOidBY3Rpb25Db250cm9s
+bGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--01cf687b18eadf91b43157242aba8eb34ad1e71f
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"8abdc18ac59d787696d7832d66cac0de721c5e37", "action"=>"login", "controller"=>"account", "password"=>"asdf", "login"=>"test"}
+  [4;36;1mUser Load (0.000270)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'test') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.01251 (79 reqs/sec) | DB: 0.00027 (2%) | 302 Found [http://localhost/login]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 18:11:17) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiU0OTA4ZjYzZjlh
+Njc0NDk1MDgxZjc2NGNhNWVlNmYyNCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0VyZm9sZ3JlaWNo
+IGFuZ2VtZWxkZXQGOgpAdXNlZHsGOwlG--7080a7ae5d856a93d4bca413775153d3832e1361
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000344)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+  [4;35;1mUser Load (0.000289)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_left_col (0.00723)
+Rendered layouts/_user_info (0.00106)
+Completed in 0.01561 (64 reqs/sec) | Rendering: 0.00946 (60%) | DB: 0.00063 (4%) | 200 OK [http://localhost/]
+
+
+Processing AccountController#logout (for 127.0.0.1 at 2009-11-22 18:11:20) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiU0OTA4ZjYzZjlh
+Njc0NDk1MDgxZjc2NGNhNWVlNmYyNCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0VyZm9sZ3JlaWNo
+IGFuZ2VtZWxkZXQGOgpAdXNlZHsGOwlU--77b1b83a28b3f9727242c566495663045b97378a
+  Parameters: {"action"=>"logout", "controller"=>"account"}
+  [4;36;1mUser Load (0.000321)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://localhost:3000/
+Completed in 0.09396 (10 reqs/sec) | DB: 0.00032 (0%) | 302 Found [http://localhost/logout]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 18:11:20) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6
+Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiJlNpZSB3dXJkZW4gdm9tIFN5
+c3RlbSBhYmdlbWVsZGV0LgY6CkB1c2VkewY7B0Y=--ffe3bce27aade49319c08dd6f755797ae1cb49ef
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000388)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00020)
+Rendered layouts/_login (0.00066)
+Completed in 0.00860 (116 reqs/sec) | Rendering: 0.00229 (26%) | DB: 0.00039 (4%) | 200 OK [http://localhost/]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2009-11-22 18:11:27) [POST]
+  Session ID: BAh7CDoOcmV0dXJuX3RvMDoMY3NyZl9pZCIlZWJhMWQ2YjE1NTgxZGFmMzZh
+YjFmZjcxMGVjYzY1YWIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs
+YXNoOjpGbGFzaEhhc2h7BjoLbm90aWNlIiZTaWUgd3VyZGVuIHZvbSBTeXN0
+ZW0gYWJnZW1lbGRldC4GOgpAdXNlZHsGOwhU--b073b2c080d0f6a089a69fd1df914398b169a375
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"d81bfc273381e4c7ccadf5f08f12a39bdfe7d30a", "action"=>"login", "controller"=>"account", "password"=>"asd", "login"=>"test"}
+  [4;35;1mUser Load (0.000281)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'test') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering account/login
+  [4;36;1mRepository Load (0.000196)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00444)
+Rendered layouts/_login (0.00046)
+Completed in 0.01751 (57 reqs/sec) | Rendering: 0.00678 (38%) | DB: 0.00048 (2%) | 200 OK [http://localhost/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2009-11-22 18:12:43) [POST]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcjA6DGNzcmZfaWQiJWViYTFkNmIxNTU4
+MWRhZjM2YWIxZmY3MTBlY2M2NWFiIgpmbGFzaElDOidBY3Rpb25Db250cm9s
+bGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--246f0027799f5eda447c182a3f3ebfff2ec76d87
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"d81bfc273381e4c7ccadf5f08f12a39bdfe7d30a", "action"=>"login", "controller"=>"account", "password"=>"sfg", "login"=>"fsg"}
+  [4;35;1mUser Load (0.000161)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'fsg') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering account/login
+  [4;36;1mRepository Load (0.000190)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00526)
+Rendered layouts/_login (0.00056)
+Completed in 0.01880 (53 reqs/sec) | Rendering: 0.00818 (43%) | DB: 0.00035 (1%) | 200 OK [http://localhost/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2009-11-22 18:12:48) [POST]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcjA6DGNzcmZfaWQiJWViYTFkNmIxNTU4
+MWRhZjM2YWIxZmY3MTBlY2M2NWFiIgpmbGFzaElDOidBY3Rpb25Db250cm9s
+bGVyOjpGbGFzaDo6Rmxhc2hIYXNoewY6C25vdGljZSInQmVudXR6ZXJuYW1l
+IG9kZXIgUGFzc3dvcnQgZmFsc2NoIQY6CkB1c2VkewY7CUY=--b528ce644df0fc316e597679f226e66ae393837b
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"d81bfc273381e4c7ccadf5f08f12a39bdfe7d30a", "action"=>"login", "controller"=>"account", "password"=>"asdf", "login"=>"test"}
+  [4;35;1mUser Load (0.000265)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'test') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.01209 (82 reqs/sec) | DB: 0.00026 (2%) | 302 Found [http://localhost/login]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 18:12:48) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiVlYmExZDZiMTU1
+ODFkYWYzNmFiMWZmNzEwZWNjNjVhYiIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0VyZm9sZ3JlaWNo
+IGFuZ2VtZWxkZXQGOgpAdXNlZHsGOwlG--b10c9ea60a6f4c9a5f8b96de600cb05c1cf10080
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000393)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "repositories" [0m
+  [4;36;1mUser Load (0.000347)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_left_col (0.00881)
+Rendered layouts/_user_info (0.00120)
+Completed in 0.01723 (58 reqs/sec) | Rendering: 0.01137 (65%) | DB: 0.00074 (4%) | 200 OK [http://localhost/]
+
+
+Processing AccountController#logout (for 127.0.0.1 at 2009-11-22 18:12:53) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiVlYmExZDZiMTU1
+ODFkYWYzNmFiMWZmNzEwZWNjNjVhYiIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0VyZm9sZ3JlaWNo
+IGFuZ2VtZWxkZXQGOgpAdXNlZHsGOwlU--b91f46982a87e84e0588cd8426f23faeb93b3d3d
+  Parameters: {"action"=>"logout", "controller"=>"account"}
+  [4;35;1mUser Load (0.000328)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://localhost:3000/
+Completed in 0.01359 (73 reqs/sec) | DB: 0.00033 (2%) | 302 Found [http://localhost/logout]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 18:12:53) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6
+Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiJlNpZSB3dXJkZW4gdm9tIFN5
+c3RlbSBhYmdlbWVsZGV0LgY6CkB1c2VkewY7B0Y=--ffe3bce27aade49319c08dd6f755797ae1cb49ef
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000398)[0m   [0;1mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00023)
+Rendered layouts/_login (0.00061)
+Completed in 0.00879 (113 reqs/sec) | Rendering: 0.00241 (27%) | DB: 0.00040 (4%) | 200 OK [http://localhost/]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2009-11-22 18:12:58) [POST]
+  Session ID: BAh7CDoOcmV0dXJuX3RvMDoMY3NyZl9pZCIlZGRlMmYzZTA0ZTQ3NzRiNzVi
+NDM3ZWU1MDc5ZjViNjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs
+YXNoOjpGbGFzaEhhc2h7BjoLbm90aWNlIiZTaWUgd3VyZGVuIHZvbSBTeXN0
+ZW0gYWJnZW1lbGRldC4GOgpAdXNlZHsGOwhU--dd2b9c327f85ec251f88340aa80b10d32ebe8c8c
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"976e76f64453f447f1c270bb990d241b8c7b8b4a", "action"=>"login", "controller"=>"account", "password"=>"asdf", "login"=>"test"}
+  [4;36;1mUser Load (0.000339)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'test') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.00990 (100 reqs/sec) | DB: 0.00034 (3%) | 302 Found [http://localhost/login]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-11-22 18:12:58) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiVkZGUyZjNlMDRl
+NDc3NGI3NWI0MzdlZTUwNzlmNWI2NSIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0VyZm9sZ3JlaWNo
+IGFuZ2VtZWxkZXQGOgpAdXNlZHsGOwlG--28e3f7ea7781c16c3494442a28b94622d031c707
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000361)[0m   [0mSELECT * FROM "repositories" [0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM "repositories" [0m
+  [4;35;1mUser Load (0.000317)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_left_col (0.00814)
+Rendered layouts/_user_info (0.00171)
+Completed in 0.01766 (56 reqs/sec) | Rendering: 0.01115 (63%) | DB: 0.00068 (3%) | 200 OK [http://localhost/]
+
+
+Processing DocumentsController#new (for 127.0.0.1 at 2009-11-22 18:13:01) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiVkZGUyZjNlMDRl
+NDc3NGI3NWI0MzdlZTUwNzlmNWI2NSIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0VyZm9sZ3JlaWNo
+IGFuZ2VtZWxkZXQGOgpAdXNlZHsGOwlU--a66c7a0598a795d71b543a5be86165bafef9211e
+  Parameters: {"action"=>"new", "controller"=>"documents"}
+Params = {"action"=>"new", "controller"=>"documents"}
+Rendering template within layouts/application
+Rendering documents/new
+  [4;36;1mRepository Load (0.000171)[0m   [0;1mSELECT * FROM "repositories" [0m
+  [4;35;1mUser Load (0.000297)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_left_col (0.00795)
+Rendered layouts/_user_info (0.00109)
+Completed in 0.03895 (25 reqs/sec) | Rendering: 0.01089 (27%) | DB: 0.00047 (1%) | 200 OK [http://localhost/documents/new]
+
+
+Processing DocumentsController#create (for 127.0.0.1 at 2009-11-22 18:13:19) [POST]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiVkZGUyZjNlMDRl
+NDc3NGI3NWI0MzdlZTUwNzlmNWI2NSIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--28ed2f214303f15aaec030e0e808c09daf97f93e
+  Parameters: {"commit"=>"Anlegen", "repository"=>{"name"=>"erster test"}, "authenticity_token"=>"976e76f64453f447f1c270bb990d241b8c7b8b4a", "action"=>"create", "controller"=>"documents"}
+  [4;36;1mUser Load (0.000287)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000176)[0m   [0mSELECT "name" FROM "repositories" WHERE ("repositories".name = 'erster test') [0m
+  [4;36;1mRepository Create (0.000245)[0m   [0;1mINSERT INTO "repositories" ("name", "created_at", "updated_at", "path") VALUES('erster test', '2009-11-22 17:13:19', '2009-11-22 17:13:19', '/home/feson/stonk/repositories/erster test.git')[0m
+  [4;35;1mSQL (0.000355)[0m   [0mSELECT "name" FROM "branches" WHERE ("branches".name = 'master' AND "branches".repository_id = 1) [0m
+  [4;36;1mBranch Create (0.000620)[0m   [0;1mINSERT INTO "branches" ("name", "created_at", "write_access_for", "updated_at", "user_id", "description", "repository_id") VALUES('master', '2009-11-22 17:13:19', 'own', '2009-11-22 17:13:19', 1, NULL, 1)[0m
+Redirected to http://localhost:3000/documents/find_by_name?docname=erster+test
+Completed in 0.19363 (5 reqs/sec) | DB: 0.00168 (0%) | 302 Found [http://localhost/documents/create]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-11-22 18:13:19) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiVkZGUyZjNlMDRl
+NDc3NGI3NWI0MzdlZTUwNzlmNWI2NSIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--28ed2f214303f15aaec030e0e808c09daf97f93e
+  Parameters: {"action"=>"find_by_name", "docname"=>"erster test", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000539)[0m   [0mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'erster test') LIMIT 1[0m
+Finding name erster test
+  [4;36;1mBranch Load (0.000343)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) AND ("branches"."name" = 'master') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering documents/show
+  [4;35;1mBranch Load (0.000471)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;36;1mRepository Load (0.000305)[0m   [0;1mSELECT * FROM "repositories" [0m
+  [4;35;1mUser Load (0.000330)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_left_col (0.01024)
+Rendered layouts/_user_info (0.00127)
+Completed in 0.13204 (7 reqs/sec) | Rendering: 0.04922 (37%) | DB: 0.00199 (1%) | 200 OK [http://localhost/documents/find_by_name?docname=erster+test]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-22 18:14:27) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoJdXNlcmkGOgxjc3JmX2lkIiVkZGUyZjNlMDRl
+NDc3NGI3NWI0MzdlZTUwNzlmNWI2NSIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--28ed2f214303f15aaec030e0e808c09daf97f93e
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/docs/erster%20test" with {:method=>:get}):
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/routing/route_set.rb:385:in `recognize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-11-22 23:13:19) [GET]
+  Session ID: 553e686e99ac90afa4b6a1caded98465
+  Parameters: {"action"=>"find_by_name", "docname"=>"erster test", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000570)[0m   [0;1mSELECT * FROM "repositories" WHERE ("repositories"."name" = 'erster test') LIMIT 1[0m
+Finding name erster test
+  [4;35;1mBranch Load (0.000397)[0m   [0mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) AND ("branches"."name" = 'master') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering documents/show
+  [4;36;1mBranch Load (0.000532)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;35;1mRepository Load (0.000327)[0m   [0mSELECT * FROM "repositories" [0m
+Rendered layouts/_left_col (0.00073)
+Rendered layouts/_login (0.00072)
+Completed in 0.04081 (24 reqs/sec) | Rendering: 0.00658 (16%) | DB: 0.00183 (4%) | 200 OK [http://localhost/documents/find_by_name?docname=erster+test]
+  [4;36;1mRepository Load (0.000539)[0m   [0;1mSELECT * FROM "repositories" [0m
+  [4;35;1mRepository Load (0.000751)[0m   [0mSELECT * FROM "repositories" LIMIT 1[0m
+  [4;36;1mBranch Load (0.000394)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches".repository_id = 1) [0m
+  [4;35;1mBranch Destroy (0.000262)[0m   [0m DELETE FROM "branches"
+ WHERE "id" = 1
+[0m
+  [4;36;1mRepository Destroy (0.000157)[0m   [0;1m DELETE FROM "repositories"
+ WHERE "id" = 1
+[0m
+  [4;35;1mRepository Load (0.000199)[0m   [0mSELECT * FROM "repositories" [0m
+  [4;36;1mSQL (0.000607)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000309)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRepositories (20091004132559)
+Migrating to CreateUsers (20091007181458)
+Migrating to CreateBranches (20091009170903)
+Migrating to AddDescriptionToBranch (20091010144329)
+Migrating to CreateClonedRepositories (20091010183026)
+Migrating to AddHumanNameToRepository (20091122224348)
+  [4;36;1mSQL (0.000143)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.003307)[0m   [0mALTER TABLE "repositories" ADD "human_name" varchar(255)[0m
+  [4;36;1mSQL (0.004960)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.002937)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091122224348')[0m
+  [4;36;1mSQL (0.000296)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000246)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000233)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000049)[0m   [0mPRAGMA index_list("branches")[0m
+  [4;36;1mSQL (0.000047)[0m   [0;1mPRAGMA index_list("cloned_repositories")[0m
+  [4;35;1mSQL (0.000047)[0m   [0mPRAGMA index_list("repositories")[0m
+  [4;36;1mSQL (0.000047)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.000596)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000384)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRepositories (20091004132559)
+Migrating to CreateUsers (20091007181458)
+Migrating to CreateBranches (20091009170903)
+Migrating to AddDescriptionToBranch (20091010144329)
+Migrating to CreateClonedRepositories (20091010183026)
+Migrating to AddHumanNameToRepository (20091122224348)
+  [4;36;1mSQL (0.000138)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000257)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000252)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000243)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000051)[0m   [0;1mPRAGMA index_list("branches")[0m
+  [4;35;1mSQL (0.000045)[0m   [0mPRAGMA index_list("cloned_repositories")[0m
+  [4;36;1mSQL (0.000046)[0m   [0;1mPRAGMA index_list("repositories")[0m
+  [4;35;1mSQL (0.000047)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.000231)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000485)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000254)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000236)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000050)[0m   [0;1mPRAGMA index_list("branches")[0m
+  [4;35;1mSQL (0.000045)[0m   [0mPRAGMA index_list("cloned_repositories")[0m
+  [4;36;1mSQL (0.000047)[0m   [0;1mPRAGMA index_list("repositories")[0m
+  [4;35;1mSQL (0.000047)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.000305)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000171)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.003407)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.002937)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000278)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000151)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRepositories (20091004132559)
+  [4;36;1mSQL (0.010226)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.003606)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091004132559')[0m
+Migrating to CreateUsers (20091007181458)
+  [4;36;1mSQL (0.000243)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.030558)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;36;1mSQL (0.029621)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091007181458')[0m
+Migrating to CreateBranches (20091009170903)
+  [4;35;1mSQL (0.036565)[0m   [0mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.029988)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091009170903')[0m
+Migrating to AddDescriptionToBranch (20091010144329)
+  [4;35;1mSQL (0.026669)[0m   [0mALTER TABLE "branches" ADD "description" varchar(255)[0m
+  [4;36;1mSQL (0.087592)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.016256)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091010144329')[0m
+Migrating to CreateClonedRepositories (20091010183026)
+  [4;36;1mSQL (0.008560)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.002969)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091010183026')[0m
+Migrating to AddHumanNameToRepository (20091122224348)
+  [4;36;1mSQL (0.013748)[0m   [0;1mALTER TABLE "repositories" ADD "human_name" varchar(255)[0m
+  [4;35;1mSQL (0.004226)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.003156)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000301)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000250)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000238)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000048)[0m   [0;1mPRAGMA index_list("branches")[0m
+  [4;35;1mSQL (0.000045)[0m   [0mPRAGMA index_list("cloned_repositories")[0m
+  [4;36;1mSQL (0.000047)[0m   [0;1mPRAGMA index_list("repositories")[0m
+  [4;35;1mSQL (0.000045)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.000637)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000259)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000236)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000190)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000356)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000154)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000174)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000178)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000172)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000207)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000235)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000246)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000160)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000158)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000267)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000082)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000088)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000073)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000072)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000074)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000074)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000073)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000615)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000285)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000196)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000147)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000308)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000127)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000148)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000156)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000148)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000183)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000176)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000206)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000131)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000135)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000230)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000061)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000070)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000065)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000063)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000582)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000257)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000173)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000136)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000303)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000207)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000144)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000143)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000147)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000169)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000168)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000218)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000134)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000130)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000215)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000061)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000064)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000063)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000060)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000257)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000464)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000252)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000230)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000053)[0m   [0;1mPRAGMA index_list("branches")[0m
+  [4;35;1mSQL (0.000046)[0m   [0mPRAGMA index_list("cloned_repositories")[0m
+  [4;36;1mSQL (0.000046)[0m   [0;1mPRAGMA index_list("repositories")[0m
+  [4;35;1mSQL (0.000048)[0m   [0mPRAGMA index_list("users")[0m
+DEPRECATION WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library will be REMOVED FROM RAILS 2.2. Please switch to the offical mysql gem: `gem install mysql`  See http://www.rubyonrails.org/deprecation for details. (called from mysql_connection at /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/mysql_adapter.rb:81)
+  [4;36;1mSQL (0.000227)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.018675)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.021710)[0m   [0;1mCREATE DATABASE `st0nk_dev` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;35;1mSQL (0.000066)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000052)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000208)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.071465)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.070737)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.000446)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000327)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRepositories (20091004132559)
+  [4;36;1mSQL (0.029043)[0m   [0;1mCREATE TABLE `repositories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(80), `path` varchar(256), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000697)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091004132559')[0m
+Migrating to CreateUsers (20091007181458)
+  [4;36;1mSQL (0.000464)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.039548)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255), `email` varchar(255), `crypted_password` varchar(40), `salt` varchar(40), `created_at` datetime, `updated_at` datetime, `remember_token` varchar(255), `remember_token_expires_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001495)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091007181458')[0m
+Migrating to CreateBranches (20091009170903)
+  [4;35;1mSQL (0.044474)[0m   [0mCREATE TABLE `branches` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `write_access_for` varchar(255), `repository_id` int(11), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000712)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091009170903')[0m
+Migrating to AddDescriptionToBranch (20091010144329)
+  [4;35;1mSQL (0.081695)[0m   [0mALTER TABLE `branches` ADD `description` varchar(255)[0m
+  [4;36;1mSQL (0.000671)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091010144329')[0m
+Migrating to CreateClonedRepositories (20091010183026)
+  [4;35;1mSQL (0.031670)[0m   [0mCREATE TABLE `cloned_repositories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `path` varchar(255), `original_repository_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000684)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091010183026')[0m
+Migrating to AddHumanNameToRepository (20091122224348)
+  [4;35;1mSQL (0.019055)[0m   [0mALTER TABLE `repositories` ADD `human_name` varchar(255)[0m
+  [4;36;1mSQL (0.000687)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000940)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000349)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000413)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001851)[0m   [0;1mSHOW FIELDS FROM `branches`[0m
+  [4;35;1mSQL (0.000522)[0m   [0mdescribe `branches`[0m
+  [4;36;1mSQL (0.000148)[0m   [0;1mSHOW KEYS FROM `branches`[0m
+  [4;35;1mSQL (0.000537)[0m   [0mSHOW FIELDS FROM `cloned_repositories`[0m
+  [4;36;1mSQL (0.000436)[0m   [0;1mdescribe `cloned_repositories`[0m
+  [4;35;1mSQL (0.000127)[0m   [0mSHOW KEYS FROM `cloned_repositories`[0m
+  [4;36;1mSQL (0.000538)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mSQL (0.000496)[0m   [0mdescribe `repositories`[0m
+  [4;36;1mSQL (0.000128)[0m   [0;1mSHOW KEYS FROM `repositories`[0m
+  [4;35;1mSQL (0.000633)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.000681)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.000134)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.000151)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000074)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000318)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000088)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000208)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000886)[0m   [0mSHOW FIELDS FROM `branches`[0m
+  [4;36;1mSQL (0.000529)[0m   [0;1mdescribe `branches`[0m
+  [4;35;1mSQL (0.000212)[0m   [0mSHOW KEYS FROM `branches`[0m
+  [4;36;1mSQL (0.000535)[0m   [0;1mSHOW FIELDS FROM `cloned_repositories`[0m
+  [4;35;1mSQL (0.000499)[0m   [0mdescribe `cloned_repositories`[0m
+  [4;36;1mSQL (0.000189)[0m   [0;1mSHOW KEYS FROM `cloned_repositories`[0m
+  [4;35;1mSQL (0.000497)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+  [4;36;1mSQL (0.000499)[0m   [0;1mdescribe `repositories`[0m
+  [4;35;1mSQL (0.000205)[0m   [0mSHOW KEYS FROM `repositories`[0m
+  [4;36;1mSQL (0.000921)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.001218)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000200)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.000083)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000053)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000255)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000065)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000237)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.009434)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000324)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000137)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000139)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000165)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000163)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000188)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000124)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000129)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000229)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000067)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000076)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000068)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000068)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000066)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000067)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000083)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000053)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000245)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000068)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000251)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000157)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000306)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000140)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000139)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000135)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000170)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000163)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000190)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000123)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000128)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000220)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000061)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000075)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000069)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000066)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000067)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000135)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000086)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000294)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000086)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000260)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000156)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000302)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000123)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000137)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000138)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000139)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000169)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000161)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000191)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000123)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000127)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000217)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000060)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000071)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000062)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000061)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000135)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000074)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000297)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000093)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000364)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000159)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000298)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000123)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000137)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000138)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000135)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000163)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000192)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000192)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000123)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000125)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000218)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000062)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000068)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000061)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000061)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000093)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000045)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000322)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000073)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000249)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000150)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000294)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000122)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000133)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000133)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000137)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000163)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000157)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000183)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000205)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000125)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000209)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000061)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000066)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000060)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000060)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000060)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000060)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000053)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000245)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000063)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000251)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000152)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000294)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000121)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000136)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000135)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000135)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000347)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000165)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000191)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000120)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000125)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000213)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000061)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000069)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000069)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000066)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000069)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000066)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000093)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000048)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000261)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000062)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000248)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000149)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000293)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000121)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000133)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000137)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000136)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000186)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000171)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000187)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000123)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000127)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000209)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000061)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000064)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000098)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000060)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000061)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000075)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000120)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000072)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000284)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000083)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000287)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000185)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000363)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000158)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000154)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000152)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000166)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000214)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000193)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000195)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000124)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000124)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000234)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000059)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000067)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000059)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000058)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000058)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000058)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000050)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000263)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000066)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000245)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000148)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000290)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000115)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000133)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.000135)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000136)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000157)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000155)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000188)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000127)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000125)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000210)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000060)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000066)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000062)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000061)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000062)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m

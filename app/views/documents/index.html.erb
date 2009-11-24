@@ -1,15 +1,6 @@
-<h1>Documents#index</h1>
+st0nk ist ein Wiki, welches auf Git basiert. Auf der Linken Seite sieht man alle verf&uuml;gbaren Dokumente.
 
-<table border="1">
-  <thead><tr>
-      <th>Name</th>
-  </tr></thead>
-  <tbody>
-    <% @documents.each do |doc| %>
-      <tr><td><%= link_to doc.name, "/documents/show/#{doc.id}" %></td></tr>
-    <% end %>
-  </tbody>
-</table>
+Wenn man angemeldet ist, kann man neue Dokumente anlegen und bearbeiten lassen.
 
-<%= link_to "Create new", "/documents/new" %>
+blah blubb
 

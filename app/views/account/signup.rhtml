@@ -1,16 +1,19 @@
-<%= error_messages_for :user %>
-<% form_for :user do |f| -%>
-<p><label for="login">Login</label><br/>
-<%= f.text_field :login %></p>
+<div class="clsForm">
+  <%= error_messages_for :user %>
+  <% form_for :user do |f| -%>
+    <p><label for="login">Gew&uuml;nschter Login:</label><br/>
+    <%= f.text_field :login %></p>
 
-<p><label for="email">Email</label><br/>
-<%= f.text_field :email %></p>
+    <p><label for="email">Email-Adresse:</label><br/>
+    <%= f.text_field :email %></p>
 
-<p><label for="password">Password</label><br/>
-<%= f.password_field :password %></p>
+    <p><label for="password">Passwort:</label><br/>
+    <%= f.password_field :password %></p>
 
-<p><label for="password_confirmation">Confirm Password</label><br/>
-<%= f.password_field :password_confirmation %></p>
+    <p><label for="password_confirmation">Passwort wiederholen:</label><br/>
+    <%= f.password_field :password_confirmation %></p>
 
-<p><%= submit_tag 'Sign up' %></p>
-<% end -%>
+    <p><%= submit_tag 'Account anlegen' %></p>
+  <% end -%>
+</div>
+

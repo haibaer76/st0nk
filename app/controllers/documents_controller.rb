@@ -20,9 +20,10 @@ class DocumentsController < ApplicationController
 
   def find_by_name
     @repo = Repository.by_name(params[:docname]).first
+      Rails.logger.info "Finding name #{params[:docname]}"
     if @repo.nil?
       @name = params[:docname]
-      render :action => :create_new
+      return render :action => :create_new
     else
       @repository = @repo.bare_repository
       branch_name = params[:branch] || 'master'

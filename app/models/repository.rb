@@ -7,42 +7,28 @@
 #  path       :string(256)
 #  created_at :datetime
 #  updated_at :datetime
+#  human_name :string(255)
 #
 
 class Repository < ActiveRecord::Base
   validates_presence_of :path
   validates_presence_of :name
+  validates_presence_of :human_name
   validates_uniqueness_of :name
+  validates_uniqueness_of :human_name
 
   has_many :branches, :dependent => :destroy
+
+  after_create :init_repo
+  before_destroy :remove_repo
+  before_validation :make_name_and_path
 
   named_scope :by_name, lambda{|name|
     {:conditions => {:name => name}}
   }
 
-  class << self
-    def new_document(name, user, options={})
-      content = options.delete(:content) || "A New Document"
-      repo = create!(options[:repository_attributes] || {}) do |r|
-        r.name = name
-        r.path = gen_path(name)
-      end
-      Branch.create!(options[:branch_attributes] || {}) do |b|
-        b.repository = repo
-        b.user = user
-        b.name = 'master'
-        b.write_access_for = 'own'
-      end
-      grit_repo = Grit::Repo.init_bare(repo.path)
-      i = grit_repo.index
-      i.add(STONK_CONFIG.document_name, content)
-      i.commit("init")
-      repo
-    end
-
-    def gen_path(name)
-      "#{STONK_CONFIG.bare_repos_path}/#{name.strip}.git"
-    end
+  def self.create_with_human_name human_name
+    self.create! :human_name => human_name
   end
 
   def bare_repository
@@ -56,10 +42,6 @@ class Repository < ActiveRecord::Base
     @bare_content ||= bare_repository.gtree(branch).blobs[STONK_CONFIG.document_name].contents
   end
 
-  def clone_for_edit
-    ClonedRepository.create! :original_repository => self
-  end
-
   def branches_excluded branch
     ret=[]
     branches.each do |b|
@@ -68,8 +50,33 @@ class Repository < ActiveRecord::Base
     ret
   end
 
-  def before_destroy
+  protected
+
+  def remove_repo
     FileUtils.rm_rf path
+  end
+
+  def make_name_and_path
+    if name.nil? 
+      tst_name = human_name.gsub /[^a-zA-Z0-9]/, '_'
+      index=''
+      count=0
+      while not Repository.by_name("#{tst_name}#{index}").empty?
+        count = count+1
+        index = "_#{count}"
+      end
+      write_attribute :name, "#{tst_name}#{index}"
+    end
+    if path.nil?
+      write_attribute :path, "#{STONK_CONFIG.bare_repos_path}/#{name}.git"
+    end
+  end
+
+  def init_repo
+    @bare_repository = Grit::Repo.init_bare path
+    i = @bare_repository.index
+    i.add(STONK_CONFIG.document_name, '')
+    i.commit("init")
   end
 end
 

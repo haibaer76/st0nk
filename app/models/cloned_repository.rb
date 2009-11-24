@@ -19,11 +19,10 @@ class ClonedRepository < ActiveRecord::Base
   before_destroy :remove_cloned_repository
 
   def git_repo
-    if @git_repo.nil?
-      @git_repo = Git.open path
-    end
-    @git_repo
+    @git_repo ||= Git.open path
   end
+
+  protected
 
   def build_path
     if path.nil?

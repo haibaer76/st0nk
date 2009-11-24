@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title><%= @title %>:: st0nk :: Die Software f&uuml;r basisdemokratische Politik 2.0</title>
+  <%= stylesheet_link_tag "application", :media => "screen" %>
+</head>
+<body>
+  <h1><%= @title %></h1>
+  <div id='idNotice'>
+    <%= flash[:notice] %>
+  </div>
+  <div id='idLeftCol'>
+    <%= render :partial => 'layouts/left_col'%>
+  </div>
+  <div id='idRightCol'>
+    <% if logged_in? %>
+      <%= render :partial => 'layouts/user_info' %>
+    <% else %>
+      <%= render :partial => 'layouts/login' %>
+    <% end %>
+  </div>
+  <div id='idContent'>
+    <%= yield %>
+  </div>
+</body>
+</html>
