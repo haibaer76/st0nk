@@ -2,12 +2,13 @@
 #
 # Table name: repositories
 #
-#  id         :integer         not null, primary key
+#  id         :integer(4)      not null, primary key
 #  name       :string(80)
 #  path       :string(256)
 #  created_at :datetime
 #  updated_at :datetime
 #  human_name :string(255)
+#  user_id    :string(255)
 #
 
 class Repository < ActiveRecord::Base
@@ -18,6 +19,8 @@ class Repository < ActiveRecord::Base
   validates_uniqueness_of :human_name
 
   has_many :branches, :dependent => :destroy
+  has_many :cloned_repositories, :dependent => :destroy, :foreign_key => :original_repository_id
+  belongs_to :user
 
   after_create :init_repo
   before_destroy :remove_repo
@@ -33,13 +36,18 @@ class Repository < ActiveRecord::Base
 
   def bare_repository
     if @bare_repo.nil?
-      @bare_repo = Git.bare path
+      @bare_repo = Grit::Repo.new path, :is_bare => true
     end
     @bare_repo
   end
 
   def bare_content(branch='master')
-    @bare_content ||= bare_repository.gtree(branch).blobs[STONK_CONFIG.document_name].contents
+    if @bare_content.nil?
+      gt = bare_repository.tree branch
+      blob = gt/STONK_CONFIG.document_name
+      @bare_content = blob.data
+    end
+    @bare_content
   end
 
   def branches_excluded branch
@@ -48,6 +56,11 @@ class Repository < ActiveRecord::Base
       ret << b unless b.id == branch.id
     end
     ret
+  end
+
+  def forget
+    @bare_repo = nil
+    @bare_content = nil
   end
 
   protected
@@ -68,15 +81,34 @@ class Repository < ActiveRecord::Base
       write_attribute :name, "#{tst_name}#{index}"
     end
     if path.nil?
-      write_attribute :path, "#{STONK_CONFIG.bare_repos_path}/#{name}.git"
+      write_attribute :path, "#{STONK_CONFIG.bare_repos_path}/#{Digest::MD5.hexdigest rand.to_s}.git"
+      puts "Path = #{path}"
     end
   end
 
   def init_repo
-    @bare_repository = Grit::Repo.init_bare path
-    i = @bare_repository.index
-    i.add(STONK_CONFIG.document_name, '')
-    i.commit("init")
+    FileUtils.mkdir_p path
+    curdir = Dir.pwd
+    Dir.chdir path
+    system "git init --bare"
+    tmpdir = Dir.mktmpdir
+    Dir.chdir tmpdir
+    system "git clone #{path} AA"
+    Dir.chdir "#{tmpdir}/AA"
+    system "touch #{STONK_CONFIG.document_name}"
+    system "git add ."
+    system "git commit -a -m 'init'"
+    system "git push origin master"
+    Dir.chdir curdir
+    FileUtils.rm_rf tmpdir
+    Branch.create! do |b|
+      b.name = "master"
+      b.human_name = "Ersteller-Zweig"
+      b.repository = self 
+      b.user_id = user_id 
+      b.write_access_for = "own"
+    end
   end
+
 end
 

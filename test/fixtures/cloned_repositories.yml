@@ -2,11 +2,12 @@
 #
 # Table name: cloned_repositories
 #
-#  id                     :integer         not null, primary key
+#  id                     :integer(4)      not null, primary key
 #  path                   :string(255)
-#  original_repository_id :integer
+#  original_repository_id :integer(4)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  current_branch_name    :string(255)
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html

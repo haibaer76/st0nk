@@ -1,9 +1,9 @@
 class DocumentsController < ApplicationController
 
-  before_filter :login_required, :only => :create
+  before_filter :login_required, :only => [:create, :new]
 
   def index
-    @documents = Repository.all
+    @documents = Repository.scoped(:order => :human_name)
   end
 
   def new
@@ -12,10 +12,8 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    doc_name = params.has_key?(:repository) ? params[:repository][:name] : nil
-    doc_name ||= params[:name]
-    Repository.new_document(doc_name, current_user)
-    redirect_to :action => :find_by_name, :docname => doc_name
+    r = Repository.create! params[:repository]
+    redirect_to :action => :find_by_name, :docname => r.name
   end
 
   def find_by_name

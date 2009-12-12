@@ -1,6 +1,11 @@
-st0nk ist ein Wiki, welches auf Git basiert. Auf der Linken Seite sieht man alle verf&uuml;gbaren Dokumente.
+<h1>Alle Dokumente</h1>
 
-Wenn man angemeldet ist, kann man neue Dokumente anlegen und bearbeiten lassen.
-
-blah blubb
+<table border="0">
+  <% @documents.each do |document| %>
+    <tr>
+      <td><%= link_to document.human_name, "docs/#{document.name}.master" %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "Neues Dokument anlegen", {:controller => :documents, :action => :new} %>
 

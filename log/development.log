@@ -16399,3 +16399,1448 @@ Migrating to AddHumanNameToRepository (20091122224348)
   [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
   [4;36;1mSQL (0.000061)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
   [4;35;1mSQL (0.000062)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000190)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000145)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Columns (0.001498)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mSQL (0.000147)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.018026)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test') [0m
+  [4;35;1mSQL (0.000403)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test') [0m
+  [4;36;1mSQL (0.000263)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.054401)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `path`, `human_name`) VALUES('Test', '2009-11-25 09:17:53', '2009-11-25 09:17:53', '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.004359)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000712)[0m   [0mBEGIN[0m
+  [4;36;1mBranch Load (0.000558)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 1) [0m
+  [4;35;1mRepository Destroy (0.018717)[0m   [0m DELETE FROM `repositories`
+ WHERE `id` = 1
+[0m
+  [4;36;1mSQL (0.003195)[0m   [0;1mCOMMIT[0m
+  [4;36;1mSQL (0.000243)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000084)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Columns (0.000666)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mSQL (0.000097)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000250)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test') [0m
+  [4;35;1mSQL (0.000113)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test') [0m
+  [4;36;1mSQL (0.000092)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000135)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `path`, `human_name`) VALUES('Test', '2009-11-25 10:31:36', '2009-11-25 10:31:36', '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.002492)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000242)[0m   [0mBEGIN[0m
+  [4;36;1mBranch Load (0.000767)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 2) [0m
+  [4;35;1mRepository Destroy (0.000336)[0m   [0m DELETE FROM `repositories`
+ WHERE `id` = 2
+[0m
+  [4;36;1mSQL (0.009231)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000175)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000535)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test') [0m
+  [4;35;1mSQL (0.002063)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test') [0m
+  [4;36;1mSQL (0.000285)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.001618)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `path`, `human_name`) VALUES('Test', '2009-11-25 11:04:19', '2009-11-25 11:04:19', '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.003826)[0m   [0;1mCOMMIT[0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000052)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Load (0.000234)[0m   [0;1mSELECT * FROM `repositories` LIMIT 1[0m
+  [4;35;1mRepository Columns (0.000660)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+  [4;36;1mSQL (0.000196)[0m   [0;1mBEGIN[0m
+  [4;35;1mBranch Load (0.000788)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 3) [0m
+  [4;36;1mRepository Destroy (0.000175)[0m   [0;1m DELETE FROM `repositories`
+ WHERE `id` = 3
+[0m
+  [4;35;1mSQL (0.004151)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000096)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000057)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Columns (0.001470)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mSQL (0.000088)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000378)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test') [0m
+  [4;35;1mSQL (0.000136)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test') [0m
+  [4;36;1mSQL (0.000102)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000158)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `path`, `human_name`) VALUES('Test', '2009-11-25 11:15:54', '2009-11-25 11:15:54', '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.003235)[0m   [0;1mCOMMIT[0m
+  [4;36;1mSQL (0.000151)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000070)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Load (0.000470)[0m   [0;1mSELECT * FROM `repositories` LIMIT 1[0m
+  [4;35;1mRepository Columns (0.000775)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+  [4;36;1mSQL (0.000210)[0m   [0;1mBEGIN[0m
+  [4;35;1mBranch Load (0.002737)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 4) [0m
+  [4;36;1mRepository Destroy (0.000188)[0m   [0;1m DELETE FROM `repositories`
+ WHERE `id` = 4
+[0m
+  [4;35;1mSQL (0.002926)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000176)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000710)[0m   [0mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test') [0m
+  [4;36;1mSQL (0.000280)[0m   [0;1mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test') [0m
+  [4;35;1mSQL (0.000279)[0m   [0mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test') [0m
+  [4;36;1mRepository Create (0.000555)[0m   [0;1mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `path`, `human_name`) VALUES('Test', '2009-11-25 11:23:13', '2009-11-25 11:23:13', '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;35;1mSQL (0.002952)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000238)[0m   [0;1mBEGIN[0m
+  [4;35;1mBranch Load (0.000983)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 5) [0m
+  [4;36;1mRepository Destroy (0.001046)[0m   [0;1m DELETE FROM `repositories`
+ WHERE `id` = 5
+[0m
+  [4;35;1mSQL (0.004091)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000193)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000125)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000620)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001170)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRepositories (20091004132559)
+Migrating to CreateUsers (20091007181458)
+Migrating to CreateBranches (20091009170903)
+Migrating to AddDescriptionToBranch (20091010144329)
+Migrating to CreateClonedRepositories (20091010183026)
+Migrating to AddHumanNameToRepository (20091122224348)
+Migrating to AddUserIdToRepository (20091125204806)
+  [4;36;1mSQL (0.101020)[0m   [0;1mALTER TABLE `repositories` ADD `user_id` varchar(255)[0m
+  [4;35;1mSQL (0.000742)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091125204806')[0m
+  [4;36;1mSQL (0.000694)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000341)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000419)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001776)[0m   [0mSHOW FIELDS FROM `branches`[0m
+  [4;36;1mSQL (0.001629)[0m   [0;1mdescribe `branches`[0m
+  [4;35;1mSQL (0.000646)[0m   [0mSHOW KEYS FROM `branches`[0m
+  [4;36;1mSQL (0.001561)[0m   [0;1mSHOW FIELDS FROM `cloned_repositories`[0m
+  [4;35;1mSQL (0.001445)[0m   [0mdescribe `cloned_repositories`[0m
+  [4;36;1mSQL (0.000586)[0m   [0;1mSHOW KEYS FROM `cloned_repositories`[0m
+  [4;35;1mSQL (0.001775)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+  [4;36;1mSQL (0.001633)[0m   [0;1mdescribe `repositories`[0m
+  [4;35;1mSQL (0.000427)[0m   [0mSHOW KEYS FROM `repositories`[0m
+  [4;36;1mSQL (0.001914)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.001936)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000604)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.000176)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000131)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (0.001949)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mClonedRepository Columns (0.001676)[0m   [0mSHOW FIELDS FROM `cloned_repositories`[0m
+  [4;36;1mRepository Columns (0.001896)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mBranch Columns (0.001997)[0m   [0mSHOW FIELDS FROM `branches`[0m
+  [4;36;1mSQL (0.000264)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000153)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Columns (0.001692)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mSQL (0.000164)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000858)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test') [0m
+  [4;35;1mSQL (0.000307)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test') [0m
+  [4;36;1mSQL (0.000285)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000344)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('Test', '2009-11-25 20:57:53', '2009-11-25 20:57:53', NULL, '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.003624)[0m   [0;1mCOMMIT[0m
+  [4;35;1mClonedRepository Columns (0.001546)[0m   [0mSHOW FIELDS FROM `cloned_repositories`[0m
+  [4;36;1mSQL (0.000132)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000357)[0m   [0mSELECT `path` FROM `cloned_repositories` WHERE (`cloned_repositories`.path = '/tmp/working_copies/63d280dfc86b71d38218cace0579b03a') [0m
+  [4;36;1mClonedRepository Create (0.000179)[0m   [0;1mINSERT INTO `cloned_repositories` (`created_at`, `updated_at`, `path`, `original_repository_id`) VALUES('2009-11-25 20:58:47', '2009-11-25 20:58:47', '/tmp/working_copies/63d280dfc86b71d38218cace0579b03a', 6)[0m
+  [4;35;1mSQL (0.002687)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000218)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000118)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Load (0.000511)[0m   [0;1mSELECT * FROM `repositories` LIMIT 1[0m
+  [4;35;1mRepository Columns (0.001725)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+  [4;36;1mClonedRepository Columns (0.001883)[0m   [0;1mSHOW FIELDS FROM `cloned_repositories`[0m
+  [4;35;1mSQL (0.000142)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.001624)[0m   [0;1mSELECT `path` FROM `cloned_repositories` WHERE (`cloned_repositories`.path = '/tmp/working_copies/6833cc62d4eecae7e49e9d2c09dfba38') [0m
+  [4;35;1mClonedRepository Create (0.000547)[0m   [0mINSERT INTO `cloned_repositories` (`created_at`, `updated_at`, `path`, `original_repository_id`) VALUES('2009-11-25 21:10:42', '2009-11-25 21:10:42', '/tmp/working_copies/6833cc62d4eecae7e49e9d2c09dfba38', 6)[0m
+  [4;36;1mSQL (0.003606)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000189)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000593)[0m   [0;1mSELECT `path` FROM `cloned_repositories` WHERE (`cloned_repositories`.path = '/tmp/working_copies/5400f925f65b17e856e1b5f10c67d8de') [0m
+  [4;35;1mClonedRepository Create (0.000410)[0m   [0mINSERT INTO `cloned_repositories` (`created_at`, `updated_at`, `path`, `original_repository_id`) VALUES('2009-11-25 21:15:26', '2009-11-25 21:15:26', '/tmp/working_copies/5400f925f65b17e856e1b5f10c67d8de', 6)[0m
+  [4;36;1mSQL (0.004455)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000193)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000577)[0m   [0;1mSELECT `path` FROM `cloned_repositories` WHERE (`cloned_repositories`.path = '/tmp/working_copies/7b24413a05ddcbae58db4a148fbbc041') [0m
+  [4;35;1mClonedRepository Create (0.000506)[0m   [0mINSERT INTO `cloned_repositories` (`created_at`, `updated_at`, `path`, `original_repository_id`) VALUES('2009-11-25 21:19:08', '2009-11-25 21:19:08', '/tmp/working_copies/7b24413a05ddcbae58db4a148fbbc041', 6)[0m
+  [4;36;1mSQL (0.004305)[0m   [0;1mCOMMIT[0m
+  [4;36;1mSQL (0.000187)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000820)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000610)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000300)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRepositories (20091004132559)
+Migrating to CreateUsers (20091007181458)
+Migrating to CreateBranches (20091009170903)
+Migrating to AddDescriptionToBranch (20091010144329)
+Migrating to CreateClonedRepositories (20091010183026)
+Migrating to AddHumanNameToRepository (20091122224348)
+Migrating to AddUserIdToRepository (20091125204806)
+Migrating to AddCurrentBranchNameToClonedRepository (20091125212452)
+  [4;36;1mSQL (0.080277)[0m   [0;1mALTER TABLE `cloned_repositories` ADD `current_branch_name` varchar(255)[0m
+  [4;35;1mSQL (0.000791)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091125212452')[0m
+  [4;36;1mSQL (0.000622)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000347)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000751)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001792)[0m   [0mSHOW FIELDS FROM `branches`[0m
+  [4;36;1mSQL (0.001808)[0m   [0;1mdescribe `branches`[0m
+  [4;35;1mSQL (0.000462)[0m   [0mSHOW KEYS FROM `branches`[0m
+  [4;36;1mSQL (0.002105)[0m   [0;1mSHOW FIELDS FROM `cloned_repositories`[0m
+  [4;35;1mSQL (0.006912)[0m   [0mdescribe `cloned_repositories`[0m
+  [4;36;1mSQL (0.000540)[0m   [0;1mSHOW KEYS FROM `cloned_repositories`[0m
+  [4;35;1mSQL (0.003961)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+  [4;36;1mSQL (0.003625)[0m   [0;1mdescribe `repositories`[0m
+  [4;35;1mSQL (0.000458)[0m   [0mSHOW KEYS FROM `repositories`[0m
+  [4;36;1mSQL (0.003453)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.003835)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000439)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.000086)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000053)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Columns (0.000707)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mSQL (0.000063)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000250)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Macke_') [0m
+  [4;35;1mSQL (0.002265)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Macke_') [0m
+  [4;36;1mSQL (0.000206)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Macke?') [0m
+  [4;35;1mRepository Create (0.000155)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('Macke_', '2009-11-26 07:37:23', '2009-11-26 07:37:23', NULL, '/home/feson/stonk/repositories/Macke_.git', 'Macke?')[0m
+  [4;36;1mSQL (0.003547)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000188)[0m   [0mBEGIN[0m
+  [4;36;1mBranch Load (0.000514)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 7) [0m
+  [4;35;1mRepository Destroy (0.000223)[0m   [0m DELETE FROM `repositories`
+ WHERE `id` = 7
+[0m
+  [4;36;1mSQL (0.002959)[0m   [0;1mCOMMIT[0m
+  [4;36;1mSQL (0.000084)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000092)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Columns (0.000947)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mSQL (0.000062)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000251)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'affe') [0m
+  [4;35;1mSQL (0.000671)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'affe') [0m
+  [4;36;1mSQL (0.000115)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'affe') [0m
+  [4;35;1mRepository Create (0.000142)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('affe', '2009-11-26 07:48:02', '2009-11-26 07:48:02', NULL, '/home/feson/stonk/repositories/affe.git', 'affe')[0m
+  [4;36;1mSQL (0.005810)[0m   [0;1mCOMMIT[0m
+  [4;36;1mSQL (0.000135)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.002004)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Load (0.000314)[0m   [0;1mSELECT * FROM `repositories` LIMIT 1[0m
+  [4;35;1mRepository Columns (0.000743)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+  [4;36;1mSQL (0.000174)[0m   [0;1mBEGIN[0m
+  [4;35;1mBranch Load (0.000572)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 6) [0m
+  [4;36;1mRepository Destroy (0.000216)[0m   [0;1m DELETE FROM `repositories`
+ WHERE `id` = 6
+[0m
+  [4;35;1mSQL (0.004193)[0m   [0mCOMMIT[0m
+  [4;36;1mRepository Load (0.000639)[0m   [0;1mSELECT * FROM `repositories` LIMIT 1[0m
+  [4;35;1mSQL (0.000183)[0m   [0mBEGIN[0m
+  [4;36;1mBranch Load (0.000574)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 8) [0m
+  [4;35;1mRepository Destroy (0.000364)[0m   [0m DELETE FROM `repositories`
+ WHERE `id` = 8
+[0m
+  [4;36;1mSQL (0.007140)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRepository Load (0.000633)[0m   [0mSELECT * FROM `repositories` LIMIT 1[0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000048)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Columns (0.000716)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mSQL (0.000061)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000236)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'blubb') [0m
+  [4;35;1mSQL (0.000114)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'blubb') [0m
+  [4;36;1mSQL (0.000111)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'blubb') [0m
+  [4;35;1mRepository Create (0.000140)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('blubb', '2009-11-26 08:24:19', '2009-11-26 08:24:19', NULL, '/home/feson/stonk/repositories/blubb.git', 'blubb')[0m
+  [4;36;1mSQL (0.025810)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000173)[0m   [0mBEGIN[0m
+  [4;36;1mBranch Load (0.000587)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 9) [0m
+  [4;35;1mRepository Destroy (0.002479)[0m   [0m DELETE FROM `repositories`
+ WHERE `id` = 9
+[0m
+  [4;36;1mSQL (0.003463)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000172)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000521)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'blubb_') [0m
+  [4;35;1mSQL (0.000296)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'blubb_') [0m
+  [4;36;1mSQL (0.000274)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'blubb+') [0m
+  [4;35;1mRepository Create (0.000341)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('blubb_', '2009-11-26 08:30:32', '2009-11-26 08:30:32', NULL, '/home/feson/stonk/repositories/blubb_.git', 'blubb+')[0m
+  [4;36;1mSQL (0.008951)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000173)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000553)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'blubb_') [0m
+  [4;35;1mSQL (0.000292)[0m   [0mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'blubb__1') [0m
+  [4;36;1mSQL (0.000288)[0m   [0;1mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'blubb__1') [0m
+  [4;35;1mSQL (0.000279)[0m   [0mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'blubb-') [0m
+  [4;36;1mRepository Create (0.000546)[0m   [0;1mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('blubb__1', '2009-11-26 08:30:43', '2009-11-26 08:30:43', NULL, '/home/feson/stonk/repositories/blubb__1.git', 'blubb-')[0m
+  [4;35;1mSQL (0.005424)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000173)[0m   [0;1mBEGIN[0m
+  [4;35;1mBranch Load (0.000496)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 10) [0m
+  [4;36;1mRepository Destroy (0.000348)[0m   [0;1m DELETE FROM `repositories`
+ WHERE `id` = 10
+[0m
+  [4;35;1mSQL (0.009070)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000170)[0m   [0;1mBEGIN[0m
+  [4;35;1mBranch Load (0.000601)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 11) [0m
+  [4;36;1mRepository Destroy (0.000351)[0m   [0;1m DELETE FROM `repositories`
+ WHERE `id` = 11
+[0m
+  [4;35;1mSQL (0.007158)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000086)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000056)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000258)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000070)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000239)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000146)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000296)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000117)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000145)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime, "current_branch_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000138)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000137)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255), "user_id" varchar(255)) [0m
+  [4;35;1mSQL (0.000162)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000156)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000201)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000126)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000123)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000208)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000062)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000069)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091125212452')[0m
+  [4;35;1mSQL (0.000063)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091125204806')[0m
+  [4;36;1mSQL (0.000063)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;35;1mSQL (0.000060)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;36;1mSQL (0.000060)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000060)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000060)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000130)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000082)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000297)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000098)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000265)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000148)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000292)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000122)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000138)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime, "current_branch_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000137)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000138)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255), "user_id" varchar(255)) [0m
+  [4;35;1mSQL (0.000162)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000170)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000187)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000124)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000124)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000210)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000059)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000069)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091125212452')[0m
+  [4;35;1mSQL (0.000061)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091125204806')[0m
+  [4;36;1mSQL (0.000058)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;35;1mSQL (0.000060)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;36;1mSQL (0.000060)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000059)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000060)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000060)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000084)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000053)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Columns (0.000802)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mSQL (0.000061)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000240)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'ELENDES_RUSSENVIEH____') [0m
+  [4;35;1mSQL (0.000102)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'ELENDES_RUSSENVIEH____') [0m
+  [4;36;1mSQL (0.000106)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'ELENDES RUSSENVIEH!!!!') [0m
+  [4;35;1mRepository Create (0.000152)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('ELENDES_RUSSENVIEH____', '2009-11-26 08:49:53', '2009-11-26 08:49:53', NULL, '/home/feson/stonk/repositories/ELENDES_RUSSENVIEH____.git', 'ELENDES RUSSENVIEH!!!!')[0m
+  [4;36;1mSQL (0.007964)[0m   [0;1mCOMMIT[0m
+  [4;36;1mSQL (0.000137)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000074)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000297)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000092)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000241)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000150)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000324)[0m   [0;1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "write_access_for" varchar(255), "repository_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "description" varchar(255)) [0m
+  [4;35;1mSQL (0.000117)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCREATE TABLE "cloned_repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "path" varchar(255), "original_repository_id" integer, "created_at" datetime, "updated_at" datetime, "current_branch_name" varchar(255)) [0m
+  [4;35;1mSQL (0.000137)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mCREATE TABLE "repositories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(80), "path" varchar(256), "created_at" datetime, "updated_at" datetime, "human_name" varchar(255), "user_id" varchar(255)) [0m
+  [4;35;1mSQL (0.000162)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000159)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(255), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.000208)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000126)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000125)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000211)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000059)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (0.000070)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091125212452')[0m
+  [4;35;1mSQL (0.000064)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091125204806')[0m
+  [4;36;1mSQL (0.000060)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091004132559')[0m
+  [4;35;1mSQL (0.000060)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091010183026')[0m
+  [4;36;1mSQL (0.000060)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091122224348')[0m
+  [4;35;1mSQL (0.000060)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091007181458')[0m
+  [4;36;1mSQL (0.000059)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20091010144329')[0m
+  [4;35;1mSQL (0.000060)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091009170903')[0m
+  [4;36;1mSQL (0.000083)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000053)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Load (0.000234)[0m   [0;1mSELECT * FROM `repositories` LIMIT 1[0m
+  [4;35;1mSQL (0.000040)[0m   [0mBEGIN[0m
+  [4;36;1mRepository Columns (0.002939)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mBranch Load (0.000251)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 12) [0m
+  [4;36;1mRepository Destroy (0.000212)[0m   [0;1m DELETE FROM `repositories`
+ WHERE `id` = 12
+[0m
+  [4;35;1mSQL (0.003504)[0m   [0mCOMMIT[0m
+  [4;36;1mRepository Load (0.000505)[0m   [0;1mSELECT * FROM `repositories` LIMIT 1[0m
+  [4;35;1mSQL (0.000180)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000505)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test') [0m
+  [4;35;1mSQL (0.000308)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test') [0m
+  [4;36;1mSQL (0.000311)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000651)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('Test', '2009-11-26 10:42:39', '2009-11-26 10:42:39', NULL, '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.003708)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000169)[0m   [0mBEGIN[0m
+  [4;36;1mBranch Load (0.000509)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 13) [0m
+  [4;35;1mRepository Destroy (0.000333)[0m   [0m DELETE FROM `repositories`
+ WHERE `id` = 13
+[0m
+  [4;36;1mSQL (0.006840)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000172)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000667)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test') [0m
+  [4;35;1mSQL (0.000290)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test') [0m
+  [4;36;1mSQL (0.000312)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000563)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('Test', '2009-11-26 10:42:51', '2009-11-26 10:42:51', NULL, '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.000914)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000213)[0m   [0mBEGIN[0m
+  [4;36;1mBranch Load (0.000559)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 14) [0m
+  [4;35;1mRepository Destroy (0.000411)[0m   [0m DELETE FROM `repositories`
+ WHERE `id` = 14
+[0m
+  [4;36;1mSQL (0.006535)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000173)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000672)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test') [0m
+  [4;35;1mSQL (0.000335)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test') [0m
+  [4;36;1mSQL (0.000280)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000382)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('Test', '2009-11-26 10:44:03', '2009-11-26 10:44:03', NULL, '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.004445)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000192)[0m   [0mBEGIN[0m
+  [4;36;1mBranch Load (0.001376)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 15) [0m
+  [4;35;1mRepository Destroy (0.000371)[0m   [0m DELETE FROM `repositories`
+ WHERE `id` = 15
+[0m
+  [4;36;1mSQL (0.003780)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000172)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000555)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test') [0m
+  [4;35;1mSQL (0.000298)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test') [0m
+  [4;36;1mSQL (0.000279)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000323)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('Test', '2009-11-26 10:45:29', '2009-11-26 10:45:29', NULL, '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.002607)[0m   [0;1mROLLBACK[0m
+  [4;35;1mRepository Load (0.000612)[0m   [0mSELECT * FROM `repositories` [0m
+  [4;36;1mSQL (0.000278)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000061)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Load (0.000114)[0m   [0;1mSELECT * FROM `repositories` [0m
+  [4;35;1mRepository Columns (0.001959)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+  [4;36;1mSQL (0.000119)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000457)[0m   [0mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test') [0m
+  [4;36;1mSQL (0.000299)[0m   [0;1mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test') [0m
+  [4;35;1mSQL (0.000262)[0m   [0mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test') [0m
+  [4;36;1mRepository Create (0.000330)[0m   [0;1mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('Test', '2009-11-26 10:55:20', '2009-11-26 10:55:20', NULL, '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;35;1mSQL (0.000583)[0m   [0mCOMMIT[0m
+  [4;36;1mClonedRepository Columns (0.000804)[0m   [0;1mSHOW FIELDS FROM `cloned_repositories`[0m
+  [4;35;1mSQL (0.000052)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000355)[0m   [0;1mSELECT `path` FROM `cloned_repositories` WHERE (`cloned_repositories`.path = '/tmp/working_copies/a4f5dce65488677d6b62198267364fca') [0m
+  [4;35;1mClonedRepository Create (0.000156)[0m   [0mINSERT INTO `cloned_repositories` (`created_at`, `current_branch_name`, `updated_at`, `path`, `original_repository_id`) VALUES('2009-11-26 10:55:54', NULL, '2009-11-26 10:55:54', '/tmp/working_copies/a4f5dce65488677d6b62198267364fca', 17)[0m
+  [4;36;1mSQL (0.002701)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000169)[0m   [0mBEGIN[0m
+  [4;36;1mBranch Load (0.000934)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 17) [0m
+  [4;35;1mRepository Destroy (0.004920)[0m   [0m DELETE FROM `repositories`
+ WHERE `id` = 17
+[0m
+  [4;36;1mSQL (0.002662)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000189)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000571)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test') [0m
+  [4;35;1mSQL (0.000304)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test') [0m
+  [4;36;1mSQL (0.000274)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000548)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('Test', '2009-11-26 10:56:48', '2009-11-26 10:56:48', NULL, '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.003271)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000185)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000125)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Columns (0.007172)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mSQL (0.000092)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000258)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test') [0m
+  [4;35;1mSQL (0.000110)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test') [0m
+  [4;36;1mSQL (0.000096)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000232)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('Test', '2009-11-26 10:57:43', '2009-11-26 10:57:43', NULL, '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.000609)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000173)[0m   [0mBEGIN[0m
+  [4;36;1mBranch Load (0.001179)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 19) [0m
+  [4;35;1mRepository Destroy (0.000324)[0m   [0m DELETE FROM `repositories`
+ WHERE `id` = 19
+[0m
+  [4;36;1mSQL (0.008086)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000174)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000480)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test') [0m
+  [4;35;1mSQL (0.000295)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test') [0m
+  [4;36;1mSQL (0.000332)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000331)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('Test', '2009-11-26 10:58:10', '2009-11-26 10:58:10', NULL, '/home/feson/stonk/repositories/Test.git', 'Test')[0m
+  [4;36;1mSQL (0.000680)[0m   [0;1mCOMMIT[0m
+  [4;36;1mSQL (0.000086)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000045)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (0.000757)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mClonedRepository Columns (0.000761)[0m   [0mSHOW FIELDS FROM `cloned_repositories`[0m
+  [4;36;1mRepository Columns (0.000732)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mBranch Columns (0.000790)[0m   [0mSHOW FIELDS FROM `branches`[0m
+  [4;36;1mSQL (0.000134)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000086)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Load (0.000267)[0m   [0;1mSELECT * FROM `repositories` LIMIT 1[0m
+  [4;35;1mRepository Columns (0.000623)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+  [4;36;1mClonedRepository Columns (0.009875)[0m   [0;1mSHOW FIELDS FROM `cloned_repositories`[0m
+  [4;35;1mSQL (0.001673)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000379)[0m   [0;1mSELECT `path` FROM `cloned_repositories` WHERE (`cloned_repositories`.path = '/tmp/working_copies/43828d42726ea2691b96191454926b5a') [0m
+  [4;35;1mClonedRepository Create (0.000201)[0m   [0mINSERT INTO `cloned_repositories` (`created_at`, `current_branch_name`, `updated_at`, `path`, `original_repository_id`) VALUES('2009-11-26 11:22:24', 'master', '2009-11-26 11:22:24', '/tmp/working_copies/43828d42726ea2691b96191454926b5a', 20)[0m
+  [4;36;1mSQL (0.002712)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000187)[0m   [0mBEGIN[0m
+  [4;36;1mBranch Load (0.000560)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 20) [0m
+  [4;35;1mRepository Destroy (0.000361)[0m   [0m DELETE FROM `repositories`
+ WHERE `id` = 20
+[0m
+  [4;36;1mSQL (0.008156)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000177)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000541)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test1') [0m
+  [4;35;1mSQL (0.000308)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test1') [0m
+  [4;36;1mSQL (0.000304)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test1') [0m
+  [4;35;1mRepository Create (0.000560)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('Test1', '2009-11-26 11:29:16', '2009-11-26 11:29:16', NULL, '/home/feson/stonk/repositories/Test1.git', 'Test1')[0m
+  [4;36;1mSQL (0.005015)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000111)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000165)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Load (0.000305)[0m   [0;1mSELECT * FROM `repositories` LIMIT 1[0m
+  [4;35;1mRepository Load (0.000195)[0m   [0mSELECT * FROM `repositories` LIMIT 1[0m
+  [4;36;1mRepository Columns (0.006392)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mSQL (0.000075)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000251)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'test1') [0m
+  [4;35;1mSQL (0.000118)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'test1') [0m
+  [4;36;1mSQL (0.000098)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'test1') [0m
+  [4;35;1mRepository Create (0.000140)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('test1', '2009-11-26 11:30:52', '2009-11-26 11:30:52', NULL, '/home/feson/stonk/repositories/test1.git', 'test1')[0m
+  [4;36;1mSQL (0.000637)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000226)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000567)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'test2') [0m
+  [4;35;1mSQL (0.000327)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'test2') [0m
+  [4;36;1mSQL (0.000438)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'test2') [0m
+  [4;35;1mRepository Create (0.000333)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('test2', '2009-11-26 11:30:58', '2009-11-26 11:30:58', NULL, '/home/feson/stonk/repositories/test2.git', 'test2')[0m
+  [4;36;1mSQL (0.004205)[0m   [0;1mCOMMIT[0m
+  [4;35;1mClonedRepository Columns (0.000733)[0m   [0mSHOW FIELDS FROM `cloned_repositories`[0m
+  [4;36;1mSQL (0.000534)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000355)[0m   [0mSELECT `path` FROM `cloned_repositories` WHERE (`cloned_repositories`.path = '/tmp/working_copies/f3ce85cbe09b93ef5373bb3b458ae84c') [0m
+  [4;36;1mClonedRepository Create (0.000189)[0m   [0;1mINSERT INTO `cloned_repositories` (`created_at`, `current_branch_name`, `updated_at`, `path`, `original_repository_id`) VALUES('2009-11-26 11:31:35', 'master', '2009-11-26 11:31:35', '/tmp/working_copies/f3ce85cbe09b93ef5373bb3b458ae84c', 22)[0m
+  [4;35;1mSQL (0.031059)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000224)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000576)[0m   [0mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test4') [0m
+  [4;36;1mSQL (0.000317)[0m   [0;1mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test4') [0m
+  [4;35;1mSQL (0.000310)[0m   [0mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test4') [0m
+  [4;36;1mRepository Create (0.000688)[0m   [0;1mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('Test4', '2009-11-26 11:32:55', '2009-11-26 11:32:55', NULL, '/home/feson/stonk/repositories/Test4.git', 'Test4')[0m
+  [4;35;1mSQL (0.003411)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000186)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000053)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Columns (0.004275)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mSQL (0.000081)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000334)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test') [0m
+  [4;35;1mSQL (0.000117)[0m   [0mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test') [0m
+  [4;36;1mSQL (0.000099)[0m   [0;1mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test') [0m
+  [4;35;1mRepository Create (0.000148)[0m   [0mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('Test', '2009-11-26 19:14:51', '2009-11-26 19:14:51', NULL, '/home/feson/stonk/repositories/3bac52df637eaf630f22d4b1bb1eb630.git', 'Test')[0m
+  [4;36;1mSQL (0.008257)[0m   [0;1mCOMMIT[0m
+  [4;35;1mBranch Load (0.003235)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 25) [0m
+  [4;36;1mRepository Columns (0.001702)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mSQL (0.000166)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000501)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test') [0m
+  [4;35;1mSQL (0.000320)[0m   [0mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test_1') [0m
+  [4;36;1mSQL (0.007978)[0m   [0;1mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test_1') [0m
+  [4;35;1mSQL (0.000136)[0m   [0mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test') [0m
+  [4;36;1mSQL (0.000069)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000192)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000532)[0m   [0;1mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test2') [0m
+  [4;35;1mSQL (0.000414)[0m   [0mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'Test2_1') [0m
+  [4;36;1mSQL (0.000298)[0m   [0;1mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'Test2_1') [0m
+  [4;35;1mSQL (0.000482)[0m   [0mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'Test2') [0m
+  [4;36;1mRepository Create (0.000979)[0m   [0;1mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('Test2_1', '2009-11-26 19:17:02', '2009-11-26 19:17:02', NULL, '/home/feson/stonk/repositories/4d778a67f363efb8db97c0ea2ba99ee9.git', 'Test2')[0m
+  [4;35;1mSQL (0.005740)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.065091)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.025573)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.137114)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001221)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRepositories (20091004132559)
+Migrating to CreateUsers (20091007181458)
+Migrating to CreateBranches (20091009170903)
+Migrating to AddDescriptionToBranch (20091010144329)
+Migrating to CreateClonedRepositories (20091010183026)
+Migrating to AddHumanNameToRepository (20091122224348)
+Migrating to AddUserIdToRepository (20091125204806)
+Migrating to AddCurrentBranchNameToClonedRepository (20091125212452)
+Migrating to AddHumanNameToBranch (20091126211859)
+  [4;36;1mSQL (0.674823)[0m   [0;1mALTER TABLE `branches` ADD `human_name` varchar(255)[0m
+  [4;35;1mSQL (0.049816)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091126211859')[0m
+  [4;36;1mSQL (0.000621)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000395)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000419)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.113032)[0m   [0mSHOW FIELDS FROM `branches`[0m
+  [4;36;1mSQL (0.040550)[0m   [0;1mdescribe `branches`[0m
+  [4;35;1mSQL (0.000225)[0m   [0mSHOW KEYS FROM `branches`[0m
+  [4;36;1mSQL (0.086092)[0m   [0;1mSHOW FIELDS FROM `cloned_repositories`[0m
+  [4;35;1mSQL (0.124258)[0m   [0mdescribe `cloned_repositories`[0m
+  [4;36;1mSQL (0.022217)[0m   [0;1mSHOW KEYS FROM `cloned_repositories`[0m
+  [4;35;1mSQL (0.003461)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+  [4;36;1mSQL (0.002989)[0m   [0;1mdescribe `repositories`[0m
+  [4;35;1mSQL (0.001222)[0m   [0mSHOW KEYS FROM `repositories`[0m
+  [4;36;1mSQL (0.032196)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.003526)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.007557)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.000085)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000065)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000289)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000458)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRepositories (20091004132559)
+Migrating to CreateUsers (20091007181458)
+Migrating to CreateBranches (20091009170903)
+Migrating to AddDescriptionToBranch (20091010144329)
+Migrating to CreateClonedRepositories (20091010183026)
+Migrating to AddHumanNameToRepository (20091122224348)
+Migrating to AddUserIdToRepository (20091125204806)
+Migrating to AddCurrentBranchNameToClonedRepository (20091125212452)
+Migrating to AddHumanNameToBranch (20091126211859)
+Migrating to AddCopyFromBranchIdToBranch (20091129161743)
+  [4;36;1mSQL (0.027830)[0m   [0;1mALTER TABLE `branches` ADD `copy_from_branch_id` int(11)[0m
+  [4;35;1mSQL (0.000490)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091129161743')[0m
+  [4;36;1mSQL (0.000279)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000157)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000161)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000699)[0m   [0mSHOW FIELDS FROM `branches`[0m
+  [4;36;1mSQL (0.000539)[0m   [0;1mdescribe `branches`[0m
+  [4;35;1mSQL (0.000168)[0m   [0mSHOW KEYS FROM `branches`[0m
+  [4;36;1mSQL (0.000503)[0m   [0;1mSHOW FIELDS FROM `cloned_repositories`[0m
+  [4;35;1mSQL (0.000465)[0m   [0mdescribe `cloned_repositories`[0m
+  [4;36;1mSQL (0.000245)[0m   [0;1mSHOW KEYS FROM `cloned_repositories`[0m
+  [4;35;1mSQL (0.000519)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+  [4;36;1mSQL (0.000455)[0m   [0;1mdescribe `repositories`[0m
+  [4;35;1mSQL (0.000220)[0m   [0mSHOW KEYS FROM `repositories`[0m
+  [4;36;1mSQL (0.000567)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.000565)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000266)[0m   [0;1mSHOW KEYS FROM `users`[0m
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-12-04 20:34:42) [GET]
+  Session ID: 8d788fcc97e6a328219e59cf55b6ca4a
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+  [4;36;1mSQL (0.000117)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.006953)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mRepository Load (0.023272)[0m   [0;1mSELECT * FROM `repositories` ORDER BY human_name[0m
+  [4;35;1mRepository Columns (0.000621)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+Rendered layouts/_login (0.01629)
+Completed in 0.08595 (11 reqs/sec) | Rendering: 0.05538 (64%) | DB: 0.03096 (36%) | 200 OK [http://localhost/documents/]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-12-04 20:35:18) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjRlYjM5ZThiODhiYjU3NjM2YzUzMDdmZDM1NmFm
+NDUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--3761f9bd9aeb680844af81856cfc17d7339acb69
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mRepository Load (0.008430)[0m   [0;1mSELECT * FROM `repositories` ORDER BY human_name[0m
+  [4;35;1mRepository Columns (0.013802)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+Rendered layouts/_login (0.00057)
+Completed in 0.03293 (30 reqs/sec) | Rendering: 0.00531 (16%) | DB: 0.02223 (67%) | 200 OK [http://localhost/documents/]
+  [4;36;1mSQL (0.000094)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000049)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mRepository Load (0.000250)[0m   [0;1mSELECT * FROM `repositories` LIMIT 1[0m
+  [4;35;1mSQL (0.000039)[0m   [0mBEGIN[0m
+  [4;36;1mRepository Columns (0.000676)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mBranch Load (0.000375)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 22) [0m
+  [4;36;1mClonedRepository Load (0.000476)[0m   [0;1mSELECT * FROM `cloned_repositories` WHERE (`cloned_repositories`.original_repository_id = 22) [0m
+  [4;35;1mClonedRepository Columns (0.000558)[0m   [0mSHOW FIELDS FROM `cloned_repositories`[0m
+  [4;36;1mClonedRepository Destroy (0.013642)[0m   [0;1m DELETE FROM `cloned_repositories`
+ WHERE `id` = 7
+[0m
+  [4;35;1mRepository Destroy (0.000609)[0m   [0m DELETE FROM `repositories`
+ WHERE `id` = 22
+[0m
+  [4;36;1mSQL (0.005603)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRepository Load (0.000507)[0m   [0mSELECT * FROM `repositories` LIMIT 1[0m
+  [4;36;1mSQL (0.000100)[0m   [0;1mBEGIN[0m
+  [4;35;1mBranch Load (0.000357)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 23) [0m
+  [4;36;1mClonedRepository Load (0.000381)[0m   [0;1mSELECT * FROM `cloned_repositories` WHERE (`cloned_repositories`.original_repository_id = 23) [0m
+  [4;35;1mRepository Destroy (0.000598)[0m   [0m DELETE FROM `repositories`
+ WHERE `id` = 23
+[0m
+  [4;36;1mSQL (0.004126)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRepository Load (0.000349)[0m   [0mSELECT * FROM `repositories` LIMIT 1[0m
+  [4;36;1mSQL (0.000033)[0m   [0;1mBEGIN[0m
+  [4;35;1mBranch Load (0.000208)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 25) [0m
+  [4;36;1mClonedRepository Load (0.000139)[0m   [0;1mSELECT * FROM `cloned_repositories` WHERE (`cloned_repositories`.original_repository_id = 25) [0m
+  [4;35;1mRepository Destroy (0.000246)[0m   [0m DELETE FROM `repositories`
+ WHERE `id` = 25
+[0m
+  [4;36;1mSQL (0.002712)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRepository Load (0.000513)[0m   [0mSELECT * FROM `repositories` LIMIT 1[0m
+  [4;36;1mSQL (0.000101)[0m   [0;1mBEGIN[0m
+  [4;35;1mBranch Load (0.000388)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 26) [0m
+  [4;36;1mClonedRepository Load (0.019375)[0m   [0;1mSELECT * FROM `cloned_repositories` WHERE (`cloned_repositories`.original_repository_id = 26) [0m
+  [4;35;1mRepository Destroy (0.009765)[0m   [0m DELETE FROM `repositories`
+ WHERE `id` = 26
+[0m
+  [4;36;1mSQL (0.006783)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRepository Load (0.000541)[0m   [0mSELECT * FROM `repositories` LIMIT 1[0m
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-12-04 20:35:57) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjRlYjM5ZThiODhiYjU3NjM2YzUzMDdmZDM1NmFm
+NDUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--3761f9bd9aeb680844af81856cfc17d7339acb69
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mRepository Load (0.001153)[0m   [0;1mSELECT * FROM `repositories` ORDER BY human_name[0m
+Rendered layouts/_login (0.00086)
+Completed in 0.01144 (87 reqs/sec) | Rendering: 0.00325 (28%) | DB: 0.00115 (10%) | 200 OK [http://localhost/documents/]
+  [4;35;1mSQL (0.019915)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.016324)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-12-05 09:02:53) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjRlYjM5ZThiODhiYjU3NjM2YzUzMDdmZDM1NmFm
+NDUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--3761f9bd9aeb680844af81856cfc17d7339acb69
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+Rendering template within layouts/application
+Rendering documents/index
+  [4;35;1mRepository Load (0.000167)[0m   [0mSELECT * FROM `repositories` ORDER BY human_name[0m
+Rendered layouts/_login (0.01112)
+Completed in 0.07721 (12 reqs/sec) | Rendering: 0.05208 (67%) | DB: 0.03641 (47%) | 200 OK [http://localhost/documents/]
+
+
+Processing DocumentsController#documents (for 127.0.0.1 at 2009-12-05 09:02:55) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjRlYjM5ZThiODhiYjU3NjM2YzUzMDdmZDM1NmFm
+NDUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--3761f9bd9aeb680844af81856cfc17d7339acb69
+  Parameters: {"action"=>"documents", "id"=>"new", "controller"=>"documents"}
+
+
+ActionController::UnknownAction (No action responded to documents):
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing DocumentsController#documents (for 127.0.0.1 at 2009-12-05 09:03:20) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjRlYjM5ZThiODhiYjU3NjM2YzUzMDdmZDM1NmFm
+NDUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--3761f9bd9aeb680844af81856cfc17d7339acb69
+  Parameters: {"action"=>"documents", "id"=>"new", "controller"=>"documents"}
+
+
+ActionController::UnknownAction (No action responded to documents):
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-12-05 09:03:52) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjRlYjM5ZThiODhiYjU3NjM2YzUzMDdmZDM1NmFm
+NDUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--3761f9bd9aeb680844af81856cfc17d7339acb69
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mRepository Load (0.000204)[0m   [0;1mSELECT * FROM `repositories` ORDER BY human_name[0m
+Rendered layouts/_login (0.00072)
+Completed in 0.01025 (97 reqs/sec) | Rendering: 0.00392 (38%) | DB: 0.00020 (1%) | 200 OK [http://localhost/documents/]
+
+
+Processing DocumentsController#new (for 127.0.0.1 at 2009-12-05 09:03:56) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjRlYjM5ZThiODhiYjU3NjM2YzUzMDdmZDM1NmFm
+NDUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--3761f9bd9aeb680844af81856cfc17d7339acb69
+  Parameters: {"action"=>"new", "controller"=>"documents"}
+  [4;35;1mRepository Columns (0.025788)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+Params = {"action"=>"new", "controller"=>"documents"}
+Rendering template within layouts/application
+Rendering documents/new
+Rendered layouts/_login (0.00066)
+Completed in 0.06921 (14 reqs/sec) | Rendering: 0.03348 (48%) | DB: 0.02579 (37%) | 200 OK [http://localhost/documents/new]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-12-05 09:04:14) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjRlYjM5ZThiODhiYjU3NjM2YzUzMDdmZDM1NmFm
+NDUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--3761f9bd9aeb680844af81856cfc17d7339acb69
+  Parameters: {"action"=>"new", "controller"=>"documents"}
+
+
+SyntaxError (/home/feson/projects/st0nk/app/controllers/documents_controller.rb:3: syntax error, unexpected '\n', expecting tASSOC):
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:216:in `load_without_new_constant_marking'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:216:in `load_file'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:215:in `load_file'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:96:in `require_or_load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:261:in `load_missing_constant'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:468:in `const_missing'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:480:in `const_missing'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/inflector.rb:285:in `constantize'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/inflector.rb:284:in `each'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/inflector.rb:284:in `constantize'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/string/inflections.rb:143:in `constantize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/routing/route_set.rb:387:in `recognize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-12-05 09:04:56) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjRlYjM5ZThiODhiYjU3NjM2YzUzMDdmZDM1NmFm
+NDUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--3761f9bd9aeb680844af81856cfc17d7339acb69
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.020077)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering account/signup
+Rendered layouts/_login (0.00144)
+Completed in 0.09552 (10 reqs/sec) | Rendering: 0.03610 (37%) | DB: 0.02008 (21%) | 200 OK [http://localhost/signup]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-12-05 09:05:01) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjRlYjM5ZThiODhiYjU3NjM2YzUzMDdmZDM1NmFm
+NDUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--3761f9bd9aeb680844af81856cfc17d7339acb69
+  Parameters: {"action"=>"new", "controller"=>"documents"}
+
+
+SyntaxError (/home/feson/projects/st0nk/app/controllers/documents_controller.rb:3: syntax error, unexpected '\n', expecting tASSOC):
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:216:in `load_without_new_constant_marking'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:216:in `load_file'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:215:in `load_file'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:96:in `require_or_load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:261:in `load_missing_constant'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:468:in `const_missing'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:480:in `const_missing'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/inflector.rb:285:in `constantize'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/inflector.rb:284:in `each'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/inflector.rb:284:in `constantize'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/string/inflections.rb:143:in `constantize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/routing/route_set.rb:387:in `recognize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing DocumentsController#new (for 127.0.0.1 at 2009-12-05 09:05:22) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjRlYjM5ZThiODhiYjU3NjM2YzUzMDdmZDM1NmFm
+NDUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--3761f9bd9aeb680844af81856cfc17d7339acb69
+  Parameters: {"action"=>"new", "controller"=>"documents"}
+Redirected to http://localhost:3000/login
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 0.00111 (901 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/documents/new]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2009-12-05 09:05:22) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZjRlYjM5ZThiODhiYjU3NjM2YzUzMDdmZDM1NmFm
+NDU6DnJldHVybl90byITL2RvY3VtZW50cy9uZXciCmZsYXNoSUM6J0FjdGlv
+bkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--c3140ea6d77185ed9d2f3ed84f76780ae6d149a7
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering template within layouts/application
+Rendering account/login
+Rendered layouts/_login (0.00065)
+Completed in 0.01588 (62 reqs/sec) | Rendering: 0.01418 (89%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2009-12-05 09:05:56) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZjRlYjM5ZThiODhiYjU3NjM2YzUzMDdmZDM1NmFm
+NDU6DnJldHVybl90byITL2RvY3VtZW50cy9uZXciCmZsYXNoSUM6J0FjdGlv
+bkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--c3140ea6d77185ed9d2f3ed84f76780ae6d149a7
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"34a6bf0e7f3325497b8da6c4d278f7d9c8e00ade", "action"=>"login", "controller"=>"account", "password"=>"asd", "login"=>"test"}
+  [4;35;1mUser Columns (0.002417)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.021471)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`login` = 'test') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering account/login
+Rendered layouts/_login (0.00046)
+Completed in 0.03684 (27 reqs/sec) | Rendering: 0.00557 (15%) | DB: 0.02389 (64%) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (0.000141)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000119)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Load (0.000559)[0m   [0;1mSELECT * FROM `users` [0m
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-12-05 09:09:58) [GET]
+  Session ID: BAh7CToJdXNlcjA6DGNzcmZfaWQiJWY0ZWIzOWU4Yjg4YmI1NzYzNmM1MzA3
+ZmQzNTZhZjQ1Og5yZXR1cm5fdG8iEy9kb2N1bWVudHMvbmV3IgpmbGFzaElD
+OidBY3Rpb25Db250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewY6C25vdGlj
+ZSInQmVudXR6ZXJuYW1lIG9kZXIgUGFzc3dvcnQgZmFsc2NoIQY6CkB1c2Vk
+ewY7CUY=--27b60600a43ce506b24695e5ada716a0ca11bdb9
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35;1mUser Columns (0.000710)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering account/signup
+Rendered layouts/_login (0.00043)
+Completed in 0.01085 (92 reqs/sec) | Rendering: 0.00364 (33%) | DB: 0.00071 (6%) | 200 OK [http://localhost/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-12-05 09:10:07) [POST]
+  Session ID: BAh7CToJdXNlcjA6DGNzcmZfaWQiJWY0ZWIzOWU4Yjg4YmI1NzYzNmM1MzA3
+ZmQzNTZhZjQ1Og5yZXR1cm5fdG8iEy9kb2N1bWVudHMvbmV3IgpmbGFzaElD
+OidBY3Rpb25Db250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewY6C25vdGlj
+ZSInQmVudXR6ZXJuYW1lIG9kZXIgUGFzc3dvcnQgZmFsc2NoIQY6CkB1c2Vk
+ewY7CVQ=--91fed26fa71c5f7d9b8ef1393b4ebbde07ef46ab
+  Parameters: {"commit"=>"Account anlegen", "authenticity_token"=>"34a6bf0e7f3325497b8da6c4d278f7d9c8e00ade", "action"=>"signup", "controller"=>"account", "user"=>{"password_confirmation"=>"asd", "login"=>"test", "password"=>"asd", "email"=>"test@example.com"}}
+  [4;36;1mUser Columns (0.000835)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.000080)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.018798)[0m   [0;1mSELECT `login` FROM `users` WHERE (LOWER(`users`.login) = 'test') [0m
+  [4;35;1mSQL (0.000332)[0m   [0mSELECT `email` FROM `users` WHERE (LOWER(`users`.email) = 'test@example.com') [0m
+  [4;36;1mSQL (0.004619)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering account/signup
+Rendered layouts/_login (0.00148)
+Completed in 0.22259 (4 reqs/sec) | Rendering: 0.00838 (3%) | DB: 0.02466 (11%) | 200 OK [http://localhost/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2009-12-05 09:10:18) [POST]
+  Session ID: BAh7CToJdXNlcjA6DGNzcmZfaWQiJWY0ZWIzOWU4Yjg4YmI1NzYzNmM1MzA3
+ZmQzNTZhZjQ1Og5yZXR1cm5fdG8iEy9kb2N1bWVudHMvbmV3IgpmbGFzaElD
+OidBY3Rpb25Db250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNl
+ZHsA--6e96dcd63d7644c6f46c85b774b7f44ba28226c7
+  Parameters: {"commit"=>"Account anlegen", "authenticity_token"=>"34a6bf0e7f3325497b8da6c4d278f7d9c8e00ade", "action"=>"signup", "controller"=>"account", "user"=>{"password_confirmation"=>"asdf", "login"=>"test", "password"=>"asdf", "email"=>"test@example.com"}}
+  [4;35;1mUser Columns (0.004637)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.000082)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000597)[0m   [0mSELECT `login` FROM `users` WHERE (LOWER(`users`.login) = 'test') [0m
+  [4;36;1mSQL (0.000050)[0m   [0;1mSELECT `email` FROM `users` WHERE (LOWER(`users`.email) = 'test@example.com') [0m
+  [4;35;1mUser Create (0.015282)[0m   [0mINSERT INTO `users` (`salt`, `created_at`, `crypted_password`, `remember_token_expires_at`, `updated_at`, `remember_token`, `login`, `email`) VALUES('d2f1dcc66e818fce4ea5d10c1ef6cd126b4a84be', '2009-12-05 08:10:18', '3d96e36d3dda68aee02f0a9e1489b44bb8dffa73', NULL, '2009-12-05 08:10:18', NULL, 'test', 'test@example.com')[0m
+  [4;36;1mSQL (0.006701)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/documents/new
+Completed in 0.03963 (25 reqs/sec) | DB: 0.02735 (69%) | 302 Found [http://localhost/signup]
+
+
+Processing DocumentsController#new (for 127.0.0.1 at 2009-12-05 09:10:19) [GET]
+  Session ID: BAh7CToJdXNlcmkGOgxjc3JmX2lkIiVmNGViMzllOGI4OGJiNTc2MzZjNTMw
+N2ZkMzU2YWY0NToOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiJkRhbmtlIGYmdXVt
+bDtyIERpZSBSZWdpc3RyaWVydW5nIQY6CkB1c2VkewY7CUY=--6e4ca627c736253361302934377684e8eb647a53
+  Parameters: {"action"=>"new", "controller"=>"documents"}
+  [4;35;1mUser Columns (0.000759)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000223)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mRepository Columns (0.000735)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+Params = {"action"=>"new", "controller"=>"documents"}
+Rendering template within layouts/application
+Rendering documents/new
+Rendered layouts/_user_info (0.00235)
+Completed in 0.04716 (21 reqs/sec) | Rendering: 0.03126 (66%) | DB: 0.00172 (3%) | 200 OK [http://localhost/documents/new]
+
+
+Processing DocumentsController#new (for 127.0.0.1 at 2009-12-05 10:51:04) [GET]
+  Session ID: BAh7CToJdXNlcmkGOgxjc3JmX2lkIiVmNGViMzllOGI4OGJiNTc2MzZjNTMw
+N2ZkMzU2YWY0NToOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiJkRhbmtlIGYmdXVt
+bDtyIERpZSBSZWdpc3RyaWVydW5nIQY6CkB1c2VkewY7CVQ=--ccaea3a1b05dc3bfc82f38766d45be4d9df24678
+  Parameters: {"action"=>"new", "controller"=>"documents"}
+  [4;36;1mUser Columns (0.000876)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000075)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mRepository Columns (0.000776)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+Params = {"action"=>"new", "controller"=>"documents"}
+Rendering template within layouts/application
+Rendering documents/new
+Rendered layouts/_user_info (0.00124)
+Completed in 0.02209 (45 reqs/sec) | Rendering: 0.00408 (18%) | DB: 0.00173 (7%) | 200 OK [http://localhost/documents/new]
+
+
+Processing DocumentsController#create (for 127.0.0.1 at 2009-12-05 10:51:12) [POST]
+  Session ID: BAh7CToJdXNlcmkGOgxjc3JmX2lkIiVmNGViMzllOGI4OGJiNTc2MzZjNTMw
+N2ZkMzU2YWY0NToOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--e52a2f50cbaea9ae8b93f894ab8a220fa4c112d8
+  Parameters: {"commit"=>"Anlegen", "repository"=>{"human_name"=>"mein erstes dokument"}, "authenticity_token"=>"34a6bf0e7f3325497b8da6c4d278f7d9c8e00ade", "action"=>"create", "controller"=>"documents"}
+  [4;35;1mUser Columns (0.000745)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000065)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mRepository Columns (0.000668)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000227)[0m   [0mSELECT count(*) AS count_all FROM `repositories` WHERE (`repositories`.`name` = 'mein_erstes_dokument') [0m
+  [4;36;1mSQL (0.000110)[0m   [0;1mSELECT `name` FROM `repositories` WHERE (`repositories`.name = 'mein_erstes_dokument') [0m
+  [4;35;1mSQL (0.000094)[0m   [0mSELECT `human_name` FROM `repositories` WHERE (`repositories`.human_name = 'mein erstes dokument') [0m
+  [4;36;1mRepository Create (0.000166)[0m   [0;1mINSERT INTO `repositories` (`name`, `created_at`, `updated_at`, `user_id`, `path`, `human_name`) VALUES('mein_erstes_dokument', '2009-12-05 09:51:12', '2009-12-05 09:51:12', NULL, '/home/feson/stonk/repositories/3bc672d506fd25e3a1d320936ce3f736.git', 'mein erstes dokument')[0m
+  [4;35;1mBranch Columns (0.000745)[0m   [0mSHOW FIELDS FROM `branches`[0m
+  [4;36;1mSQL (0.000227)[0m   [0;1mSELECT `name` FROM `branches` WHERE (`branches`.name = 'master' AND `branches`.repository_id = 27) [0m
+  [4;35;1mSQL (0.000117)[0m   [0mSELECT `human_name` FROM `branches` WHERE (`branches`.human_name = 'Ersteller-Zweig' AND `branches`.repository_id = 27) [0m
+  [4;36;1mBranch Create (0.000181)[0m   [0;1mINSERT INTO `branches` (`name`, `created_at`, `write_access_for`, `updated_at`, `copy_from_branch_id`, `user_id`, `human_name`, `description`, `repository_id`) VALUES('master', '2009-12-05 09:51:12', 'own', '2009-12-05 09:51:12', NULL, NULL, 'Ersteller-Zweig', NULL, 27)[0m
+  [4;35;1mSQL (0.006455)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/docs/mein_erstes_dokument
+Completed in 0.85203 (1 reqs/sec) | DB: 0.00986 (1%) | 302 Found [http://localhost/documents/create]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-12-05 10:51:13) [GET]
+  Session ID: BAh7CToJdXNlcmkGOgxjc3JmX2lkIiVmNGViMzllOGI4OGJiNTc2MzZjNTMw
+N2ZkMzU2YWY0NToOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--e52a2f50cbaea9ae8b93f894ab8a220fa4c112d8
+  Parameters: {"action"=>"find_by_name", "docname"=>"mein_erstes_dokument", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000258)[0m   [0;1mSELECT * FROM `repositories` WHERE (`repositories`.`name` = 'mein_erstes_dokument') LIMIT 1[0m
+Finding name mein_erstes_dokument
+  [4;35;1mRepository Columns (0.000569)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+  [4;36;1mBranch Load (0.000287)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 27) AND (`branches`.`name` = 'master') LIMIT 1[0m
+  [4;35;1mBranch Columns (0.000611)[0m   [0mSHOW FIELDS FROM `branches`[0m
+Rendering template within layouts/application
+Rendering documents/show
+  [4;36;1mBranch Load (0.000605)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 27) [0m
+  [4;35;1mUser Columns (0.000814)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000102)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered layouts/_user_info (0.00126)
+Completed in 0.12488 (8 reqs/sec) | Rendering: 0.10185 (81%) | DB: 0.00325 (2%) | 200 OK [http://localhost/docs/mein_erstes_dokument]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-12-05 10:58:09) [GET]
+  Session ID: BAh7CToJdXNlcmkGOgxjc3JmX2lkIiVmNGViMzllOGI4OGJiNTc2MzZjNTMw
+N2ZkMzU2YWY0NToOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--e52a2f50cbaea9ae8b93f894ab8a220fa4c112d8
+  Parameters: {"action"=>"find_by_name", "docname"=>"mein_erstes_dokument", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000106)[0m   [0mSELECT * FROM `repositories` WHERE (`repositories`.`name` = 'mein_erstes_dokument') LIMIT 1[0m
+Finding name mein_erstes_dokument
+  [4;36;1mRepository Columns (0.000768)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mBranch Load (0.000584)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 27) AND (`branches`.`name` = 'master') LIMIT 1[0m
+  [4;36;1mBranch Columns (0.000612)[0m   [0;1mSHOW FIELDS FROM `branches`[0m
+Rendering template within layouts/application
+Rendering documents/show
+  [4;35;1mBranch Load (0.000345)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 27) [0m
+  [4;36;1mUser Columns (0.000733)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000219)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered layouts/_user_info (0.00110)
+Completed in 0.02896 (34 reqs/sec) | Rendering: 0.01081 (37%) | DB: 0.00337 (11%) | 200 OK [http://localhost/docs/mein_erstes_dokument]
+
+
+Processing AccountController#logout (for 127.0.0.1 at 2009-12-05 10:58:54) [GET]
+  Session ID: BAh7CToJdXNlcmkGOgxjc3JmX2lkIiVmNGViMzllOGI4OGJiNTc2MzZjNTMw
+N2ZkMzU2YWY0NToOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJv
+bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--e52a2f50cbaea9ae8b93f894ab8a220fa4c112d8
+  Parameters: {"action"=>"logout", "controller"=>"account"}
+  [4;36;1mUser Columns (0.000693)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000143)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000078)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000069)[0m   [0mCOMMIT[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://localhost:3000/
+Completed in 0.17190 (5 reqs/sec) | DB: 0.00098 (0%) | 302 Found [http://localhost/logout]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-12-05 10:58:54) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6
+Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiJlNpZSB3dXJkZW4gdm9tIFN5
+c3RlbSBhYmdlbWVsZGV0LgY6CkB1c2VkewY7B0Y=--ffe3bce27aade49319c08dd6f755797ae1cb49ef
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mRepository Load (0.000548)[0m   [0;1mSELECT * FROM `repositories` ORDER BY human_name[0m
+  [4;35;1mRepository Columns (0.000562)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+Rendered layouts/_login (0.00055)
+Completed in 0.01082 (92 reqs/sec) | Rendering: 0.00418 (38%) | DB: 0.00111 (10%) | 200 OK [http://localhost/]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-12-05 10:58:59) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlNWQ4OTAzZjgwZjViYmE3NDM4MzI1YzkzNDJmZGY0
+YmM6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs
+YXNoOjpGbGFzaEhhc2h7BjoLbm90aWNlIiZTaWUgd3VyZGVuIHZvbSBTeXN0
+ZW0gYWJnZW1lbGRldC4GOgpAdXNlZHsGOwhU--5a20e2da4e5e127dba137b2e61c3ace43e3393d5
+  Parameters: {"action"=>"find_by_name", "branch"=>"master", "docname"=>"mein_erstes_dokument", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000106)[0m   [0;1mSELECT * FROM `repositories` WHERE (`repositories`.`name` = 'mein_erstes_dokument') LIMIT 1[0m
+Finding name mein_erstes_dokument
+  [4;35;1mRepository Columns (0.000652)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+  [4;36;1mBranch Load (0.000091)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 27) AND (`branches`.`name` = 'master') LIMIT 1[0m
+  [4;35;1mBranch Columns (0.000606)[0m   [0mSHOW FIELDS FROM `branches`[0m
+Rendering template within layouts/application
+Rendering documents/show
+  [4;36;1mBranch Load (0.000106)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 27) [0m
+Rendered layouts/_login (0.00044)
+Completed in 0.01869 (53 reqs/sec) | Rendering: 0.00326 (17%) | DB: 0.00156 (8%) | 200 OK [http://localhost/docs/mein_erstes_dokument.master]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-12-05 11:00:39) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlNWQ4OTAzZjgwZjViYmE3NDM4MzI1YzkzNDJmZGY0
+YmM6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs
+YXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--2b3243c74451a87503f3e0ebdf1218d886c30a9d
+  Parameters: {"action"=>"find_by_name", "docname"=>"mein_erstes_dokument", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000148)[0m   [0mSELECT * FROM `repositories` WHERE (`repositories`.`name` = 'mein_erstes_dokument') LIMIT 1[0m
+Finding name mein_erstes_dokument
+  [4;36;1mRepository Columns (0.000693)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mBranch Load (0.000104)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 27) AND (`branches`.`name` = 'master') LIMIT 1[0m
+  [4;36;1mBranch Columns (0.000645)[0m   [0;1mSHOW FIELDS FROM `branches`[0m
+Rendering template within layouts/application
+Rendering documents/show
+  [4;35;1mBranch Load (0.000104)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 27) [0m
+ERROR: compiling _run_erb_47app47views47layouts47application46html46erb RAISED compile error
+/home/feson/projects/st0nk/app/views/layouts/application.html.erb:5: syntax error, unexpected ':', expecting ')'
+...ut.concat(( @title.blank? '' : @title+" " ).to_s); _erbout.c...
+                              ^
+Function body: def _run_erb_47app47views47layouts47application46html46erb(local_assigns)
+_erbout = ''; _erbout.concat "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n        \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html>\n<head>\n  <title>"
+
+
+
+; _erbout.concat(( @title.blank? '' : @title+" " ).to_s); _erbout.concat ":: st0nk :: Die Software f&uuml;r basisdemokratische Politik 2.0</title>\n  "
+; _erbout.concat(( stylesheet_link_tag "application", :media => "screen" ).to_s); _erbout.concat "\n</head>\n<body>\n  <h1>"
+
+
+; _erbout.concat(( @title ).to_s); _erbout.concat "</h1>\n  <div id='idNotice'>\n    "
+
+; _erbout.concat(( flash[:notice] ).to_s); _erbout.concat "\n  </div>\n  <div id='idRightCol'>\n    "
+
+
+;  if logged_in? ; _erbout.concat "\n      "
+; _erbout.concat(( render :partial => 'layouts/user_info' ).to_s); _erbout.concat "\n    "
+;  else ; _erbout.concat "\n      "
+; _erbout.concat(( render :partial => 'layouts/login' ).to_s); _erbout.concat "\n    "
+;  end ; _erbout.concat "\n  </div>\n  <div id='idContent'>\n    "
+
+
+; _erbout.concat(( yield ).to_s); _erbout.concat "\n  </div>\n</body>\n</html>\n"
+
+
+
+; _erbout
+end
+Backtrace: /home/feson/projects/st0nk/app/views/layouts/application.html.erb:26:in `compile_template'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:55:in `prepare!'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:34:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:22:in `render_template'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:248:in `render_file'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+/var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+/home/feson/projects/st0nk/app/controllers/documents_controller.rb:33:in `find_by_name'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1166:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+/var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+/var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+/var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+/var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+/var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+/var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+/var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+/var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+/var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+
+ActionView::TemplateError (compile error
+/home/feson/projects/st0nk/app/views/layouts/application.html.erb:5: syntax error, unexpected ':', expecting ')'
+...ut.concat(( @title.blank? '' : @title+" " ).to_s); _erbout.c...
+                              ^) on line #5 of layouts/application.html.erb:
+2:         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+3: <html>
+4: <head>
+5:   <title><%= @title.blank? '' : @title+" " %>:: st0nk :: Die Software f&uuml;r basisdemokratische Politik 2.0</title>
+6:   <%= stylesheet_link_tag "application", :media => "screen" %>
+7: </head>
+8: <body>
+
+    app/views/layouts/application.html.erb:26:in `compile_template'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:55:in `prepare!'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:34:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/template.rb:22:in `render_template'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_view/base.rb:248:in `render_file'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:51:in `render'
+    app/controllers/documents_controller.rb:33:in `find_by_name'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1166:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:1166:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:579:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:572:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-12-05 11:00:58) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlNWQ4OTAzZjgwZjViYmE3NDM4MzI1YzkzNDJmZGY0
+YmM6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs
+YXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--2b3243c74451a87503f3e0ebdf1218d886c30a9d
+  Parameters: {"action"=>"find_by_name", "docname"=>"mein_erstes_dokument", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000272)[0m   [0;1mSELECT * FROM `repositories` WHERE (`repositories`.`name` = 'mein_erstes_dokument') LIMIT 1[0m
+Finding name mein_erstes_dokument
+  [4;35;1mRepository Columns (0.000644)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+  [4;36;1mBranch Load (0.000125)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 27) AND (`branches`.`name` = 'master') LIMIT 1[0m
+  [4;35;1mBranch Columns (0.000736)[0m   [0mSHOW FIELDS FROM `branches`[0m
+Rendering template within layouts/application
+Rendering documents/show
+  [4;36;1mBranch Load (0.000247)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 27) [0m
+Rendered layouts/_login (0.00047)
+Completed in 0.12502 (7 reqs/sec) | Rendering: 0.00425 (3%) | DB: 0.00213 (1%) | 200 OK [http://localhost/docs/mein_erstes_dokument]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-12-05 11:01:36) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlNWQ4OTAzZjgwZjViYmE3NDM4MzI1YzkzNDJmZGY0
+YmM6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs
+YXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--2b3243c74451a87503f3e0ebdf1218d886c30a9d
+  Parameters: {"action"=>"find_by_name", "docname"=>"mein_erstes_dokument", "controller"=>"documents"}
+  [4;35;1mRepository Load (0.000624)[0m   [0mSELECT * FROM `repositories` WHERE (`repositories`.`name` = 'mein_erstes_dokument') LIMIT 1[0m
+Finding name mein_erstes_dokument
+  [4;36;1mRepository Columns (0.000670)[0m   [0;1mSHOW FIELDS FROM `repositories`[0m
+  [4;35;1mBranch Load (0.000908)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 27) AND (`branches`.`name` = 'master') LIMIT 1[0m
+  [4;36;1mBranch Columns (0.000819)[0m   [0;1mSHOW FIELDS FROM `branches`[0m
+Rendering template within layouts/application
+Rendering documents/show
+  [4;35;1mBranch Load (0.000104)[0m   [0mSELECT * FROM `branches` WHERE (`branches`.repository_id = 27) [0m
+Rendered layouts/_login (0.00044)
+Completed in 0.03693 (27 reqs/sec) | Rendering: 0.00400 (10%) | DB: 0.00312 (8%) | 200 OK [http://localhost/docs/mein_erstes_dokument]
+
+
+Processing DocumentsController#index (for 127.0.0.1 at 2009-12-05 11:01:38) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlNWQ4OTAzZjgwZjViYmE3NDM4MzI1YzkzNDJmZGY0
+YmM6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs
+YXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--2b3243c74451a87503f3e0ebdf1218d886c30a9d
+  Parameters: {"action"=>"index", "controller"=>"documents"}
+Rendering template within layouts/application
+Rendering documents/index
+  [4;36;1mRepository Load (0.000101)[0m   [0;1mSELECT * FROM `repositories` ORDER BY human_name[0m
+  [4;35;1mRepository Columns (0.000633)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+Rendered layouts/_login (0.00061)
+Completed in 0.01038 (96 reqs/sec) | Rendering: 0.00415 (39%) | DB: 0.00073 (7%) | 200 OK [http://localhost/]
+
+
+Processing DocumentsController#find_by_name (for 127.0.0.1 at 2009-12-05 11:01:44) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlNWQ4OTAzZjgwZjViYmE3NDM4MzI1YzkzNDJmZGY0
+YmM6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs
+YXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--2b3243c74451a87503f3e0ebdf1218d886c30a9d
+  Parameters: {"action"=>"find_by_name", "branch"=>"master", "docname"=>"mein_erstes_dokument", "controller"=>"documents"}
+  [4;36;1mRepository Load (0.000122)[0m   [0;1mSELECT * FROM `repositories` WHERE (`repositories`.`name` = 'mein_erstes_dokument') LIMIT 1[0m
+Finding name mein_erstes_dokument
+  [4;35;1mRepository Columns (0.000681)[0m   [0mSHOW FIELDS FROM `repositories`[0m
+  [4;36;1mBranch Load (0.000117)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 27) AND (`branches`.`name` = 'master') LIMIT 1[0m
+  [4;35;1mBranch Columns (0.000709)[0m   [0mSHOW FIELDS FROM `branches`[0m
+Rendering template within layouts/application
+Rendering documents/show
+  [4;36;1mBranch Load (0.000111)[0m   [0;1mSELECT * FROM `branches` WHERE (`branches`.repository_id = 27) [0m
+Rendered layouts/_login (0.00109)
+Completed in 0.02323 (43 reqs/sec) | Rendering: 0.00440 (18%) | DB: 0.00174 (7%) | 200 OK [http://localhost/docs/mein_erstes_dokument.master]

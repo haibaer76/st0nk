@@ -2,12 +2,13 @@
 #
 # Table name: repositories
 #
-#  id         :integer         not null, primary key
+#  id         :integer(4)      not null, primary key
 #  name       :string(80)
 #  path       :string(256)
 #  created_at :datetime
 #  updated_at :datetime
 #  human_name :string(255)
+#  user_id    :string(255)
 #
 
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
@@ -22,7 +23,6 @@ describe Repository do
 
     it "should make a real name" do
       @repo.name.should == "A_Repository_for_testing"
-      @repo.path.should == "#{STONK_CONFIG.bare_repos_path}/A_Repository_for_testing.git"
     end
 
     it "should create one repository" do

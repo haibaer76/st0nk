@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091122224348) do
+ActiveRecord::Schema.define(:version => 20091129161743) do
 
   create_table "branches", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20091122224348) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "description"
+    t.string   "human_name"
+    t.integer  "copy_from_branch_id"
   end
 
   create_table "cloned_repositories", :force => true do |t|
@@ -26,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20091122224348) do
     t.integer  "original_repository_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "current_branch_name"
   end
 
   create_table "repositories", :force => true do |t|
@@ -34,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20091122224348) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "human_name"
+    t.string   "user_id"
   end
 
   create_table "users", :force => true do |t|

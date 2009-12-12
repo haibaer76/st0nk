@@ -2,12 +2,13 @@
 #
 # Table name: repositories
 #
-#  id         :integer         not null, primary key
+#  id         :integer(4)      not null, primary key
 #  name       :string(80)
 #  path       :string(256)
 #  created_at :datetime
 #  updated_at :datetime
 #  human_name :string(255)
+#  user_id    :string(255)
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
