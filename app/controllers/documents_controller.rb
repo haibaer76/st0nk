@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
 
-  before_filter :login_required, :only => [:create, :new]
+  before_filter :login_required, :only => [:create, :new, :edit]
 
   def index
     @documents = Repository.scoped(:order => :human_name)
@@ -45,10 +45,14 @@ class DocumentsController < ApplicationController
   def edit
     @repo = Repository.find params[:id]
     @branch_name = params[:branch_name] || 'master'
-    @edit_content = @clone.git_repo.gtree(@branch_name).blobs[STONK_CONFIG.document_name].contents
+    @clone = ClonedRepository.create! :original_repository=>@repo
+    session[:edit_clone_id] = @clone.id
+    @edit_content = @repo.bare_content @branch_name
   end
 
   def update
+    clone = ClonedRepository.find session[:edit_clone_id]
+    clone.update_content params[:content], params[:remarks]
     repo = Repository.find params[:id]
     remarks = params[:remarks]
     clone = repo.clone_for_edit

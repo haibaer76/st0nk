@@ -24,10 +24,9 @@ class ClonedRepository < ActiveRecord::Base
     @git_repo ||= Grit::Repo.new path
   end
 
-  def update_content content, message, branch='master'
+  def update_content content, message
     cwd = Dir.pwd
     Dir.chdir path
-    system "git checkout #{branch}"
     File.open "#{path}/#{STONK_CONFIG.document_name}", "w" do |f|
       f.write content
     end
@@ -38,6 +37,7 @@ class ClonedRepository < ActiveRecord::Base
   protected
 
   def build_path
+    FileUtils.mkdir_p STONK_CONFIG.working_copies_path unless File.exists? STONK_CONFIG.working_copies_path
     if path.nil?
       pathname = Digest::MD5.hexdigest rand.to_s
       write_attribute :path, "#{STONK_CONFIG.working_copies_path}/#{pathname}"
@@ -59,4 +59,5 @@ class ClonedRepository < ActiveRecord::Base
   def remove_cloned_repository
     FileUtils.rm_rf path unless path.nil? || path.blank?
   end
+
 end
