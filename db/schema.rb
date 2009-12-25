@@ -9,35 +9,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091129161743) do
+ActiveRecord::Schema.define(:version => 20091225163636) do
 
-  create_table "branches", :force => true do |t|
+  create_table "documents", :force => true do |t|
+    t.string   "human_name"
     t.string   "name"
-    t.string   "write_access_for"
-    t.integer  "repository_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "description"
-    t.string   "human_name"
-    t.integer  "copy_from_branch_id"
   end
 
-  create_table "cloned_repositories", :force => true do |t|
-    t.string   "path"
-    t.integer  "original_repository_id"
+  create_table "forum_posts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "parent_id"
+    t.string   "parent_type"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "current_branch_name"
   end
 
   create_table "repositories", :force => true do |t|
-    t.string   "name",       :limit => 80
-    t.string   "path",       :limit => 256
+    t.string   "name",                 :limit => 80
+    t.string   "path",                 :limit => 256
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "human_name"
     t.string   "user_id"
+    t.integer  "document_id"
+    t.integer  "parent_repository_id"
   end
 
   create_table "users", :force => true do |t|

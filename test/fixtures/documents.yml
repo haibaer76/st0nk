@@ -1,0 +1,20 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# one:
+#   column: value
+#
+# two:
+#   column: value
+
+# == Schema Information
+#
+# Table name: documents
+#
+#  id         :integer(4)      not null, primary key
+#  human_name :string(255)
+#  name       :string(255)
+#  user_id    :integer(4)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
