@@ -14,12 +14,12 @@ require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
 
 describe Document do
 
-  before :all do
+  before :each do
     @document = Document.create! :human_name => "A Simple Test"
   end
 
-  it "should create a repository together with the document" do
-    @document.repositories.size.should == 1
+  it "should create a root repository with the document" do
+    @document.root_repository.should_not be_nil
   end
 
   it 'should make a name without spaces' do
@@ -32,7 +32,32 @@ describe Document do
     doc2.destroy
   end
 
-  after :all do
+  it 'should get the repository with the name root' do
+    @document.get_repository("root").should_not be_nil
+    @document.get_repository('does not exist').should be_nil
+  end
+
+  it "should build the document tree correctly" do
+    tree = @document.repository_tree
+    tree.size.should == 1
+    tree.first.depth.should == 0
+    tree.first.repository.name.should == "root"
+  end
+
+  it "should have the tree of a complex structure correctly" do
+    root = @document.root_repository
+    c1 = Repository.create! :parent => root, :name => "Child1"
+    c2 = Repository.create! :parent => root, :name => "Child2"
+    gc = Repository.create! :parent => c1, :name => "GrandChild1"
+    tree = @document.repository_tree
+    tree.size.should == 4
+    tree[0].depth.should == 0
+    tree[1].depth.should == 1
+    tree[2].depth.should == 2
+    tree[3].depth.should == 1
+  end
+
+  after :each do
     @document.destroy
   end
 end

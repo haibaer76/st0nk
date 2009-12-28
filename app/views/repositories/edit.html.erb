@@ -1,0 +1,15 @@
+<% @title = "Bearbeiten von #{@repository.document.human_name}" %>
+<h1>Bearbeiten von Dokument <%= h @repository.document.human_name%></h1>
+<h2>Repository <%= h @repository.name %></h2>
+
+<% form_tag :controller => :repositories, :action => :update, :id => @repository.id do -%>
+  <p>
+    Neuer Inhalt:
+    <%= text_area_tag :content, @repository.content, :rows => 20, :cols => 80 %>
+  </p>
+  <p>
+  Zusammenfassung:
+  <%= text_field_tag :commit_message, "Ge&auml;ndert am #{Time.now.to_s}" %>
+  <%= submit_tag "&Auml;ndern" %>
+<% end -%>
+

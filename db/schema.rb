@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091225163636) do
+ActiveRecord::Schema.define(:version => 20091228115946) do
 
   create_table "documents", :force => true do |t|
     t.string   "human_name"
@@ -29,13 +29,15 @@ ActiveRecord::Schema.define(:version => 20091225163636) do
   end
 
   create_table "repositories", :force => true do |t|
-    t.string   "name",                 :limit => 80
-    t.string   "path",                 :limit => 256
+    t.string   "name",           :limit => 80
+    t.string   "path",           :limit => 256
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
-    t.integer  "document_id"
-    t.integer  "parent_repository_id"
+    t.text     "content"
+    t.text     "commit_message"
+    t.integer  "parent_id"
+    t.string   "parent_type"
   end
 
   create_table "users", :force => true do |t|

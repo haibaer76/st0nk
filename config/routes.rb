@@ -45,7 +45,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect 'docs/:docname', :controller => 'documents', :action => 'find_by_name', 
     :docname => /([a-zA-Z0-9\-_]*)/
-  map.connect 'docs/:docname.:branch', :controller => 'documents', :action => 'find_by_name',
+  map.connect 'docs/:docname.:repo', :controller => 'documents', :action => 'find_by_name',
     :docname => /([a-zA-Z0-9\-_]+)/, :branch => /([a-zA-Z0-9\-_])*/
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

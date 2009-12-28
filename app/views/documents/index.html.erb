@@ -3,7 +3,7 @@
 <table border="0">
   <% @documents.each do |document| %>
     <tr>
-      <td><%= link_to document.human_name, "docs/#{document.name}.master" %></td>
+      <td><%= link_to document.human_name, "docs/#{document.name}.root" %></td>
     </tr>
   <% end %>
 </table>

@@ -3,12 +3,7 @@ class DocumentsController < ApplicationController
   before_filter :login_required, :only => [:create, :new, :edit]
 
   def index
-    @documents = Repository.scoped(:order => :human_name)
-  end
-
-  def new
-    @repo = Repository.new :name => params[:name]
-    Rails.logger.info("Params = #{params.inspect}")
+    @documents = Document.scoped(:order => :human_name)
   end
 
   def create
@@ -17,21 +12,14 @@ class DocumentsController < ApplicationController
   end
 
   def find_by_name
-    @repo = Repository.by_name(params[:docname]).first
-      Rails.logger.info "Finding name #{params[:docname]}"
-    if @repo.nil?
+    @document = Document.by_name(params[:docname]).first
+    if @document.nil?
       @name = params[:docname]
       return render :action => :create_new
     else
-      @repository = @repo.bare_repository
-      branch_name = params[:branch] || 'master'
-      @branch = @repo.branches.by_name(branch_name).first
-      if @branch.nil?
-        redirect_to :controller => :branches, :action => :new, :name => branch_name, :repository_id => @repo.id
-      else
-        @content = @repo.bare_content @branch.name
-        render :action => :show
-      end
+      repo_name = params[:repo] || 'root'
+      @repository = @document.get_repository repo_name
+      render :action => :show
     end
   end
 

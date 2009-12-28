@@ -11,8 +11,17 @@
 #
 
 class Document < ActiveRecord::Base
+
+  class DocTreeObj
+    attr_reader :depth, :repository
+    def initialize depth, repository
+      @depth = depth
+      @repository = repository
+    end
+  end
+
   belongs_to :user
-  has_many :repositories, :dependent => :destroy, :foreign_key => :document_id
+  has_one :root_repository, :as => :parent, :dependent => :delete, :class_name => Repository.name
   has_one :forum_post, :as => :parent
 
   validates_presence_of :name
@@ -23,17 +32,45 @@ class Document < ActiveRecord::Base
   
   before_validation :make_name_from_human_name
   after_create :create_master_repository
+  before_destroy :delete_path
   
   named_scope :by_name, lambda{|name|
     {:conditions => {:name => name}}
   }
 
+  def get_repository repo_name
+    Repository.scoped(:conditions => {:path => "#{path}/#{repo_name}"}).first
+  end
+
+  def repository_names
+    Dir.entries(path).find_all{|entry| entry!='.' && entry!='..'}
+  end
+
+  def repository_tree
+    get_repository_tree root_repository, 0
+  end
+
+  def path
+    STONK_CONFIG.bare_repos_path+"/"+name
+  end
+  
   protected
 
+  def get_repository_tree current_repo, depth
+    ret = []
+    ret << DocTreeObj.new(depth, current_repo)
+    current_repo.childs.each do |c|
+      hlp = get_repository_tree c, depth+1
+      ret+=hlp
+    end
+    ret
+  end
+
   def create_master_repository
+    FileUtils.mkdir_p path
     Repository.create! do |r|
-      r.name = 'main'
-      r.document = self
+      r.name = 'root'
+      r.parent = self
     end
   end
 
@@ -47,5 +84,9 @@ class Document < ActiveRecord::Base
       suffix = "_#{index}"
     end
     write_attribute :name, tst_name+suffix
+  end
+
+  def delete_path
+    FileUtils.rm_rf path unless path.blank?
   end
 end

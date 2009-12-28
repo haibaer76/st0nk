@@ -1,0 +1,9 @@
+<% @title = "Neues Zweig-Repository erstellen"%>
+
+<% form_tag :controller => :repositories, :action =>:create_for_parent do -%>
+  <%= hidden_field_tag 'parent_repo_id', @parent_repository.id %>
+  Name des neuen Repositories:
+  <%= text_field_tag 'name', @name %>
+  <%= submit_tag "Anlegen" %>
+<% end -%>
+

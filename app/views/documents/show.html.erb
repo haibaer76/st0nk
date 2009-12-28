@@ -1,20 +1,15 @@
-<% @title = "#{@repo.human_name} (Zweig #{@branch.name})" %>
-<h1><%= h @repo.name %></h1>
-<h2>Zweig <%= h @branch.name %></h2>
+<% @title = "#{@document.human_name} (Repository #{@repository.name})" %>
+<h1><%= h @document.human_name %></h1>
+<h2>Repository <%= h @repository.name %></h2>
 <div style="border:black solid 1px">
-<%= RedCloth.new(@content).to_html %>
+<%= RedCloth.new(@repository.content || "").to_html %>
 </div>
 
 <div>
-  <%= link_to "Bearbeiten", {:controller => :documents, :action => :edit, :branch_name => @branch.name, :id => @repo.id} %>
+  <%= link_to "Bearbeiten", :controller => :repositories, :action => :edit, :id => @repository.id %>
 </div>
 
-<div>
-  <% form_tag :controller => :branches, :action => :merge do |f| %>
-    Mit Zweig 
-    <%= hidden_field_tag :merge_destination_id, @branch.id %>
-    <%= collection_select :merge, :merge_source_id, @repo.branches_excluded(@branch), :id, :name %>
-    <%= submit_tag "Zusammenf&uuml;hren" %>
-  <% end %>
-</div>
+<%= link_to "Zweig-Repository erstellen", :controller => :repositories, :action => :new_for_parent, :parent_repo_id => @repository.id %>
+
+<%= render :partial => 'repo_tree', :locals => {:document => @document} %>
 

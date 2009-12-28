@@ -1,0 +1,9 @@
+<h3>Repository-Baum</h3>
+
+<table border='0'>
+<% document.repository_tree.each do |node| %>
+  <div>
+    <% (0..(node.depth-1)).each do %>&nbsp;<% end %>
+      <%= link_to node.repository.name, "/docs/#{document.name}.#{node.repository.name}" %>
+  </div>
+<% end %>
