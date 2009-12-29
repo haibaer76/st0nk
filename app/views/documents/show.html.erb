@@ -8,8 +8,11 @@
 <div>
   <%= link_to "Bearbeiten", :controller => :repositories, :action => :edit, :id => @repository.id %>
 </div>
+<div>
+  <%= link_to "History", :controller => :repositories, :action => :history, :id => @repository.id %>
+</div>
 
 <%= link_to "Zweig-Repository erstellen", :controller => :repositories, :action => :new_for_parent, :parent_repo_id => @repository.id %>
 
-<%= render :partial => 'repo_tree', :locals => {:document => @document} %>
+<%= render :partial => 'repo_tree', :locals => {:document => @document, :current_repo => @repository} %>
 

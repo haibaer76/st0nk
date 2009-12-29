@@ -42,6 +42,44 @@ class Repository < ActiveRecord::Base
     parent.document
   end
 
+  def merge_child child
+    if child.is_a? String
+      name = child
+    elsif child.is_a? Repository
+      name = child.name
+    elsif child.is_a? Fixnum
+      name = Repository.find(child).name
+    else
+      raise "Do not know how to handle parameter of class #{child.class.name}"
+    end
+    git.chdir do
+      git.fetch name
+      begin
+        git.merge "#{name}/master"
+      rescue Git::GitExecuteError => ex
+      end
+      write_attribute :content, File.read(STONK_CONFIG.document_name).to_s
+    end
+    @skip_commit = true
+    save!
+    @skip_commit = false
+  end
+
+  def merge_parent
+    return if parent.is_a? Document
+    git.chdir do
+      git.fetch 'origin'
+      begin
+        git.merge 'origin/master'
+      rescue Git::GitExecuteError => ex
+      end
+      write_attribute :content, File.read(STONK_CONFIG.document_name).to_s
+    end
+    @skip_commit = true
+    save!
+    @skip_commit = false
+  end
+
   protected
 
   def sanitize_name_and_make_path
@@ -81,6 +119,7 @@ class Repository < ActiveRecord::Base
   end
 
   def commit_new_content
+    return if @skip_commit
     return unless content_changed?
     repo = Git.open path
     repo.chdir do

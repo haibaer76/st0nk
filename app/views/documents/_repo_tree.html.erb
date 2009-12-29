@@ -1,9 +1,19 @@
 <h3>Repository-Baum</h3>
 
 <table border='0'>
+  <% sha = current_repo.git.log.first.sha %>
 <% document.repository_tree.each do |node| %>
   <div>
-    <% (0..(node.depth-1)).each do %>&nbsp;<% end %>
+    <%= '&nbsp;'*node.depth %>
+    <% if node.repository.id == current_repo.id %>
+      <strong><%= node.repository.name %></strong>
+    <% else %>
       <%= link_to node.repository.name, "/docs/#{document.name}.#{node.repository.name}" %>
+    <% end %>
+    <% unless current_user.nil? %>
+      <% if node.depth > 0 and node.repository.id == current_repo.id and sha != current_repo.parent.git.log.first.sha %>
+        <%= link_to "&Auml;nderungen vom Parent &uuml;bernehmen", :controller => :repositories, :action => :merge_parent, :id => current_repo.id %>
+      <% end %>
+    <% end %>
   </div>
 <% end %>

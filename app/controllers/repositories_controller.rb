@@ -1,5 +1,6 @@
 class RepositoriesController < ApplicationController
-  before_filter :login_required
+  before_filter :login_required, :except => :history
+
   def new_for_parent
     @parent_repository = Repository.find params[:parent_repo_id]
   end
@@ -22,4 +23,14 @@ class RepositoriesController < ApplicationController
     redirect_to :controller => :documents, :action => :find_by_name, :docname => repository.document.name, :repo =>repository.name
   end
 
+  def history
+    repository = Repository.find params[:id]
+    @history = repository.git.log
+  end
+
+  def merge_parent
+    repository = Repository.find params[:id]
+    repository.merge_parent
+    redirect_to repo_view_path repository
+  end
 end

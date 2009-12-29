@@ -15,18 +15,7 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
   #
-
-  def current_clone(repository)
-    @clone_map ||= {}
-    return @clone_map[repository] if @clone_map.has_key? repository
-    clone_id_map = session[:clone_ids] ||= {}
-    if clone_id_map.has_key? repository.id
-      ret = ClonedRepository.find clone_id_map[repository.id]
-    else
-      ret = repository.clone_for_edit
-      clone_id_map[repository.id] = ret.id
-    end
-    @clone_map[repository] = ret
+  def repo_view_path repository
+    "/docs/#{repository.document.name}.#{repository.name}"
   end
-
 end

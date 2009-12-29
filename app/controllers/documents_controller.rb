@@ -7,8 +7,8 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    r = Repository.create! params[:repository]
-    redirect_to :action => :find_by_name, :docname => r.name
+    d = Document.create! params[:document]
+    redirect_to "/docs/#{d.name}"
   end
 
   def find_by_name

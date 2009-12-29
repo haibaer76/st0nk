@@ -19,7 +19,7 @@ require File.expand_path(File.dirname(__FILE__)+"/../spec_helper")
 
 describe Repository do
 
-  before :all do
+  before :each do
     @test_doc = Document.create! :human_name => "Test Document"
   end
 
@@ -48,7 +48,47 @@ describe Repository do
     repository.git.remotes.size.should == 0
   end
 
-  after :all do
+  it "should update the content of a merged child repository" do
+    repo = @test_doc.root_repository
+    repo.content = "
+THIS IS THE CONTENT OF THE FIRST LINE
+"
+    child = Repository.create! :parent => repo, :name => "Child"
+    child.content = "
+THIS IS THE CONTENT OF THE FIRST LINE
+AND THIS IS THE SECOND LINE
+"
+    child.save!
+    repo.merge_child child
+    repo.content.should == "
+THIS IS THE CONTENT OF THE FIRST LINE
+AND THIS IS THE SECOND LINE
+"
+  end
+
+  it "should update the content of a merged parent repository" do
+    repo = @test_doc.root_repository
+    repo.content = "
+THIS IS THE CONTENT OF THE FIRST LINE
+"
+    repo.save!
+    child = Repository.create! :parent => repo, :name => "Child"
+    repo.content = "
+THIS IS THE CONTENT OF THE FIRST LINE
+AND THIS IS THE SECOND LINE
+"
+    repo.save!
+    child.content.should == "
+THIS IS THE CONTENT OF THE FIRST LINE
+"
+    child.merge_parent
+    child.content.should == "
+THIS IS THE CONTENT OF THE FIRST LINE
+AND THIS IS THE SECOND LINE
+"
+  end
+
+  after :each do
     @test_doc.destroy
   end
 end
