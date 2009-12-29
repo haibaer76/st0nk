@@ -41,7 +41,7 @@ describe Document do
     tree = @document.repository_tree
     tree.size.should == 1
     tree.first.depth.should == 0
-    tree.first.repository.name.should == "root"
+    tree.first.name.should == "root"
   end
 
   it "should have the tree of a complex structure correctly" do

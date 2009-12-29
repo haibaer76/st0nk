@@ -2,20 +2,20 @@
 
 <table border='0'>
   <% sha = current_repo.git.log.first.sha %>
-<% document.repository_tree.each do |node| %>
+<% document.repository_tree.each do |repository| %>
   <div>
-    <%= '&nbsp;'*node.depth %>
-    <% if node.repository.id == current_repo.id %>
-      <strong><%= node.repository.name %></strong>
+    <%= '&nbsp;'*repository.depth*2 %>
+    <% if repository.id == current_repo.id %>
+      <strong><%= repository.name %></strong>
     <% else %>
-      <%= link_to node.repository.name, "/docs/#{document.name}.#{node.repository.name}" %>
+      <%= link_to repository.name, repo_view_path(repository) %>
     <% end %>
-    <% unless current_user.nil? %>
-      <% if node.depth > 0 and node.repository.id == current_repo.id and current_repo.parent.has_commit_after current_repo %>
+    <% unless current_user.nil? and current_repo.write_access_for?(current_user) %>
+      <% if repository.depth > 0 and repository.id == current_repo.id and current_repo.parent.has_commit_after current_repo %>
         <%= link_to "&Auml;nderungen vom Parent &uuml;bernehmen", :controller => :repositories, :action => :merge_parent, :id => current_repo.id %>
-      <% elsif node.depth == current_repo.depth+1 and node.repository.parent.id == current_repo.id and node.repository.has_commit_after current_repo %>
+      <% elsif repository.depth == current_repo.depth+1 and repository.parent.id == current_repo.id and repository.has_commit_after current_repo %>
         <%= link_to "&Auml;nderungen von diesem Kindknoten &uuml;bernehmen",
-          :controller => :repositories, :action => :merge_child, :id => current_repo.id, :child_id => node.repository.id %>
+          :controller => :repositories, :action => :merge_child, :id => current_repo.id, :child_id => repository.id %>
       <% end %>
     <% end %>
   </div>

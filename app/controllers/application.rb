@@ -15,7 +15,5 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
   #
-  def repo_view_path repository
-    "/docs/#{repository.document.name}.#{repository.name}"
-  end
+  include ApplicationHelper
 end

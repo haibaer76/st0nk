@@ -1,7 +1,15 @@
 <h1>Neues Dokument</h1>
 
 <% form_for :document, :url =>{:controller => :documents, :action => :create} do |f| %>
-  <%= f.text_field :human_name %>
-  <%= submit_tag "Anlegen" %>
+  <div>
+    <%= f.text_field :human_name %>
+  </div>
+  <%= f.hidden_field :user_id %>
+  <div>
+    <%= radio_can_changed_by %>
+  </div>
+  <div>
+    <%= submit_tag "Anlegen" %>
+  </div>
 <% end %>
 

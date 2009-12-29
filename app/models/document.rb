@@ -12,14 +12,6 @@
 
 class Document < ActiveRecord::Base
 
-  class DocTreeObj
-    attr_reader :depth, :repository
-    def initialize depth, repository
-      @depth = depth
-      @repository = repository
-    end
-  end
-
   belongs_to :user
   has_one :root_repository, :as => :parent, :dependent => :delete, :class_name => Repository.name
   has_one :forum_post, :as => :parent
@@ -47,7 +39,7 @@ class Document < ActiveRecord::Base
   end
 
   def repository_tree
-    get_repository_tree root_repository, 0
+    get_repository_tree root_repository
   end
 
   def path
@@ -56,12 +48,11 @@ class Document < ActiveRecord::Base
   
   protected
 
-  def get_repository_tree current_repo, depth
+  def get_repository_tree current_repo
     ret = []
-    ret << DocTreeObj.new(depth, current_repo)
+    ret << current_repo
     current_repo.childs.each do |c|
-      hlp = get_repository_tree c, depth+1
-      ret+=hlp
+      ret += get_repository_tree c
     end
     ret
   end

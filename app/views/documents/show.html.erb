@@ -6,7 +6,9 @@
 </div>
 
 <div>
-  <%= link_to "Bearbeiten", :controller => :repositories, :action => :edit, :id => @repository.id %>
+  <% if current_user and @repository.write_access_for?(current_user) %>
+    <%= link_to "Bearbeiten", :controller => :repositories, :action => :edit, :id => @repository.id %>
+  <% end %>
 </div>
 <div>
   <%= link_to "History", :controller => :repositories, :action => :history, :id => @repository.id %>

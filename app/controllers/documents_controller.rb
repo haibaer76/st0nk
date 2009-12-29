@@ -1,6 +1,10 @@
 class DocumentsController < ApplicationController
 
-  before_filter :login_required, :only => [:create, :new, :edit]
+  before_filter :login_required, :only => [:create, :new, :edit, :delete]
+
+  def new
+    @document = Document.new :user => current_user
+  end
 
   def index
     @documents = Document.scoped(:order => :human_name)
@@ -8,6 +12,9 @@ class DocumentsController < ApplicationController
 
   def create
     d = Document.create! params[:document]
+    root = d.root_repository
+    root.can_changed_by = params[:can_changed_by]
+    root.save!
     redirect_to "/docs/#{d.name}"
   end
 
@@ -82,10 +89,10 @@ class DocumentsController < ApplicationController
     redirect_to "/docs/#{clone.original_repository.name}.#{params[:branch_name]}"
   end
 
-  def diff
+  def delete
+    document = Document.find params[:id]
+    return access_denied unless document.user_id == current_user.id
+    document.destroy
+    redirect_to :action => :index
   end
-
-  def branches
-  end
-
 end

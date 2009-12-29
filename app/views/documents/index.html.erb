@@ -3,7 +3,12 @@
 <table border="0">
   <% @documents.each do |document| %>
     <tr>
-      <td><%= link_to document.human_name, "docs/#{document.name}.root" %></td>
+      <td><%= link_to document.human_name, "docs/#{document.name}" %></td>
+      <td>
+        <% if current_user and current_user.id == document.user_id %>
+          <%= link_to "L&ouml;schen", :controller => :documents, :action => :delete, :id => document.id %>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>

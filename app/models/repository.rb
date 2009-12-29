@@ -20,6 +20,7 @@ class Repository < ActiveRecord::Base
   validates_presence_of :path
   validates_presence_of :name
   validates_presence_of :document
+  validates_inclusion_of :can_changed_by, :in => %w( all owner )
 
   belongs_to :user
   belongs_to :parent, :polymorphic => true
@@ -28,6 +29,8 @@ class Repository < ActiveRecord::Base
   before_validation :sanitize_name_and_make_path
   before_validation_on_create :copy_content_from_parent
   before_validation_on_create :set_depth
+  before_validation_on_create :set_can_changed_by_to_all
+  before_validation_on_create :copy_user_id_from_document
   validate_on_create :check_path_not_exists
 
   after_create :make_repository
@@ -38,7 +41,14 @@ class Repository < ActiveRecord::Base
     @git ||= Git.open path
   end
 
+  def write_access_for? u
+    return true if can_changed_by == 'all'
+    return true if user.nil?
+    return u.id == user.id
+  end
+
   def document
+    return nil if parent.nil?
     return parent if parent.is_a? Document
     parent.document
   end
@@ -152,4 +162,16 @@ class Repository < ActiveRecord::Base
     d = parent.is_a?(Document)?0:parent.depth+1
     write_attribute :depth, d
   end
+
+  def set_can_changed_by_to_all
+    return unless can_changed_by.nil?
+    write_attribute :can_changed_by, 'all'
+  end
+
+  def copy_user_id_from_document
+    return unless user.nil?
+    return unless parent.is_a? Document
+    write_attribute :user_id, parent.user_id
+  end
 end
+
