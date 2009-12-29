@@ -11,8 +11,11 @@
       <%= link_to node.repository.name, "/docs/#{document.name}.#{node.repository.name}" %>
     <% end %>
     <% unless current_user.nil? %>
-      <% if node.depth > 0 and node.repository.id == current_repo.id and sha != current_repo.parent.git.log.first.sha %>
+      <% if node.depth > 0 and node.repository.id == current_repo.id and current_repo.parent.has_commit_after current_repo %>
         <%= link_to "&Auml;nderungen vom Parent &uuml;bernehmen", :controller => :repositories, :action => :merge_parent, :id => current_repo.id %>
+      <% elsif node.depth == current_repo.depth+1 and node.repository.parent.id == current_repo.id and node.repository.has_commit_after current_repo %>
+        <%= link_to "&Auml;nderungen von diesem Kindknoten &uuml;bernehmen",
+          :controller => :repositories, :action => :merge_child, :id => current_repo.id, :child_id => node.repository.id %>
       <% end %>
     <% end %>
   </div>

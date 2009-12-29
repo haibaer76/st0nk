@@ -27,6 +27,7 @@ class Repository < ActiveRecord::Base
 
   before_validation :sanitize_name_and_make_path
   before_validation_on_create :copy_content_from_parent
+  before_validation_on_create :set_depth
   validate_on_create :check_path_not_exists
 
   after_create :make_repository
@@ -40,6 +41,12 @@ class Repository < ActiveRecord::Base
   def document
     return parent if parent.is_a? Document
     parent.document
+  end
+
+  def has_commit_after other_repository
+    log = git.log
+    other_log = other_repository.git.log
+    log.first.date > other_log.first.date
   end
 
   def merge_child child
@@ -139,5 +146,10 @@ class Repository < ActiveRecord::Base
   def copy_content_from_parent
     return if parent.is_a? Document
     write_attribute :content, parent.content
+  end
+
+  def set_depth
+    d = parent.is_a?(Document)?0:parent.depth+1
+    write_attribute :depth, d
   end
 end

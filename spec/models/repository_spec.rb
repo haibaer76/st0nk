@@ -88,6 +88,13 @@ AND THIS IS THE SECOND LINE
 "
   end
 
+  it "should have the correct depth for the child repository" do
+    repo = @test_doc.root_repository
+    child = Repository.create! :parent => repo, :name => "Child"
+    repo.depth.should == 0
+    child.depth.should == 1
+  end
+
   after :each do
     @test_doc.destroy
   end

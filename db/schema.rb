@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091228115946) do
+ActiveRecord::Schema.define(:version => 20091229164624) do
 
   create_table "documents", :force => true do |t|
     t.string   "human_name"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20091228115946) do
     t.text     "commit_message"
     t.integer  "parent_id"
     t.string   "parent_type"
+    t.integer  "depth"
   end
 
   create_table "users", :force => true do |t|

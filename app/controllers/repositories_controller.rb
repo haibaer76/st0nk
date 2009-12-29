@@ -33,4 +33,10 @@ class RepositoriesController < ApplicationController
     repository.merge_parent
     redirect_to repo_view_path repository
   end
+
+  def merge_child
+    repository = Repository.find params[:id]
+    repository.merge_child params[:child_id].to_i
+    redirect_to repo_view_path repository
+  end
 end
