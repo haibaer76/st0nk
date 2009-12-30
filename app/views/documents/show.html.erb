@@ -2,7 +2,7 @@
 <h1><%= h @document.human_name %></h1>
 <h2>Repository <%= h @repository.name %></h2>
 <div style="border:black solid 1px">
-<%= RedCloth.new(@repository.content || "").to_html %>
+<%= wiki_parse_content @repository.content %>
 </div>
 
 <div>
