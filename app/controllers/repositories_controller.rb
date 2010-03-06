@@ -1,6 +1,6 @@
 class RepositoriesController < ApplicationController
-  before_filter :login_required, :except => :history
-  before_filter :load_repository, :except => [:new_for_parent, :create_for_parent]
+  before_filter :login_required, :except => [:history, :diff_to]
+  before_filter :load_repository, :except => [:new_for_parent, :create_for_parent, :diff_to]
 
   def new_for_parent
     @parent_repository = Repository.find params[:parent_repo_id]
@@ -40,6 +40,16 @@ class RepositoriesController < ApplicationController
   def merge_child
     @repository.merge_child params[:child_id].to_i
     redirect_to repo_view_path @repository
+  end
+
+  def diff_to
+    @repository = Repository.find params[:id]
+    diff = @repository.diff_to params[:to_id].to_i
+    diff_str = diff.to_s
+    diff_lines = (diff_str.split("\n").collect{|st| st.strip})[4..-1]
+    @src_name = @repository.name
+    @dst_name = Repository.find(params[:to_id].to_i).name
+    @diff_lines = (diff_lines.nil? ? [] : diff_lines.collect{|l| DiffLine.new l})
   end
 
   protected

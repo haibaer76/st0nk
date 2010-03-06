@@ -1,0 +1,13 @@
+<% @title = "Versionsunterschiede #{@repository.document.human_name}" %>
+
+<div>
+  Quell-Zweig : <%= h @src_name %>
+</div>
+<div>
+  Ziel-Zweig : <%= h @dst_name %>
+</div>
+<h2>Unterschiede</h2>
+<% @diff_lines.each do |line| %>
+  <%= line.as_html %>
+<% end %>
+

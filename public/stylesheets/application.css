@@ -17,3 +17,13 @@
   display: block;
 }
 
+.clsGreenBackground {
+  background-color:green;
+}
+
+.clsRedBackground {
+  background-color:red;
+}
+
+.clsDefaultbackground {
+}

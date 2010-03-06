@@ -82,6 +82,14 @@ class Repository < ActiveRecord::Base
     @skip_commit = false
   end
 
+  def diff_to child_id
+    name = Repository.find(child_id).name
+    git.chdir do
+      git.fetch name
+      git.diff(git.branch('master'), git.branch("#{name}/master"))
+    end
+  end
+
   def merge_parent
     return if parent.is_a? Document
     git.chdir do
@@ -121,6 +129,7 @@ class Repository < ActiveRecord::Base
       repo = Git.clone parent.git.repo, path, :bare => false
       prepo = parent.git
       prepo.add_remote name, path
+      repo.add_remote parent.name, parent.path
     end
   end
 

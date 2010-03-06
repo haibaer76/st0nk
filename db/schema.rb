@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091229204734) do
+ActiveRecord::Schema.define(:version => 20100306164113) do
 
   create_table "documents", :force => true do |t|
     t.string   "human_name"
@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20091229204734) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "voting_state", :default => "brainstorm"
   end
 
   create_table "forum_posts", :force => true do |t|

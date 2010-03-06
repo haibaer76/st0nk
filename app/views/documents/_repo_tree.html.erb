@@ -9,6 +9,7 @@
       <strong><%= repository.name %></strong>
     <% else %>
       <%= link_to repository.name, repo_view_path(repository) %>
+      <%= link_to "Unterschiede anzeigen", :controller => :repositories, :action => :diff_to, :id => current_repo.id, :to_id => repository.id %>
     <% end %>
     <% unless current_user.nil? and current_repo.write_access_for?(current_user) %>
       <% if repository.depth > 0 and repository.id == current_repo.id and current_repo.parent.has_commit_after current_repo %>
