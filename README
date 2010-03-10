@@ -1,6 +1,18 @@
+FAQ:
+== F: What is st0nk?
+A: st0nk is a new approach for making laws in a kind of the system open source
+development. If you are not staisfied with the current laws, why not fork your
+own?
+
+== F: Is st0nk a tool for Liquid Democracy?
+A: No. st0nk is politics 2.0. And it is currently planned only as a tool for
+grass roots democracy where erverybody of a certain group (for example a
+democratically organized political party) can give a vote which of the existing
+forks should be "official" vote of this organisation.
+
 == st0nk -- Software for a grass groots democracy 2.0
 
-The current status of the project is pre-alpha. No really functionallity is implemented yet.
+The current status of the project is pre-alpha. 
 
 This Rails project is a prototype for a "better wiki". Current wikis have a problem:
 There is no possibility to make branches like in a software project.
